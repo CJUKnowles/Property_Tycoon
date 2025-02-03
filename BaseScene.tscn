@@ -14,12 +14,47 @@ position = Vector2(672, 225)
 scale = Vector2(0.2265, 0.1398)
 texture = ExtResource("1_brsxa")
 
+[node name="Monompoly5" type="Sprite2D" parent="."]
+position = Vector2(830, 341)
+scale = Vector2(0.18725, 0.131045)
+texture = ExtResource("1_brsxa")
+
+[node name="Monompoly6" type="Sprite2D" parent="."]
+position = Vector2(982, 82)
+scale = Vector2(0.18725, 0.131045)
+texture = ExtResource("1_brsxa")
+
+[node name="Monompoly7" type="Sprite2D" parent="."]
+position = Vector2(772, 488)
+scale = Vector2(0.18725, 0.131045)
+texture = ExtResource("1_brsxa")
+
+[node name="Monompoly8" type="Sprite2D" parent="."]
+position = Vector2(523, 49)
+scale = Vector2(0.18725, 0.131045)
+texture = ExtResource("1_brsxa")
+
+[node name="Monompoly9" type="Sprite2D" parent="."]
+position = Vector2(272, 394)
+scale = Vector2(0.18725, 0.131045)
+texture = ExtResource("1_brsxa")
+
+[node name="Monompoly10" type="Sprite2D" parent="."]
+position = Vector2(272, 394)
+scale = Vector2(0.18725, 0.131045)
+texture = ExtResource("1_brsxa")
+
 [node name="Monompoly4" type="Sprite2D" parent="."]
 position = Vector2(991, 426)
 scale = Vector2(0.05125, 0.1398)
 texture = ExtResource("1_brsxa")
 
 [node name="Monompoly3" type="Sprite2D" parent="."]
-position = Vector2(303, 136)
+position = Vector2(106, 22)
+scale = Vector2(0.08175, 0.309478)
+texture = ExtResource("1_brsxa")
+
+[node name="Monompoly11" type="Sprite2D" parent="."]
+position = Vector2(403, 155)
 scale = Vector2(0.08175, 0.309478)
 texture = ExtResource("1_brsxa")
