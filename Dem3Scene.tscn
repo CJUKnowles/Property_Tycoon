@@ -5,5 +5,5 @@
 [node name="Dem3Scene" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1884, 1562)
+position = Vector2(1374, 1269)
 texture = ExtResource("1_yd1wb")
