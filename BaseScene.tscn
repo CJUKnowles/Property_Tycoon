@@ -25,7 +25,7 @@ scale = Vector2(0.18725, 0.131045)
 texture = ExtResource("1_brsxa")
 
 [node name="Monompoly7" type="Sprite2D" parent="."]
-position = Vector2(772, 488)
+position = Vector2(1166, 906)
 scale = Vector2(0.18725, 0.131045)
 texture = ExtResource("1_brsxa")
 
@@ -40,7 +40,7 @@ scale = Vector2(0.18725, 0.131045)
 texture = ExtResource("1_brsxa")
 
 [node name="Monompoly10" type="Sprite2D" parent="."]
-position = Vector2(272, 394)
+position = Vector2(272, 1134)
 scale = Vector2(0.18725, 0.131045)
 texture = ExtResource("1_brsxa")
 
