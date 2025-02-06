@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq3mxtvb54rff"]
+
+[ext_resource type="Texture2D" uid="uid://bck5qufqu7otx" path="res://carina nebula.png" id="1_f2hie"]
+[ext_resource type="Script" path="res://fatimatest.gd" id="2_l0qu3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_roojc"]
+
+[node name="Fatima" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(433, 166)
+sprite_frames = SubResource("SpriteFrames_roojc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-12.9999, 18)
+scale = Vector2(0.0460938, 0.117361)
+texture = ExtResource("1_f2hie")
+script = ExtResource("2_l0qu3")
+moveSpeed = 10
