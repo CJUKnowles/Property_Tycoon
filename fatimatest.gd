@@ -19,5 +19,5 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("ui_down"):
 		movement_input.y += 1
 		
-	position += movement_input* moveSpeed
+	position += movement_input* moveSpeed * delta
 	pass

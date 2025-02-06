@@ -16,4 +16,4 @@ position = Vector2(7.75004, 8.37498)
 scale = Vector2(0.0785156, 0.090625)
 texture = ExtResource("1_f2hie")
 script = ExtResource("2_l0qu3")
-moveSpeed = 10
+moveSpeed = 200
