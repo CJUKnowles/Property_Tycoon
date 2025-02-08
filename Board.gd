@@ -2,10 +2,15 @@ extends Resource
 
 class_name Board
 
-const head: Space = null
+var head: Space = null
 
 func addSpace(new_space: Space):
-	var current = head
-	while current.next != null:
-		current = current.next 
+	if head == null:
+		head = new_space
+		head.next = head
+	else:
+		var current = head
+		while current.next != head:
+			current = current.next 
 		current.next = Space
+		new_space.next = head
