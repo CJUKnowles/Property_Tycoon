@@ -2,7 +2,7 @@ extends Resource
 
 class_name Board
 
-var head: Space = null
+var head: Space = null 
 
 func addSpace(new_space: Space):
 	if head == null:
@@ -12,5 +12,5 @@ func addSpace(new_space: Space):
 		var current = head
 		while current.next != head:
 			current = current.next 
-		current.next = Space
+		current.next = new_space
 		new_space.next = head

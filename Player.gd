@@ -10,8 +10,8 @@ func move(toMove: int, board: Board):
 		position = board.head
 	else:
 		for i in range(toMove):
-			if position.nextSpace:
-				position = position.nextSpace
+			if position.next:
+				position = position.next
 	
 	position.playersOnSpace.append(self)
 
