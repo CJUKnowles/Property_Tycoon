@@ -3,7 +3,7 @@ class_name Player
 
 @export var playerName: String
 @export var money: int = 1500
-@export var position: Space = null
+@export var position: Space= null
 
 func move(toMove: int, board: Board):
 	if position == null:
@@ -22,5 +22,6 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
