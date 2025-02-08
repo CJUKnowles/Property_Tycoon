@@ -12,6 +12,7 @@ enum SpaceType {
 	GO
 }
 
+@export var name: String
 @export var type: SpaceType
 @export var property: Property = null
 @export var playersOnSpace: Array = []
