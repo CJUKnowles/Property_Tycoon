@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cq3mxtvb54rff"]
+[gd_scene load_steps=6 format=3 uid="uid://cq3mxtvb54rff"]
 
 [ext_resource type="Texture2D" uid="uid://bck5qufqu7otx" path="res://carina nebula.png" id="1_wx8le"]
 [ext_resource type="Script" path="res://fatimatest.gd" id="2_eyj2i"]
 [ext_resource type="Script" path="res://boardTest.gd" id="3_240fo"]
+[ext_resource type="Script" path="res://die.gd" id="4_h4rgw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_roojc"]
 
@@ -22,3 +23,6 @@ moveSpeed = 200
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-75.8484, 24.4864)
 script = ExtResource("3_240fo")
+
+[node name="Node2D2" type="Node2D" parent="."]
+script = ExtResource("4_h4rgw")
