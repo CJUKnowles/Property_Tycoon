@@ -24,6 +24,7 @@ func _ready():
 		print(player.playerName)
 	# ------------------------------------------------------------------------
 	
+	# Starts the first round (note that the initial roundCounter is 0!)
 	start_new_round()
 
 
@@ -31,19 +32,23 @@ func _ready():
 func _process(delta):
 	# This if statement represents taking a turn.
 	# It will roll the dice of the current character, print some information, and increment the turn/round
+	# most of this code will eventually be moved to functions called on UI button presses
 	if Input.is_action_just_pressed("ui_accept"):
 		var currentPlayer = get_current_player()
 		print("\n" + currentPlayer.playerName + "'s turn:")
 		print("----------------")
+		currentPlayer.report()
 		var roll = Die.roll()
 		print(str(roll) + " was rolled")
 		currentPlayer.move(roll)
-		print(currentPlayer.playerName + " moved to " + currentPlayer.position.name)
+		currentPlayer.report()
 		end_turn()
 
+# Returns a reference to the player whose turn it currently is.
 func get_current_player():
 	return players[turnCounter]
 
+# Ends the current turn, and checks if we have reached the end of a round.
 func end_turn():
 	print("Ending " + get_current_player().playerName + "'s turn.")
 	turnCounter += 1
@@ -52,6 +57,7 @@ func end_turn():
 	if turnCounter == playerCount:
 		start_new_round()
 		
+# Starts a new round, should be called once all players have taken a turn.
 func start_new_round():
 	turnCounter = 0
 	roundCounter += 1
