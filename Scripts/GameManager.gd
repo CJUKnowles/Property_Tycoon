@@ -33,26 +33,19 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# This if statement represents taking a turn.
+	
 	# It will roll the dice of the current character, print some information, and increment the turn/round
-	if Input.is_action_just_pressed("ui_down"):
+	if Input.is_action_just_pressed("ui_down"): #sets current player in jail (for testing)
 		get_current_player().goToJail()
 		print(get_current_player(), "is in " ,get_current_player().currentSpace.name)
+	if Input.is_action_just_pressed("ui_up"):
+		get_current_player().goToJail()
+		get_current_player().takeTurn()
 	if Input.is_action_just_pressed("ui_accept"):
 		var currentPlayer = get_current_player()
 		print("\n" + currentPlayer.playerName + "'s turn:")
 		print("----------------")
-		var rollAgain: bool=true #indicates that the player needs to roll
-		while rollAgain:
-			var roll = Die.roll()
-			print(str(roll[2]) + " was rolled")
-			currentPlayer.move(roll[2])
-			if roll[0] == roll[1]: 
-				currentPlayer.doubleCount += 1
-				if currentPlayer.doubleCount == 3:
-					currentPlayer.goToJail()
-			else:
-				rollAgain = false
-				currentPlayer.doubleCount = 0 #resets double counter
+		currentPlayer.takeTurn()
 			
 		print(currentPlayer.playerName + " moved to " + currentPlayer.currentSpace.name)
 		end_turn()
