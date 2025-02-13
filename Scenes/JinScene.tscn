@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d02uoh0taj0m5"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_eqya2"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_jj13k"]
 
 [sub_resource type="GDScript" id="GDScript_7p15b"]
 script/source = "extends Node2D
@@ -20,4 +20,4 @@ func _process(delta: float) -> void:
 script = SubResource("GDScript_7p15b")
 
 [node name="Player" type="Node" parent="."]
-script = ExtResource("1_eqya2")
+script = ExtResource("1_jj13k")

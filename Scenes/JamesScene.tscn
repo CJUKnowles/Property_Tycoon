@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj6wj55pvofo2"]
+
+[ext_resource type="Texture2D" uid="uid://bl6rel7qv60dt" path="res://Assets/icon.svg" id="1_nupum"]
+[ext_resource type="Script" path="res://Scripts/James_test.gd" id="2_y26gi"]
+[ext_resource type="Texture2D" uid="uid://bmcn2ud73f0l0" path="res://Assets/monompoly.webp" id="3_4fi2i"]
+[ext_resource type="Script" path="res://Scripts/lerp_to_target.gd" id="4_a1gcw"]
+
+[node name="JamesScene" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nupum")
+script = ExtResource("2_y26gi")
+moveSpeed = 10
+
+[node name="Sprite2D2" type="Sprite2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(-185, -8.00001)
+scale = Vector2(0.08825, 0.0913007)
+texture = ExtResource("3_4fi2i")
+script = ExtResource("4_a1gcw")
+target = NodePath("../Sprite2D")
+lerpSpeed = 0.5
