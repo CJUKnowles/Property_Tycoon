@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://d02uoh0taj0m5"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_eqya2"]
+[ext_resource type="Texture2D" uid="uid://bck5qufqu7otx" path="res://carina nebula.png" id="2_6kl67"]
+
+[sub_resource type="GDScript" id="GDScript_7p15b"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="JinScene" type="Node2D"]
+script = SubResource("GDScript_7p15b")
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource("1_eqya2")
+
+[node name="CarinaNebula" type="Sprite2D" parent="."]
+position = Vector2(24540.5, 9818.5)
+scale = Vector2(1.35703, 7.52639)
+texture = ExtResource("2_6kl67")
