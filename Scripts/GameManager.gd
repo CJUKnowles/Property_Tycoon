@@ -2,6 +2,7 @@ extends Node
 class_name GameManager
 
 @export var playerCount:int = 4 # Number of players in the game
+@export var playerPrefab:Node2D
 var players:Array[Player] = [];
 var roundCounter = 0 # increments once all players have had a turn
 var turnCounter = 0 # increments after each player's turn. Resets to 0 on a new round.
@@ -16,7 +17,9 @@ func _ready():
 	for i in playerCount:
 		var newPlayer = Player.new()
 		newPlayer.playerName = ("Player_" + str(i))
-		newPlayer.position = board.head
+		newPlayer.currentSpace = board.head
+		newPlayer.gameManager = self
+		add_child(newPlayer)
 		players.append(newPlayer) # add the generated player to the players array
 	
 	print("List of players:")
@@ -33,7 +36,7 @@ func _process(delta):
 	# It will roll the dice of the current character, print some information, and increment the turn/round
 	if Input.is_action_just_pressed("ui_down"):
 		get_current_player().goToJail()
-		print(get_current_player(), "is in " ,get_current_player().position.name)
+		print(get_current_player(), "is in " ,get_current_player().currentSpace.name)
 	if Input.is_action_just_pressed("ui_accept"):
 		var currentPlayer = get_current_player()
 		print("\n" + currentPlayer.playerName + "'s turn:")
@@ -51,7 +54,7 @@ func _process(delta):
 				rollAgain = false
 				currentPlayer.doubleCount = 0 #resets double counter
 			
-		print(currentPlayer.playerName + " moved to " + currentPlayer.position.name)
+		print(currentPlayer.playerName + " moved to " + currentPlayer.currentSpace.name)
 		end_turn()
 
 func get_current_player():
@@ -74,7 +77,7 @@ func start_new_round():
 		
 	
 func goTo(player : Player, target: Space):
-	while player.position != target:
-		player.position = player.position.next
+	while player.currentSpace != target:
+		player.currentSpace = player.currentSpace.next
 	
 		

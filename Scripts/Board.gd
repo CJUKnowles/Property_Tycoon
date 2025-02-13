@@ -41,11 +41,12 @@ func addSpace(new_space: Space):
 		
 func findSpace(toFind: String):
 	var found: bool = false
-	var target : Space = null
+	var target : Space = head
 	while not found :
 		if target.name == toFind:
 			found = true
 		else:
-			target = head.next
+			print(target)
+			target = target.next
 	return target
 		

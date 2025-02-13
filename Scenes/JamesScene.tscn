@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj6wj55pvofo2"]
+[gd_scene load_steps=3 format=3 uid="uid://bj6wj55pvofo2"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_n5qa6"]
+[ext_resource type="PackedScene" uid="uid://bud1ux0exv6eo" path="res://Prefabs/player.tscn" id="2_utiys"]
 
 [node name="JamesScene" type="Node2D"]
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_n5qa6")
+
+[node name="Player" parent="." instance=ExtResource("2_utiys")]
