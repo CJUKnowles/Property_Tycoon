@@ -42,6 +42,8 @@ func _ready():
 	for player in players:
 		print(player.playerName)
 	# ------------------------------------------------------------------------
+	
+	start_round()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,19 +52,29 @@ func _process(delta):
 	# It will roll the dice of the current character, print some information, and increment the turn/round
 	if Input.is_action_just_pressed("ui_accept"):
 		var currentPlayer = players[turnCounter]
+		print("\n" + currentPlayer.playerName + "'s turn:")
 		print("----------------")
-		print(currentPlayer.playerName + "'s turn:")
 		var roll = Die.roll()
 		print(str(roll) + " was rolled")
 		currentPlayer.move(roll)
 		print(currentPlayer.playerName + " moved to " + currentPlayer.position.name)
-		print("Ending turn.")
-		print("----------------\n")
+		end_turn()
+
+func get_current_player():
+	return players[turnCounter]
+
+func end_turn():
+	print("Ending " + get_current_player().playerName + "'s turn.")
+	turnCounter += 1
+	print("----------------")
+	
+	if turnCounter == playerCount:
+		start_round()
 		
-		turnCounter += 1
-		if turnCounter == playerCount:
-			turnCounter = 0
-			roundCounter += 1
-			print("\nBEGINNING ROUND " + str(roundCounter) + ": \n")
-		
+func start_round():
+	turnCounter = 0
+	roundCounter += 1
+	print("\n////////////////////////////////////////////////////")
+	print("BEGINNING ROUND " + str(roundCounter) + ":")
+	print("////////////////////////////////////////////////////")
 		
