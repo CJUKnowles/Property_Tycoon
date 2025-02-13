@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bj6wj55pvofo2"]
+[gd_scene load_steps=6 format=3 uid="uid://bj6wj55pvofo2"]
 
 [ext_resource type="Texture2D" uid="uid://bck5qufqu7otx" path="res://Assets/carina nebula.png" id="1_42lts"]
 [ext_resource type="Script" path="res://Scripts/fatimatest.gd" id="2_3qjiv"]
-[ext_resource type="Script" path="res://Scripts/boardTest.gd" id="3_suaje"]
 [ext_resource type="Script" path="res://Scripts/Die.gd" id="4_q033a"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="5_dnr2k"]
 
@@ -23,10 +22,6 @@ scale = Vector2(0.0378906, 0.0142361)
 texture = ExtResource("1_42lts")
 script = ExtResource("2_3qjiv")
 moveSpeed = 200
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(-75.8484, 24.4864)
-script = ExtResource("3_suaje")
 
 [node name="Node2D2" type="Node2D" parent="."]
 script = ExtResource("4_q033a")
