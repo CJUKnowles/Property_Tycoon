@@ -1,27 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bj6wj55pvofo2"]
+[gd_scene load_steps=2 format=3 uid="uid://bj6wj55pvofo2"]
 
-[ext_resource type="Texture2D" uid="uid://bck5qufqu7otx" path="res://Assets/carina nebula.png" id="1_42lts"]
-[ext_resource type="Script" path="res://Scripts/fatimatest.gd" id="2_3qjiv"]
-[ext_resource type="Script" path="res://Scripts/Die.gd" id="4_q033a"]
-[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="5_dnr2k"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lx3cv"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_n5qa6"]
 
 [node name="JamesScene" type="Node2D"]
 
 [node name="GameManager" type="Node" parent="."]
-script = ExtResource("5_dnr2k")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(433, 166)
-sprite_frames = SubResource("SpriteFrames_lx3cv")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(7, 6)
-scale = Vector2(0.0378906, 0.0142361)
-texture = ExtResource("1_42lts")
-script = ExtResource("2_3qjiv")
-moveSpeed = 200
-
-[node name="Node2D2" type="Node2D" parent="."]
-script = ExtResource("4_q033a")
+script = ExtResource("1_n5qa6")

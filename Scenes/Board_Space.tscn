@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://1su6gemegv05"]
+
+[node name="Board Space" type="Node2D"]
+
+[node name="Name of Space" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Visual Appearance of Space" type="Sprite2D" parent="."]
