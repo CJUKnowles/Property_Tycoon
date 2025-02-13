@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/fatimatest.gd" id="2_3qjiv"]
 [ext_resource type="Script" path="res://Scripts/boardTest.gd" id="3_suaje"]
 [ext_resource type="Script" path="res://Scripts/Die.gd" id="4_q033a"]
-[ext_resource type="Script" path="res://Scenes/GameManager.gd" id="5_dnr2k"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="5_dnr2k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lx3cv"]
 
