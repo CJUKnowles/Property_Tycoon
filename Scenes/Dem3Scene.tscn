@@ -5,5 +5,11 @@
 [node name="Dem3Scene" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+<<<<<<< Updated upstream:Scenes/Dem3Scene.tscn
 position = Vector2(1374, 1269)
 texture = ExtResource("1_hg38i")
+=======
+position = Vector2(190, 139)
+scale = Vector2(0.225, 0.298077)
+texture = ExtResource("1_yd1wb")
+>>>>>>> Stashed changes:Dem3Scene.tscn
