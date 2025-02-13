@@ -4,10 +4,12 @@ class_name Player
 @export var playerName: String
 @export var money: int = 1500
 @export var position: Space= null
-var gameManager:GameManager
+@export var doubleCount: int=0
+@export var inJail: bool=false
+var gameManager
 
 func _setup():
-	gameManager = $gameManager
+	gameManager = $GameManager
 
 func move(toMove: int):
 	if position == null:
@@ -18,6 +20,15 @@ func move(toMove: int):
 				position = position.next
 	
 	position.playersOnSpace.append(self)
+	
+func moveTo(target: Space):
+	while position != target:
+		position = position.next
+
+func goToJail():
+	var test = $GameManager
+	var jail = $GameManager.board.findSpace("jail")
+	moveTo(jail)
 
 
 # Called when the node enters the scene tree for the first time.

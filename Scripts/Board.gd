@@ -19,8 +19,13 @@ func initialize():
 	property1.name = "PROPERTY 1" 
 	property1.property = prop1
 	
+	var jail = Space.new()
+	jail.type = Space.SpaceType.JAIL
+	jail.name = "JAIL"
+	
 	addSpace(go)
 	addSpace(property1)
+	addSpace(jail)
 	# -------------------------------------------------------------
 
 func addSpace(new_space: Space):
@@ -33,3 +38,14 @@ func addSpace(new_space: Space):
 			current = current.next 
 		current.next = new_space
 		new_space.next = head
+		
+func findSpace(toFind: String):
+	var found: bool = false
+	var target : Space = null
+	while not found :
+		if target.name == toFind:
+			found = true
+		else:
+			target = head.next
+	return target
+		
