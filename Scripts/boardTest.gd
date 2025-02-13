@@ -23,7 +23,7 @@ func _ready() -> void:
 	var player1 = Player.new()
 	player1.position = board.head
 	print(player1.position.name)
-	player1.move(1, board)
+	player1.move(1)
 	print("moved, new position: ", player1.position.name)
 	
 	print(player1.position.property.name , " has " , player1.position.playersOnSpace , " on it")

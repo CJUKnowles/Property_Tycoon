@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bck5qufqu7otx" path="res://Assets/carina nebula.png" id="1_iv5ch"]
 [ext_resource type="Script" path="res://Scripts/fatimatest.gd" id="2_6xpl8"]
 [ext_resource type="Script" path="res://Scripts/boardTest.gd" id="3_t4s6r"]
-[ext_resource type="Script" path="res://Scripts/die.gd" id="4_e517p"]
+[ext_resource type="Script" path="res://Scripts/Die.gd" id="4_e517p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_roojc"]
 

@@ -1,6 +1,7 @@
 extends Node2D
+class_name Die
 
-func roll():
+static func roll():
 	var die1 = randi_range(1,6)
 	var die2 = randi_range(1,6)
 	#code for visuals

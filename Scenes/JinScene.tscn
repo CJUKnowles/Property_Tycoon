@@ -1,11 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://d02uoh0taj0m5"]
+[gd_scene load_steps=3 format=3 uid="uid://d02uoh0taj0m5"]
 
-<<<<<<< Updated upstream:Scenes/JinScene.tscn
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_jj13k"]
-=======
-[ext_resource type="Script" path="res://Player.gd" id="1_eqya2"]
-[ext_resource type="Texture2D" uid="uid://bck5qufqu7otx" path="res://carina nebula.png" id="2_6kl67"]
->>>>>>> Stashed changes:JinScene.tscn
 
 [sub_resource type="GDScript" id="GDScript_7p15b"]
 script/source = "extends Node2D
@@ -25,13 +20,4 @@ func _process(delta: float) -> void:
 script = SubResource("GDScript_7p15b")
 
 [node name="Player" type="Node" parent="."]
-<<<<<<< Updated upstream:Scenes/JinScene.tscn
 script = ExtResource("1_jj13k")
-=======
-script = ExtResource("1_eqya2")
-
-[node name="CarinaNebula" type="Sprite2D" parent="."]
-position = Vector2(24540.5, 9818.5)
-scale = Vector2(1.35703, 7.52639)
-texture = ExtResource("2_6kl67")
->>>>>>> Stashed changes:JinScene.tscn

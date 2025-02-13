@@ -15,6 +15,11 @@ run/main_scene="res://Scenes/fatima_test.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://Assets/icon.svg"
 
+[display]
+
+window/size/always_on_top=true
+window/vsync/vsync_mode=0
+
 [rendering]
 
 renderer/rendering_method="mobile"

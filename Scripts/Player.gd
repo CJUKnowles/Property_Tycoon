@@ -4,10 +4,14 @@ class_name Player
 @export var playerName: String
 @export var money: int = 1500
 @export var position: Space= null
+var gameManager:GameManager
 
-func move(toMove: int, board: Board):
+func _setup():
+	gameManager = $gameManager
+
+func move(toMove: int):
 	if position == null:
-		position = board.head
+		position = gameManager.board.head
 	else:
 		for i in range(toMove):
 			if position.next:
@@ -25,3 +29,7 @@ func _ready() -> void:
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
+	
+func report():
+	print(playerName + " is currently at " + position.name + " with $" + str(money))
+	
