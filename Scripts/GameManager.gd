@@ -1,7 +1,7 @@
 extends Node
 class_name GameManager
 
-@export var playerCount:int = 4 # Number of players in the game
+@export_range(2,6,0) var playerCount:int = 4 # Number of players in the game
 var players:Array[Player] = [];
 var roundCounter = 0 # increments once all players have had a turn
 var turnCounter = 0 # increments after each player's turn. Resets to 0 on a new round.
@@ -38,7 +38,7 @@ func _process(delta):
 		print("\n" + currentPlayer.playerName + "'s turn:")
 		print("----------------")
 		currentPlayer.report()
-		var roll = Die.roll()
+		var roll = Die.roll()[2]
 		print(str(roll) + " was rolled")
 		currentPlayer.move(roll)
 		currentPlayer.report()

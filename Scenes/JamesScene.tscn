@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bj6wj55pvofo2"]
 
-[ext_resource type="Script" path="res://Scenes/GameManager.gd" id="5_dnr2k"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_n5qa6"]
 
 [node name="JamesScene" type="Node2D"]
 
 [node name="GameManager" type="Node" parent="."]
-script = ExtResource("5_dnr2k")
+script = ExtResource("1_n5qa6")
