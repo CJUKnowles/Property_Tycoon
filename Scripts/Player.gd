@@ -91,7 +91,6 @@ func takeTurn():
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
-	
 func report():
 	print(playerName + " is currently at " + currentSpace.name + " with $" + str(money))
 	
