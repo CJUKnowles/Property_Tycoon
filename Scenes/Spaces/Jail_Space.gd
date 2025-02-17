@@ -9,7 +9,6 @@ class_name Jail_Space
 
 func _ready():
 	type = Space.SpaceType.JAIL
-	name = "JAIL"
 	print("JAIL IS BEING INITIALIZED HUZZAh")
 	
 func on_land():

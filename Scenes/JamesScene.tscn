@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj6wj55pvofo2"]
+[gd_scene load_steps=4 format=3 uid="uid://bj6wj55pvofo2"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_n5qa6"]
 [ext_resource type="Script" path="res://Scenes/Spaces/Property_Space.gd" id="2_ej7dk"]
+[ext_resource type="PackedScene" uid="uid://cjrsf0bhlg5s" path="res://Scenes/Spaces/utility_space.tscn" id="3_oav5j"]
 
 [node name="JamesScene" type="Node2D"]
 
@@ -10,3 +11,5 @@ script = ExtResource("1_n5qa6")
 
 [node name="PropertyTest" type="Node2D" parent="."]
 script = ExtResource("2_ej7dk")
+
+[node name="utility_space" parent="." instance=ExtResource("3_oav5j")]

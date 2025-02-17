@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhorj47kg2vv2"]
+
+[ext_resource type="Script" path="res://Scenes/Spaces/Go_Space.gd" id="1_h6w2j"]
+[ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="2_nxg1a"]
+
+[node name="Opportunity_Knocks_Space" type="Node2D"]
+script = ExtResource("1_h6w2j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nxg1a")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = -80.0
+offset_top = -148.0
+offset_right = 91.0
+offset_bottom = -59.0
+text = "Opportunity Knocks
+"

@@ -7,35 +7,44 @@ var head: Space = null
 func initialize():
 	# put your board reading stuff here Conor!
 	# Temporary board generation code: ----------------------------
-	var go:Space = Go_Space.new()
-	addSpace(go)
+	var go_space:Space = load("res://Scenes/Spaces/go_space.tscn").instantiate()
+	add_child(go_space)
+	addSpace(go_space)
 	
-	var property1:Space = Property_Space.new()
-	addSpace(property1)
+	var property:Space = load("res://Scenes/Spaces/property_space.tscn").instantiate()
+	add_child(property)
+	addSpace(property)
 	
-	var jail_space:Space = load("res://Scenes/Spaces/Jail_Space.tscn").instantiate()
+	var jail_space:Space = load("res://Scenes/Spaces/jail_space.tscn").instantiate()
 	add_child(jail_space)
 	addSpace(jail_space)
-	
-	var free_parking:Space = Free_Parking_Space.new()
+
+	var free_parking:Space = load("res://Scenes/Spaces/free_parking_space.tscn").instantiate()
+	add_child(free_parking)
 	addSpace(free_parking)
 	
-	var go_to_jail:Space = Go_To_Jail_Space.new()
+	var go_to_jail:Space = load("res://Scenes/Spaces/go_to_jail_space.tscn").instantiate()
+	add_child(go_to_jail)
 	addSpace(go_to_jail)
 	
-	var opportunity_knocks:Space = Opportunity_Knocks_Space.new()
+	var opportunity_knocks:Space = load("res://Scenes/Spaces/opportunity_knocks_space.tscn").instantiate()
+	add_child(opportunity_knocks)
 	addSpace(opportunity_knocks)
 	
-	var pot_luck:Space = Pot_Luck_Space.new()
+	var pot_luck:Space = load("res://Scenes/Spaces/pot_luck_space.tscn").instantiate()
+	add_child(pot_luck)
 	addSpace(pot_luck)
 	
-	var station:Space = Station_Space.new()
+	var station:Space = load("res://Scenes/Spaces/station_space.tscn").instantiate()
+	add_child(station)
 	addSpace(station)
 	
-	var tax:Space = Tax_Space.new()
+	var tax:Space = load("res://Scenes/Spaces/tax_space.tscn").instantiate()
+	add_child(tax)
 	addSpace(tax)
 	
-	var utility:Space = Utility_Space.new()
+	var utility:Space = load("res://Scenes/Spaces/utility_space.tscn").instantiate()
+	add_child(utility)
 	addSpace(utility)
 	# -------------------------------------------------------------
 
