@@ -1,8 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://xdqc8my3kpfa"]
 
-[ext_resource type="PackedScene" uid="uid://1su6gemegv05" path="res://Scenes/Board_Space.tscn" id="1_cpuka"]
+[ext_resource type="PackedScene" uid="uid://1su6gemegv05" path="res://Dem3Scene.tscn" id="1_cpuka"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(0, -1)
 
 [node name="Board Space" parent="." instance=ExtResource("1_cpuka")]
+position = Vector2(1, 1)
+
+[node name="Board Space2" parent="." instance=ExtResource("1_cpuka")]
+position = Vector2(36, 1)

@@ -1,10 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://1su6gemegv05"]
 
-[ext_resource type="Texture2D" uid="uid://ck8cawgu3o4iu" path="res://Flag-United-States-of-America.webp" id="1_yd1wb"]
+[ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="1_s8e66"]
 
 [node name="Dem3Scene" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(190, 139)
-scale = Vector2(0.225, 0.298077)
-texture = ExtResource("1_yd1wb")
+scale = Vector2(0.305482, 0.298077)
+texture = ExtResource("1_s8e66")
