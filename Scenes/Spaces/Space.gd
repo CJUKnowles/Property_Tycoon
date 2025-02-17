@@ -1,4 +1,4 @@
-extends Resource
+extends Node2D
 class_name Space
 
 enum SpaceType {
@@ -9,12 +9,15 @@ enum SpaceType {
 	FREE_PARKING,
 	GO_TO_JAIL,
 	TAX,
-	GO
+	GO,
+	STATION,
+	UTILITY
 }
 
-@export var name: String
 @export var type: SpaceType
-@export var property: Property = null
 @export var playersOnSpace: Array = []
 @export var next: Space = null
 @export var bought: bool = false
+
+func on_land():
+	print("This is a space! Parent class")

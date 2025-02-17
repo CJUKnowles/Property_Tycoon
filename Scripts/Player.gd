@@ -22,6 +22,7 @@ func move(toMove: int):
 				currentSpace = currentSpace.next
 	
 	currentSpace.playersOnSpace.append(self)
+	currentSpace.on_land()
 	
 func moveTo(target: Space):
 	while currentSpace != target:

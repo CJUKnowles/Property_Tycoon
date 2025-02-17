@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bj6wj55pvofo2"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_n5qa6"]
-[ext_resource type="Script" path="res://Scenes/Spaces/Property_Space.gd" id="2_ej7dk"]
+[ext_resource type="Script" path="res://Scripts/Property.gd" id="2_ej7dk"]
 
 [node name="JamesScene" type="Node2D"]
 

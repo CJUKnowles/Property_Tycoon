@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://0kgg5fix38xx"]
+
+[ext_resource type="Script" path="res://Scenes/Spaces/Jail_Space.gd" id="1_0tvp0"]
+[ext_resource type="Texture2D" uid="uid://bl6rel7qv60dt" path="res://Assets/icon.svg" id="2_kgsb2"]
+
+[node name="Jail" type="Node2D"]
+script = ExtResource("1_0tvp0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kgsb2")
