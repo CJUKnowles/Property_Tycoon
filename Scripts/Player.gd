@@ -34,6 +34,7 @@ func goToJail():
 	inJail = true
 	var jail = gameManager.board.findSpace("JAIL")
 	moveTo(jail)
+	print(playerName, " was sent to jail!")
 	
 func exitJail():
 	inJail = false
@@ -63,29 +64,29 @@ func takeTurn():
 		jailTurns += 1
 		if jailTurns > 2:  # Misses two turns, then gets released
 			exitJail()
-			return
-	else:
-		
+	
+	if !inJail:
 		print("jail: ",inJail)
 		var rollResult = Die.roll()
-		var die1 = rollResult[0]
-		var die2 = rollResult[1]
+		var die1 = 4 # rollResult[0]
+		var die2 = 4 #rollResult[1]
 		var total = rollResult[2]
 		print("die1: ",die1,", die2: ",die2,", total: ",total)
 		
-		if doubleCount == 3:
-			doubleCount = 0 #reset count
-			goToJail()
-			
-		move(total)
-		
-		if die1 == die2:
+		if die1 == die2: # We rolled a double
 			doubleCount += 1
 			print(playerName, " rolled a double and gets another turn!")
-			takeTurn()
-		if die1 != die2:
+			if doubleCount == 3:
+				doubleCount = 0 #reset count
+				goToJail()
+			else: 
+				move(total)
+				takeTurn()
+		else: # We did not roll a double
+			move(total)
 			doubleCount = 0 #reset count
-
+			
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
