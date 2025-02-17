@@ -68,8 +68,8 @@ func takeTurn():
 	if !inJail:
 		print("jail: ",inJail)
 		var rollResult = Die.roll()
-		var die1 = 4 # rollResult[0]
-		var die2 = 4 #rollResult[1]
+		var die1 = rollResult[0]
+		var die2 = rollResult[1]
 		var total = rollResult[2]
 		print("die1: ",die1,", die2: ",die2,", total: ",total)
 		

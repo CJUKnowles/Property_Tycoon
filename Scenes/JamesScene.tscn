@@ -6,4 +6,3 @@
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_n5qa6")
-playerCount = 1
