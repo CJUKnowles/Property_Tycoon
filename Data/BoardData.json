@@ -1,0 +1,347 @@
+{
+  "0": {
+	"tile_type": "Go",
+	"value": 200,
+	"tile_name": "Go"
+  },
+  "1": {
+	"tile_type": "Property",
+	"value": 2,
+	"rent_up1": 10,
+	"rent_up2": 30,
+	"rent_up3": 90,
+	"rent_up4": 160,
+	"rent_final": 250,
+	"tile_group": "Brown",
+	"cost": 60,
+	"tile_name": "The Old Creek"
+  },
+  "2": {
+	"tile_type": "Pot_Luck",
+	"tile_name": "Pot Luck"
+  },
+  "3": {
+	"tile_type": "Property",
+	"value": 4,
+	"rent_up1": 20,
+	"rent_up2": 60,
+	"rent_up3": 180,
+	"rent_up4": 320,
+	"rent_final": 450,
+	"tile_group": "Brown",
+	"cost": 60,
+	"tile_name": "Gangsters Paradise"
+  },
+  "4": {
+	"tile_type": "Tax",
+	"value": 200,
+	"tile_name": "Income Tax"
+  },
+  "5": {
+	"tile_type": "Station",
+	"cost": 200,
+	"tile_name": "Brighton Station"
+  },
+  "6": {
+	"tile_type": "Property",
+	"value": 6,
+	"rent_up1": 30,
+	"rent_up2": 90,
+	"rent_up3": 270,
+	"rent_up4": 400,
+	"rent_final": 550,
+	"tile_group": "Blue",
+	"cost": 100,
+	"tile_name": "The Angels Delight"
+  },
+  "7": {
+	"tile_type": "O_Knocks",
+	"tile_name": "Opportunity Knocks"
+  },
+  "8": {
+	"tile_type": "Property",
+	"value": 6,
+	"rent_up1": 30,
+	"rent_up2": 90,
+	"rent_up3": 270,
+	"rent_up4": 400,
+	"rent_final": 550,
+	"tile_group": "Blue",
+	"cost": 100,
+	"tile_name": "Potter Avenue"
+  },
+  "9": {
+	"tile_type": "Property",
+	"value": 8,
+	"rent_up1": 40,
+	"rent_up2": 100,
+	"rent_up3": 300,
+	"rent_up4": 450,
+	"rent_final": 600,
+	"tile_group": "Blue",
+	"cost": 120,
+	"tile_name": "Granger Drive"
+  },
+  "10": {
+	"tile_type": "Jail",
+	"tile_name": "Jail"
+  },
+  "11": {
+	"tile_type": "Property",
+	"value": 10,
+	"rent_up1": 50,
+	"rent_up2": 150,
+	"rent_up3": 450,
+	"rent_up4": 625,
+	"rent_final": 750,
+	"tile_group": "Purple",
+	"cost": 140,
+	"tile_name": "Skywalker Drive"
+  },
+  "12": {
+	"tile_type": "Utilities",
+	"cost": 150,
+	"tile_name": "Tesla Power Co"
+  },
+  "13": {
+	"tile_type": "Property",
+	"value": 10,
+	"rent_up1": 50,
+	"rent_up2": 150,
+	"rent_up3": 450,
+	"rent_up4": 625,
+	"rent_final": 750,
+	"tile_group": "Purple",
+	"cost": 140,
+	"tile_name": "Wookie Hole"
+  },
+  "14": {
+	"tile_type": "Property",
+	"value": 12,
+	"rent_up1": 60,
+	"rent_up2": 180,
+	"rent_up3": 500,
+	"rent_up4": 700,
+	"rent_final": 900,
+	"tile_group": "Purple",
+	"cost": 160,
+	"tile_name": "Rey Lane"
+  },
+  "15": {
+	"tile_type": "Station",
+	"cost": 200,
+	"tile_name": "Hove Station"
+  },
+  "16": {
+	"tile_type": "Property",
+	"value": 14,
+	"rent_up1": 70,
+	"rent_up2": 200,
+	"rent_up3": 550,
+	"rent_up4": 750,
+	"rent_final": 950,
+	"tile_group": "Orange",
+	"cost": 180,
+	"tile_name": "Bishop Drive"
+  },
+  "17": {
+	"tile_type": "Pot_Luck",
+	"tile_name": "Pot Luck"
+  },
+  "18": {
+	"tile_type": "Property",
+	"value": 14,
+	"rent_up1": 70,
+	"rent_up2": 200,
+	"rent_up3": 550,
+	"rent_up4": 750,
+	"rent_final": 950,
+	"tile_group": "Orange",
+	"cost": 180,
+	"tile_name": "Dunham Street"
+  },
+  "19": {
+	"tile_type": "Property",
+	"value": 16,
+	"rent_up1": 80,
+	"rent_up2": 220,
+	"rent_up3": 600,
+	"rent_up4": 800,
+	"rent_final": 1000,
+	"tile_group": "Orange",
+	"cost": 200,
+	"tile_name": "Broyles Lane"
+  },
+  "20": {
+	"tile_type": "Parking",
+	"tile_name": "Free Parking"
+  },
+  "21": {
+	"tile_type": "Property",
+	"value": 18,
+	"rent_up1": 90,
+	"rent_up2": 250,
+	"rent_up3": 700,
+	"rent_up4": 875,
+	"rent_final": 1050,
+	"tile_group": "Red",
+	"cost": 220,
+	"tile_name": "Yue Fei Square"
+  },
+  "22": {
+	"tile_type": "O_Knocks",
+	"tile_name": "Opportunity Knocks"
+  },
+  "23": {
+	"tile_type": "Property",
+	"value": 18,
+	"rent_up1": 90,
+	"rent_up2": 250,
+	"rent_up3": 700,
+	"rent_up4": 875,
+	"rent_final": 1050,
+	"tile_group": "Red",
+	"cost": 220,
+	"tile_name": "Mulan Rouge"
+  },
+  "24": {
+	"tile_type": "Property",
+	"value": 20,
+	"rent_up1": 100,
+	"rent_up2": 300,
+	"rent_up3": 750,
+	"rent_up4": 925,
+	"rent_final": 1100,
+	"tile_group": "Red",
+	"cost": 240,
+	"tile_name": "Han Xin Gardens"
+  },
+  "25": {
+	"tile_type": "Station",
+	"cost": 200,
+	"tile_name": "Falmer Station"
+  },
+  "26": {
+	"tile_type": "Property",
+	"value": 22,
+	"rent_up1": 110,
+	"rent_up2": 330,
+	"rent_up3": 800,
+	"rent_up4": 975,
+	"rent_final": 1150,
+	"tile_group": "Yellow",
+	"cost": 260,
+	"tile_name": "Shatner Close"
+  },
+  "27": {
+	"tile_type": "Property",
+	"value": 22,
+	"rent_up1": 110,
+	"rent_up2": 330,
+	"rent_up3": 800,
+	"rent_up4": 975,
+	"rent_final": 1150,
+	"tile_group": "Yellow",
+	"cost": 260,
+	"tile_name": "Picard Avenue"
+  },
+  "28": {
+	"tile_type": "Utilities",
+	"cost": 150,
+	"tile_name": "Edison Water"
+  },
+  "29": {
+	"tile_type": "Property",
+	"value": 22,
+	"rent_up1": 120,
+	"rent_up2": 360,
+	"rent_up3": 850,
+	"rent_up4": 1025,
+	"rent_final": 1200,
+	"tile_group": "Yellow",
+	"cost": 280,
+	"tile_name": "Crusher Creek"
+  },
+  "30": {
+	"tile_type": "Go_To_Jail",
+	"tile_name": "Go to Jail"
+  },
+  "31": {
+	"tile_type": "Property",
+	"value": 26,
+	"rent_up1": 130,
+	"rent_up2": 390,
+	"rent_up3": 900,
+	"rent_up4": 1100,
+	"rent_final": 1275,
+	"tile_group": "Green",
+	"cost": 300,
+	"tile_name": "Sirat Mews"
+  },
+  "32": {
+	"tile_type": "Property",
+	"value": 26,
+	"rent_up1": 130,
+	"rent_up2": 390,
+	"rent_up3": 900,
+	"rent_up4": 1100,
+	"rent_final": 1275,
+	"tile_group": "Green",
+	"cost": 300,
+	"tile_name": "Ghengis Crescent"
+  },
+  "33": {
+	"tile_type": "Pot_Luck",
+	"tile_name": "Pot Luck"
+  },
+  "34": {
+	"tile_type": "Property",
+	"value": 28,
+	"rent_up1": 150,
+	"rent_up2": 450,
+	"rent_up3": 1000,
+	"rent_up4": 1200,
+	"rent_final": 1400,
+	"tile_group": "Green",
+	"cost": 320,
+	"tile_name": "Ibis Close"
+  },
+  "35": {
+	"tile_type": "Station",
+	"cost": 200,
+	"tile_name": "Portslade Station"
+  },
+  "36": {
+	"tile_type": "O_Knocks",
+	"tile_name": "Opportunity Knocks"
+  },
+  "37": {
+	"tile_type": "Property",
+	"value": 35,
+	"rent_up1": 175,
+	"rent_up2": 500,
+	"rent_up3": 1100,
+	"rent_up4": 1300,
+	"rent_final": 1500,
+	"tile_group": "Indigo",
+	"cost": 350,
+	"tile_name": "James Webb Way"
+  },
+  "38": {
+	"tile_type": "Tax",
+	"value": 100,
+	"tile_name": "Super Tax"
+  },
+  "39": {
+	"tile_type": "Property",
+	"value": 50,
+	"rent_up1": 200,
+	"rent_up2": 600,
+	"rent_up3": 1400,
+	"rent_up4": 1700,
+	"rent_final": 2000,
+	"tile_group": "Indigo",
+	"cost": 400,
+	"tile_name": "Turing Heights"
+  }
+}
