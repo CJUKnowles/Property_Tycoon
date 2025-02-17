@@ -7,46 +7,24 @@ var head: Space = null
 func initialize():
 	# put your board reading stuff here Conor!
 	# Temporary board generation code: ----------------------------
-	var go_space:Space = load("res://Scenes/Spaces/go_space.tscn").instantiate()
-	add_child(go_space)
-	addSpace(go_space)
-	
-	var property:Space = load("res://Scenes/Spaces/property_space.tscn").instantiate()
-	add_child(property)
-	addSpace(property)
-	
-	var jail_space:Space = load("res://Scenes/Spaces/jail_space.tscn").instantiate()
-	add_child(jail_space)
-	addSpace(jail_space)
-
-	var free_parking:Space = load("res://Scenes/Spaces/free_parking_space.tscn").instantiate()
-	add_child(free_parking)
-	addSpace(free_parking)
-	
-	var go_to_jail:Space = load("res://Scenes/Spaces/go_to_jail_space.tscn").instantiate()
-	add_child(go_to_jail)
-	addSpace(go_to_jail)
-	
-	var opportunity_knocks:Space = load("res://Scenes/Spaces/opportunity_knocks_space.tscn").instantiate()
-	add_child(opportunity_knocks)
-	addSpace(opportunity_knocks)
-	
-	var pot_luck:Space = load("res://Scenes/Spaces/pot_luck_space.tscn").instantiate()
-	add_child(pot_luck)
-	addSpace(pot_luck)
-	
-	var station:Space = load("res://Scenes/Spaces/station_space.tscn").instantiate()
-	add_child(station)
-	addSpace(station)
-	
-	var tax:Space = load("res://Scenes/Spaces/tax_space.tscn").instantiate()
-	add_child(tax)
-	addSpace(tax)
-	
-	var utility:Space = load("res://Scenes/Spaces/utility_space.tscn").instantiate()
-	add_child(utility)
-	addSpace(utility)
+	createAndGetSpace("go_space")
+	createAndGetSpace("property_space")
+	createAndGetSpace("jail_space")
+	createAndGetSpace("free_parking_space")
+	createAndGetSpace("go_to_jail_space")
+	createAndGetSpace("opportunity_knocks_space")
+	createAndGetSpace("pot_luck_space")
+	createAndGetSpace("station_space")
+	createAndGetSpace("tax_space")
+	createAndGetSpace("utility_space")
 	# -------------------------------------------------------------
+
+# Instantiates and returns a Space scene of the specified type
+func createAndGetSpace(space_type: String):
+	var newSpace:Space = load("res://Scenes/Spaces/" + space_type + ".tscn").instantiate()
+	add_child(newSpace)
+	addSpace(newSpace) 
+	return newSpace
 
 func addSpace(new_space: Space):
 	if head == null:

@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://lfuo5x5310in"]
 
-[ext_resource type="Script" path="res://Scenes/Spaces/Go_Space.gd" id="1_1v28l"]
+[ext_resource type="Script" path="res://Scenes/Spaces/Station_Space.gd" id="1_cwjit"]
 [ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="2_3suwj"]
 
 [node name="Station_Space" type="Node2D"]
-script = ExtResource("1_1v28l")
+script = ExtResource("1_cwjit")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_3suwj")
