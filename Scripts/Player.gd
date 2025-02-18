@@ -33,7 +33,7 @@ func moveTo(target: Space):
 
 func goToJail():
 	inJail = true
-	var jail = gameManager.board.findSpace("jail_space")
+	var jail = gameManager.board.findSpace("Jail")
 	moveTo(jail)
 	print(playerName, " was sent to jail!")
 	

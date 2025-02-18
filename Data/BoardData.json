@@ -1,11 +1,11 @@
 {
   "0": {
-	"tile_type": "Go",
+	"tile_type": "go_space",
 	"value": 200,
 	"tile_name": "Go"
   },
   "1": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 2,
 	"rent_up1": 10,
 	"rent_up2": 30,
@@ -17,11 +17,11 @@
 	"tile_name": "The Old Creek"
   },
   "2": {
-	"tile_type": "Pot_Luck",
+	"tile_type": "pot_luck_space",
 	"tile_name": "Pot Luck"
   },
   "3": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 4,
 	"rent_up1": 20,
 	"rent_up2": 60,
@@ -33,17 +33,17 @@
 	"tile_name": "Gangsters Paradise"
   },
   "4": {
-	"tile_type": "Tax",
+	"tile_type": "tax_space",
 	"value": 200,
 	"tile_name": "Income Tax"
   },
   "5": {
-	"tile_type": "Station",
+	"tile_type": "station_space",
 	"cost": 200,
 	"tile_name": "Brighton Station"
   },
   "6": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 6,
 	"rent_up1": 30,
 	"rent_up2": 90,
@@ -55,11 +55,11 @@
 	"tile_name": "The Angels Delight"
   },
   "7": {
-	"tile_type": "O_Knocks",
+	"tile_type": "opportunity_knocks_space",
 	"tile_name": "Opportunity Knocks"
   },
   "8": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 6,
 	"rent_up1": 30,
 	"rent_up2": 90,
@@ -71,7 +71,7 @@
 	"tile_name": "Potter Avenue"
   },
   "9": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 8,
 	"rent_up1": 40,
 	"rent_up2": 100,
@@ -83,11 +83,11 @@
 	"tile_name": "Granger Drive"
   },
   "10": {
-	"tile_type": "Jail",
+	"tile_type": "jail_space",
 	"tile_name": "Jail"
   },
   "11": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 10,
 	"rent_up1": 50,
 	"rent_up2": 150,
@@ -99,12 +99,12 @@
 	"tile_name": "Skywalker Drive"
   },
   "12": {
-	"tile_type": "Utilities",
+	"tile_type": "utility_space",
 	"cost": 150,
 	"tile_name": "Tesla Power Co"
   },
   "13": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 10,
 	"rent_up1": 50,
 	"rent_up2": 150,
@@ -116,7 +116,7 @@
 	"tile_name": "Wookie Hole"
   },
   "14": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 12,
 	"rent_up1": 60,
 	"rent_up2": 180,
@@ -128,12 +128,12 @@
 	"tile_name": "Rey Lane"
   },
   "15": {
-	"tile_type": "Station",
+	"tile_type": "station_space",
 	"cost": 200,
 	"tile_name": "Hove Station"
   },
   "16": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 14,
 	"rent_up1": 70,
 	"rent_up2": 200,
@@ -145,11 +145,11 @@
 	"tile_name": "Bishop Drive"
   },
   "17": {
-	"tile_type": "Pot_Luck",
+	"tile_type": "pot_luck_space",
 	"tile_name": "Pot Luck"
   },
   "18": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 14,
 	"rent_up1": 70,
 	"rent_up2": 200,
@@ -161,7 +161,7 @@
 	"tile_name": "Dunham Street"
   },
   "19": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 16,
 	"rent_up1": 80,
 	"rent_up2": 220,
@@ -173,11 +173,11 @@
 	"tile_name": "Broyles Lane"
   },
   "20": {
-	"tile_type": "Parking",
+	"tile_type": "free_parking_space",
 	"tile_name": "Free Parking"
   },
   "21": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 18,
 	"rent_up1": 90,
 	"rent_up2": 250,
@@ -189,11 +189,11 @@
 	"tile_name": "Yue Fei Square"
   },
   "22": {
-	"tile_type": "O_Knocks",
+	"tile_type": "opportunity_knocks_space",
 	"tile_name": "Opportunity Knocks"
   },
   "23": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 18,
 	"rent_up1": 90,
 	"rent_up2": 250,
@@ -205,7 +205,7 @@
 	"tile_name": "Mulan Rouge"
   },
   "24": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 20,
 	"rent_up1": 100,
 	"rent_up2": 300,
@@ -217,12 +217,12 @@
 	"tile_name": "Han Xin Gardens"
   },
   "25": {
-	"tile_type": "Station",
+	"tile_type": "station_space",
 	"cost": 200,
 	"tile_name": "Falmer Station"
   },
   "26": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 22,
 	"rent_up1": 110,
 	"rent_up2": 330,
@@ -234,7 +234,7 @@
 	"tile_name": "Shatner Close"
   },
   "27": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 22,
 	"rent_up1": 110,
 	"rent_up2": 330,
@@ -246,12 +246,12 @@
 	"tile_name": "Picard Avenue"
   },
   "28": {
-	"tile_type": "Utilities",
+	"tile_type": "utility_space",
 	"cost": 150,
 	"tile_name": "Edison Water"
   },
   "29": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 22,
 	"rent_up1": 120,
 	"rent_up2": 360,
@@ -263,11 +263,11 @@
 	"tile_name": "Crusher Creek"
   },
   "30": {
-	"tile_type": "Go_To_Jail",
+	"tile_type": "got_to_jail_space",
 	"tile_name": "Go to Jail"
   },
   "31": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 26,
 	"rent_up1": 130,
 	"rent_up2": 390,
@@ -279,7 +279,7 @@
 	"tile_name": "Sirat Mews"
   },
   "32": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 26,
 	"rent_up1": 130,
 	"rent_up2": 390,
@@ -291,11 +291,11 @@
 	"tile_name": "Ghengis Crescent"
   },
   "33": {
-	"tile_type": "Pot_Luck",
+	"tile_type": "pot_luck_space",
 	"tile_name": "Pot Luck"
   },
   "34": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 28,
 	"rent_up1": 150,
 	"rent_up2": 450,
@@ -307,16 +307,16 @@
 	"tile_name": "Ibis Close"
   },
   "35": {
-	"tile_type": "Station",
+	"tile_type": "station_space",
 	"cost": 200,
 	"tile_name": "Portslade Station"
   },
   "36": {
-	"tile_type": "O_Knocks",
+	"tile_type": "opportunity_knocks_space",
 	"tile_name": "Opportunity Knocks"
   },
   "37": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 35,
 	"rent_up1": 175,
 	"rent_up2": 500,
@@ -328,12 +328,12 @@
 	"tile_name": "James Webb Way"
   },
   "38": {
-	"tile_type": "Tax",
+	"tile_type": "tax_space",
 	"value": 100,
 	"tile_name": "Super Tax"
   },
   "39": {
-	"tile_type": "Property",
+	"tile_type": "property_space",
 	"value": 50,
 	"rent_up1": 200,
 	"rent_up2": 600,

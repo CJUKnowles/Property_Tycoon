@@ -4,20 +4,38 @@ class_name Board
 
 var head: Space = null 
 
+var tile_dict = {}
+var file_path = "res://Data/BoardData.json"
+
 func initialize():
-	# put your board reading stuff here Conor!
-	# Temporary board generation code: ----------------------------
-	createAndGetSpace("go_space")
-	createAndGetSpace("property_space")
-	createAndGetSpace("jail_space")
-	createAndGetSpace("free_parking_space")
-	createAndGetSpace("go_to_jail_space")
-	createAndGetSpace("opportunity_knocks_space")
-	createAndGetSpace("pot_luck_space")
-	createAndGetSpace("station_space")
-	createAndGetSpace("tax_space")
-	createAndGetSpace("utility_space")
-	# -------------------------------------------------------------
+	# Import external BoardData.json as a dictionary
+	tile_dict = import_json(file_path)
+	for i in tile_dict:
+		# Create and reference tiles from dictionary as tiles on the board
+		var new_space:Space = createAndGetSpace(tile_dict[i]["tile_type"])
+		# Create blank default space in case of undefined tile_type
+		if new_space == null:
+			createAndGetSpace("space")
+		else:
+			# Import data from dictionary depending on tile_type
+			new_space.name = tile_dict[i]["tile_name"]
+			if tile_dict[i]["tile_type"] == "go_space":
+				new_space.pass_value = int(tile_dict[i]["value"])
+			elif tile_dict[i]["tile_type"] == "property_space":
+				new_space.rent = int(tile_dict[i]["value"])
+				new_space.rent_prices.append(int(tile_dict[i]["rent_up1"]))
+				new_space.rent_prices.append(int(tile_dict[i]["rent_up2"]))
+				new_space.rent_prices.append(int(tile_dict[i]["rent_up3"]))
+				new_space.rent_prices.append(int(tile_dict[i]["rent_up4"]))
+				new_space.rent_prices.append(int(tile_dict[i]["rent_final"]))
+				new_space.price = int(tile_dict[i]["cost"])
+				new_space.colorGroup = tile_dict[i]["tile_group"]
+			elif tile_dict[i]["tile_type"] == "tax_space":
+				new_space.amount = int(tile_dict[i]["value"])
+			elif tile_dict[i]["tile_type"] == "station_space":
+				new_space.cost = int(tile_dict[i]["cost"])
+			elif tile_dict[i]["tile_type"] == "utility_space":
+				new_space.cost = int(tile_dict[i]["cost"])
 
 # Instantiates and returns a Space scene of the specified type
 func createAndGetSpace(space_type: String):
@@ -28,7 +46,7 @@ func createAndGetSpace(space_type: String):
 		addSpace(newSpace) 
 		return newSpace
 	else:
-		return -1
+		return null
 	
 
 func addSpace(new_space: Space):
@@ -52,3 +70,15 @@ func findSpace(toFind: String):
 			print(target)
 			target = target.next
 	return target
+
+func import_json(path: String):
+	if FileAccess.file_exists(path):
+		var dataFile = FileAccess.open(path, FileAccess.READ)
+		var parsedFile = JSON.parse_string(dataFile.get_as_text())
+		
+		if parsedFile is Dictionary:
+			return parsedFile
+		else:
+			print("Error reading file")
+	else:
+		print("File doesn't exist")

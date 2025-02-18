@@ -3,7 +3,7 @@ class_name Property_Space
 
 var rent: int
 var price: int
-var rent_prices:Array[Player] = [];
+var rent_prices:Array[int];
 var colorGroup: String
 var houses: int = 0
 var hotel: bool = false

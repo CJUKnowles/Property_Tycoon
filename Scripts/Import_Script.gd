@@ -6,7 +6,9 @@ var file_path = "res://Data/BoardData.json"
 
 func _ready():
 	board_data = import_json(file_path)
-	print(board_data["0"]["tile_type"])
+	for i in board_data:
+		pass
+
 
 func import_json(path: String):
 	if FileAccess.file_exists(path):
