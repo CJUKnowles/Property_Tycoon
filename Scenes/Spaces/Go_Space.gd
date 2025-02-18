@@ -1,12 +1,7 @@
 extends Space
 class_name Go_Space
 
-@export var rent: int
-@export var colorGroup: String
-@export var houses: int = 0
-@export var hotel: bool = false
-@export var isMortgaged: bool = false
-
+var pass_value # amount of money given when you pass GO
 
 func on_land():
 	print("This is a go space! Child class")
