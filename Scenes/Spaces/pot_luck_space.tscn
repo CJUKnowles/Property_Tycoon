@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d210jl6mgo7ht"]
+
+[ext_resource type="Script" path="res://Scenes/Spaces/Pot_Luck_Space.gd" id="1_1sael"]
+[ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="2_xtlt7"]
+
+[node name="Pot_Luck_Space" type="Node2D"]
+script = ExtResource("1_1sael")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xtlt7")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = -64.0
+offset_top = -127.0
+offset_right = 64.0
+offset_bottom = -52.0
+text = "Pot Luck"

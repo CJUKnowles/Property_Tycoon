@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjwpxrtsaagkj"]
+
+[ext_resource type="Script" path="res://Scenes/Spaces/Go_To_Jail_Space.gd" id="1_6q6y4"]
+[ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="2_uw6n8"]
+
+[node name="go_to_jail_space" type="Node2D"]
+script = ExtResource("1_6q6y4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_uw6n8")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = -49.0
+offset_top = -130.0
+offset_right = 48.0
+offset_bottom = -94.0
+text = "Go to jail"

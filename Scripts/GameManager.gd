@@ -12,6 +12,7 @@ func _ready():
 	# Permanent code. Generate a board to play the game on.
 	board = Board.new()
 	board.initialize()
+	add_child(board)
 	
 	# Permanent code: Generate example players via playerCount ---------------
 	for i in playerCount:
