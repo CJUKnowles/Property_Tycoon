@@ -19,5 +19,9 @@ enum SpaceType {
 @export var next: Space = null
 @export var bought: bool = false
 
+func _ready():
+	var random:Vector2 = Vector2(randi_range(100,800), randi_range(100,500))
+	position += random
+
 func on_land():
 	print("This is a space! Parent class")
