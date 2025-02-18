@@ -21,10 +21,15 @@ func initialize():
 
 # Instantiates and returns a Space scene of the specified type
 func createAndGetSpace(space_type: String):
-	var newSpace:Space = load("res://Scenes/Spaces/" + space_type + ".tscn").instantiate()
-	add_child(newSpace)
-	addSpace(newSpace) 
-	return newSpace
+	var path = "res://Scenes/Spaces/" + space_type + ".tscn"
+	if FileAccess.file_exists(path):
+		var newSpace:Space = load(path).instantiate()
+		add_child(newSpace)
+		addSpace(newSpace) 
+		return newSpace
+	else:
+		return -1
+	
 
 func addSpace(new_space: Space):
 	if head == null:
@@ -36,7 +41,7 @@ func addSpace(new_space: Space):
 			current = current.next 
 		current.next = new_space
 		new_space.next = head
-		
+
 func findSpace(toFind: String):
 	var found: bool = false
 	var target : Space = head
@@ -47,4 +52,3 @@ func findSpace(toFind: String):
 			print(target)
 			target = target.next
 	return target
-		
