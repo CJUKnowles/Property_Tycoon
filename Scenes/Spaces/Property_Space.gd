@@ -11,4 +11,6 @@ var isMortgaged: bool = false
 
 
 func on_land():
-	print("This is a property space! Child class")
+	print("Landed on a property! Attempting to charge player:")
+	# TODO: change rent price based on houses owned
+	gameManager.get_current_player().charge(rent)

@@ -18,6 +18,7 @@ enum SpaceType {
 @export var playersOnSpace: Array = []
 @export var next: Space = null
 @export var bought: bool = false
+var gameManager:GameManager
 
 func _ready():
 	var random:Vector2 = Vector2(randi_range(100,800), randi_range(100,500))

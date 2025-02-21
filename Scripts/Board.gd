@@ -6,6 +6,7 @@ var head: Space = null
 
 var tile_dict = {}
 var file_path = "res://Data/BoardData.json"
+var gameManager:GameManager
 
 func initialize():
 	# Import external BoardData.json as a dictionary
@@ -19,6 +20,7 @@ func initialize():
 		else:
 			# Import data from dictionary depending on tile_type
 			new_space.name = tile_dict[i]["tile_name"]
+			new_space.gameManager = gameManager
 			if tile_dict[i]["tile_type"] == "go_space":
 				new_space.pass_value = int(tile_dict[i]["value"])
 			elif tile_dict[i]["tile_type"] == "property_space":
