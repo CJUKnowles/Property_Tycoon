@@ -18,7 +18,7 @@ func _ready():
 	# Permanent code: Generate example players via playerCount ---------------
 	for i in playerCount:
 		var newPlayer = Player.new()
-		newPlayer.playerName = ("Player_" + str(i))
+		newPlayer.name = ("Player_" + str(i))
 		newPlayer.currentSpace = board.head
 		newPlayer.gameManager = self
 		add_child(newPlayer)
@@ -26,7 +26,7 @@ func _ready():
 	
 	print("List of players:")
 	for player in players:
-		print(player.playerName)
+		print(player.name)
 	# ------------------------------------------------------------------------
 	
 	start_new_round()
@@ -37,13 +37,12 @@ func _process(delta):
 	# It will roll the dice of the current character, print some information, and increment the turn/round
 	if Input.is_action_just_pressed("ui_down"): #sets current player in jail (for testing)
 		get_current_player().goToJail()
-		print(get_current_player(), "is in " ,get_current_player().currentSpace.name)
 	if Input.is_action_just_pressed("ui_up"): # Sends the current player to jail
 		get_current_player().goToJail()
 		get_current_player().takeTurn()
 		end_turn()
 	if Input.is_action_just_pressed("ui_accept"): # Makes the current player take their turn
-		print("\n" + get_current_player().playerName + "'s turn:")
+		print("\n" + get_current_player().name + "'s turn:")
 		print("----------------")
 		get_current_player().takeTurn()
 		end_turn()
@@ -52,7 +51,7 @@ func get_current_player():
 	return players[turnCounter]
 
 func end_turn():
-	print("Ending " + get_current_player().playerName + "'s turn.")
+	print("Ending " + get_current_player().name + "'s turn.")
 	turnCounter += 1
 	print("----------------")
 	
