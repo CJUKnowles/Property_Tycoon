@@ -1,7 +1,6 @@
 extends Node2D
 class_name Player
 
-@export var playerName: String
 @export var money: int = 1500
 @export var currentSpace: Space= null
 @export var doubleCount: int=0
@@ -36,30 +35,30 @@ func goToJail():
 	inJail = true
 	var jail = gameManager.board.findSpace("Jail")
 	moveTo(jail)
-	print(playerName, " was sent to jail!")
+	print(name, " was sent to jail!")
 	
 func exitJail():
 	inJail = false
 	jailTurns = 0
-	print(playerName + " has been moved to 'Just Visiting'")
+	print(name + " has been moved to 'Just Visiting'")
 	
 func payBail():
 	if money >= 50:
 		money -= 50
-		print(playerName + " paid £50 to leave jail. The money goes to Free Parking.")
+		print(name + " paid £50 to leave jail. The money goes to Free Parking.")
 		exitJail()
 	else:
-		print(playerName + " cannot afford to pay to leave jail!")
-		print(playerName + " stays in jail and loses this turn. (" + str(jailTurns) + "/2)")
+		print(name + " cannot afford to pay to leave jail!")
+		print(name + " stays in jail and loses this turn. (" + str(jailTurns) + "/2)")
 		
 	
 func stayInJail():
-	print(playerName + " stays in jail and loses this turn. (" + str(jailTurns) + "/2)")
+	print(name + " stays in jail and loses this turn. (" + str(jailTurns) + "/2)")
 
 	
 func takeTurn():
 	if inJail:
-		print(playerName, " is in jail.")
+		print(name, " is in jail.")
 		print("jail time: ", str(jailTurns), "/2")
 		jailTurns += 1
 		if jailTurns > 2:  # Misses two turns, then gets released
@@ -75,7 +74,7 @@ func takeTurn():
 		
 		if die1 == die2: # We rolled a double
 			doubleCount += 1
-			print(playerName, " rolled a double and gets another turn!")
+			print(name, " rolled a double and gets another turn!")
 			if doubleCount == 3:
 				doubleCount = 0 #reset count
 				goToJail()
@@ -93,7 +92,7 @@ func takeTurn():
 func _process(delta: float) -> void:
 	pass
 func report():
-	print(playerName + " is currently at " + currentSpace.name + " with $" + str(money))
+	print(name + " is currently at " + currentSpace.name + " with $" + str(money))
 	
 # Attempts to charge the player the specified amount, otherwise go bankrupt
 func charge(amount: int):

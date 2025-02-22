@@ -69,7 +69,7 @@ func findSpace(toFind: String):
 		if target.name == toFind:
 			found = true
 		else:
-			print(target)
+			# print(target)
 			target = target.next
 	return target
 
