@@ -10,6 +10,23 @@
 =======
 [ext_resource type="Script" path="res://Player.gd" id="1_eqya2"]
 [ext_resource type="Texture2D" uid="uid://bck5qufqu7otx" path="res://carina nebula.png" id="2_6kl67"]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+
+[sub_resource type="GDScript" id="GDScript_7p15b"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 >>>>>>> Stashed changes
 
 [node name="JinScene" type="Node2D"]
@@ -22,6 +39,9 @@ script = ExtResource("1_xqo4f")
 <<<<<<< Updated upstream
 =======
 script = ExtResource("1_eqya2")
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 [node name="CarinaNebula" type="Sprite2D" parent="."]
