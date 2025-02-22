@@ -95,11 +95,14 @@ func report():
 	print(name + " is currently at " + currentSpace.name + " with $" + str(money))
 	
 # Attempts to charge the player the specified amount, otherwise go bankrupt
+# Returns true if successfully charged, false otherwise
 func charge(amount: int):
 	if money > amount:
 		money -= amount
-		print(name, " was charge $", str(amount), " and now have $", money, " remaining.")
+		print(name, " was charged $", str(amount), " and now has $", money, " remaining.")
+		return true
 	else:
 		print(name, " cannot afford the $", str(amount), " charge!")
+		return false
 		# TODO: go bankrupt, or offer chance to sell/mortgage
 	
