@@ -5,6 +5,3 @@ var bank = Die
 
 func on_land():
 	print("This is a pot luck space! Child class")
-
-
-	

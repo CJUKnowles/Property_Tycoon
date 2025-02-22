@@ -106,3 +106,12 @@ func charge(amount: int):
 		return false
 		# TODO: go bankrupt, or offer chance to sell/mortgage
 	
+func fine(amount):
+	if money > amount:
+		money -= amount
+		# TODO: add fine to free parking space funds
+		print(name, " was fined £", str(amount), " and now has £", money, " remaining.")
+		return true
+	else:
+		print(name, " cannot afford the £", str(amount), " fine!")
+		return false
