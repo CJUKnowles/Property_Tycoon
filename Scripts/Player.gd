@@ -7,6 +7,7 @@ class_name Player
 @export var doubleCount: int=0
 @export var inJail: bool=false
 @export var jailTurns: int = 0
+var bankrupt = false
 var gameManager
 
 func _ready():
@@ -22,6 +23,7 @@ func move(toMove: int):
 				currentSpace = currentSpace.next
 	
 	currentSpace.playersOnSpace.append(self)
+	currentSpace.on_land()
 	
 func moveTo(target: Space):
 	while currentSpace != target:
@@ -32,7 +34,7 @@ func moveTo(target: Space):
 
 func goToJail():
 	inJail = true
-	var jail = gameManager.board.findSpace("JAIL")
+	var jail = gameManager.board.findSpace("Jail")
 	moveTo(jail)
 	print(playerName, " was sent to jail!")
 	
@@ -40,8 +42,6 @@ func exitJail():
 	inJail = false
 	jailTurns = 0
 	print(playerName + " has been moved to 'Just Visiting'")
-	
-	
 	
 func payBail():
 	if money >= 50:
@@ -94,4 +94,13 @@ func _process(delta: float) -> void:
 	pass
 func report():
 	print(playerName + " is currently at " + currentSpace.name + " with $" + str(money))
+	
+# Attempts to charge the player the specified amount, otherwise go bankrupt
+func charge(amount: int):
+	if money > amount:
+		money -= amount
+		print(name, " was charge $", str(amount), " and now have $", money, " remaining.")
+	else:
+		print(name, " cannot afford the $", str(amount), " charge!")
+		# TODO: go bankrupt, or offer chance to sell/mortgage
 	

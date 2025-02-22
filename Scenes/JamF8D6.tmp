@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj6wj55pvofo2"]
+
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_n5qa6"]
+[ext_resource type="Script" path="res://Scripts/Property.gd" id="2_ej7dk"]
+
+[node name="JamesScene" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_n5qa6")
+
+[node name="PropertyTest" type="Node2D" parent="."]
+script = ExtResource("2_ej7dk")
