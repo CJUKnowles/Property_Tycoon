@@ -3,5 +3,9 @@ class_name Tax_Space
 
 var amount: int
 
+func _ready():
+	type = Space.SpaceType.TAX
+	
 func on_land():
-	print("This is a Tax space! Child class")
+	print("Landed on a tax space")
+	gameManager.get_current_player().charge(amount)

@@ -38,9 +38,12 @@ func _process(delta):
 	# It will roll the dice of the current character, print some information, and increment the turn/round
 	if Input.is_action_just_pressed("ui_down"): #sets current player in jail (for testing)
 		player.goToJail()
-	if Input.is_action_just_pressed("mortgage"):
-		if player.currentSpace.SpaceType == Space.SpaceType.PROPERTY:
+	if Input.is_action_just_pressed("mortgage"): # Press M to mortgage current space (if property)
+		if player.currentSpace.type == Space.SpaceType.PROPERTY:
 			player.currentSpace.toggle_mortgage()
+	if Input.is_action_just_pressed("buy_house"): # Press M to mortgage current space (if property)
+		if player.currentSpace.type == Space.SpaceType.PROPERTY:
+			player.currentSpace.buy_house()
 	if Input.is_action_just_pressed("ui_up"): # Sends the current player to jail
 		player.goToJail()
 		player.takeTurn()
@@ -73,5 +76,3 @@ func start_new_round():
 func goTo(player : Player, target: Space):
 	while player.currentSpace != target:
 		player.currentSpace = player.currentSpace.next
-	
-		

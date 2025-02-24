@@ -3,13 +3,12 @@ extends Node2D
 class_name Board
 
 var head: Space = null 
-
-var tile_dict = {}
 var file_path = "res://Data/BoardData.json"
 var gameManager:GameManager
 
 func initialize():
 	# Import external BoardData.json as a dictionary
+	var tile_dict = {}
 	tile_dict = import_json(file_path)
 	for i in tile_dict:
 		# Create and reference tiles from dictionary as tiles on the board
@@ -35,9 +34,9 @@ func initialize():
 			elif tile_dict[i]["tile_type"] == "tax_space":
 				new_space.amount = int(tile_dict[i]["value"])
 			elif tile_dict[i]["tile_type"] == "station_space":
-				new_space.cost = int(tile_dict[i]["cost"])
+				new_space.price = int(tile_dict[i]["cost"])
 			elif tile_dict[i]["tile_type"] == "utility_space":
-				new_space.cost = int(tile_dict[i]["cost"])
+				new_space.price = int(tile_dict[i]["cost"])
 
 # Instantiates and returns a Space scene of the specified type
 func createAndGetSpace(space_type: String):

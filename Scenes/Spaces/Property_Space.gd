@@ -1,39 +1,47 @@
-extends Space
+extends Buyable_Space
 class_name Property_Space
 
 var rent: int
-var price: int
-var rent_prices:Array[int];
+var rent_prices:Array[int]
 var colorGroup: String
+var housePrice: int = 50
 var houses: int = 0
 var hotel: bool = false
 var isMortgaged: bool = false
-var landlord: Player
+
+func _ready():
+	type = Space.SpaceType.PROPERTY
 
 func on_land():
 	var player = gameManager.get_current_player()
 	
 	if bought: 
-		if landlord != null and landlord != player:
-			print("Landed on a space owned by ", landlord.name, ". Attempting to charge rent: ")
+		if !isMortgaged and landlord != null and landlord != player:
+			print("Landed on a property owned by ", landlord.name, ". Attempting to charge rent: ")
 			player.charge(rent) # Charges rent if the player does 
 	else:
 		print("Landed on an unowned property. Attempting to purchase: ")
-		purchase(player)
+		purchase()
 
 func toggle_mortgage():
 	if isMortgaged:
-		pass
+		var mortgagePaid = gameManager.get_current_player().charge(price/2)
+		if mortgagePaid:
+			isMortgaged = false
 	else:
 		isMortgaged = true
-		owner.pay(price/2)
+		landlord.pay(price/2)
 
-# Makes the given player attempt to purchase this property. Should maybe be moved to Player class, generalize for all property spaces
-func purchase(player: Player):
-	var propertyPurchased = player.charge(price)
-	if propertyPurchased:
-		print("Charge successful! Bought ", self.name)
-		landlord = player
-		bought = true
-	else:
-		pass
+
+func buy_house():
+	if houses < 5:
+		var purchased_house = landlord.charge(housePrice)
+		if(purchased_house):
+			houses += 1
+			if houses == 5:
+				print("Hotel Purchased!")
+			else:
+				print("House purchased!")
+		else:
+			print("Could not afford to purchase house!")
+		

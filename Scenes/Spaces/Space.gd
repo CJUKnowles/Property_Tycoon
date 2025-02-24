@@ -4,7 +4,7 @@ class_name Space
 enum SpaceType {
 	PROPERTY,
 	POT_LUCK,
-	OPPORTUNITY_KNOCK,
+	OPPORTUNITY_KNOCKS,
 	JAIL,
 	FREE_PARKING,
 	GO_TO_JAIL,
@@ -17,7 +17,6 @@ enum SpaceType {
 @export var type: SpaceType
 @export var playersOnSpace: Array = []
 @export var next: Space = null
-@export var bought: bool = false
 var gameManager:GameManager
 
 func _ready():

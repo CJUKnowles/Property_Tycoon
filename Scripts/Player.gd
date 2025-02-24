@@ -8,6 +8,7 @@ class_name Player
 @export var jailTurns: int = 0
 var bankrupt = false
 var gameManager
+var owned_spaces:Array[Space] = []
 
 func _ready():
 	print("Player is being setup!")
@@ -105,7 +106,11 @@ func charge(amount: int):
 		print(name, " cannot afford the $", str(amount), " charge!")
 		return false
 		# TODO: go bankrupt, or offer chance to sell/mortgage
-	
+
+func pay(amount: int):
+	money += amount
+	print(name, " was paid £", str(amount), " and now has £", money, " remaining.")
+
 func fine(amount):
 	if money > amount:
 		money -= amount
