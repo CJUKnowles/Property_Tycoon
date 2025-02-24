@@ -34,17 +34,21 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var player = get_current_player()
 	# It will roll the dice of the current character, print some information, and increment the turn/round
 	if Input.is_action_just_pressed("ui_down"): #sets current player in jail (for testing)
-		get_current_player().goToJail()
+		player.goToJail()
+	if Input.is_action_just_pressed("mortgage"):
+		if player.currentSpace.SpaceType == Space.SpaceType.PROPERTY:
+			player.currentSpace.toggle_mortgage()
 	if Input.is_action_just_pressed("ui_up"): # Sends the current player to jail
-		get_current_player().goToJail()
-		get_current_player().takeTurn()
+		player.goToJail()
+		player.takeTurn()
 		end_turn()
 	if Input.is_action_just_pressed("ui_accept"): # Makes the current player take their turn
-		print("\n" + get_current_player().name + "'s turn:")
+		print("\n" + player.name + "'s turn:")
 		print("----------------")
-		get_current_player().takeTurn()
+		player.takeTurn()
 		end_turn()
 
 func get_current_player():

@@ -19,10 +19,21 @@ func on_land():
 			player.charge(rent) # Charges rent if the player does 
 	else:
 		print("Landed on an unowned property. Attempting to purchase: ")
-		var propertyPurchased = player.charge(price)
-		if propertyPurchased:
-			print("Charge successful! Bought ", self.name)
-			landlord = player
-			bought = true
-		else:
-			pass
+		purchase(player)
+
+func toggle_mortgage():
+	if isMortgaged:
+		pass
+	else:
+		isMortgaged = true
+		owner.pay(price/2)
+
+# Makes the given player attempt to purchase this property. Should maybe be moved to Player class, generalize for all property spaces
+func purchase(player: Player):
+	var propertyPurchased = player.charge(price)
+	if propertyPurchased:
+		print("Charge successful! Bought ", self.name)
+		landlord = player
+		bought = true
+	else:
+		pass
