@@ -4,6 +4,7 @@ class_name Utility_Space
 var cost: int
 
 func _ready():
+	super._ready()
 	type = Space.SpaceType.UTILITY
 
 func on_land():

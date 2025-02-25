@@ -3,6 +3,7 @@ class_name Station_Space
 
 func _ready():
 	type = Space.SpaceType.UTILITY
+	super._ready()
 
 func on_land():
 	var player = gameManager.get_current_player()

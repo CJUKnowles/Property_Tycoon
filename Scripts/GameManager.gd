@@ -48,7 +48,7 @@ func _process(delta):
 		player.goToJail()
 		player.takeTurn()
 		end_turn()
-	if Input.is_action_just_pressed("ui_accept"): # Makes the current player take their turn
+	if Input.is_action_just_pressed("ui_accept") or Input.is_action_pressed("fast_turn"): # Makes the current player take their turn
 		print("\n" + player.name + "'s turn:")
 		print("----------------")
 		player.takeTurn()

@@ -4,6 +4,7 @@ class_name Tax_Space
 var amount: int
 
 func _ready():
+	super._ready()
 	type = Space.SpaceType.TAX
 	
 func on_land():

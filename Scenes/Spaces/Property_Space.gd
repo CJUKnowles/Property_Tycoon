@@ -10,6 +10,7 @@ var hotel: bool = false
 var isMortgaged: bool = false
 
 func _ready():
+	super._ready()
 	type = Space.SpaceType.PROPERTY
 
 func on_land():
