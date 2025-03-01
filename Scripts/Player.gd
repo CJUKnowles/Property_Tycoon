@@ -11,6 +11,7 @@ class_name Player
 var bankrupt = false
 var gameManager
 var owned_spaces:Array[Space] = []
+var bank : Bank
 
 func _ready():
 	print("Player is being setup!")
@@ -32,6 +33,10 @@ func moveTo(target: Space):
 		if currentSpace.next == null: 
 			print("Error: Target space not found.")
 			return
+		if collectFromGO:
+			if currentSpace == Go_Space:
+				bank.pay_player(self, 200)
+				print(name, " has passed GO and collected £200.")
 		currentSpace = currentSpace.next
 
 func goToJail():

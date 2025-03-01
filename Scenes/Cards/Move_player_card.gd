@@ -1,11 +1,12 @@
-extends Node
+extends Card
 
+var target : String # space the player is moving to
+var passGo : bool # whether the player should collect £200 when passing Go
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func on_draw():
+	var player = gameManager.get_current_player()
+	var target_space = gameManager.board.findSpace(target)
+	player.collectFromGO = passGo
+	player.moveTo(target_space)
+	player.collectFromGO = true
+	
