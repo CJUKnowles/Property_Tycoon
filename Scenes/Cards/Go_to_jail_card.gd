@@ -1,11 +1,15 @@
-extends Node
+extends Card
 
-
+var player = gameManager.get_current_player()
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func on_draw():
+	player.
+	
+func use():
+	if player.inJail == true:
+		print("You have used your 'get out of jail free card' ! ")
+		player.exitJail()
+		player.getOutOfJailFreeCard = false
+		#TODO add back to list
+	else:
+		print("You are not in Jail")
