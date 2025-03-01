@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="1_ou6w4"]
 [ext_resource type="Script" path="res://Scripts/board_space.gd" id="1_rf26k"]
-[ext_resource type="Script" path="res://Scripts/bank.gd" id="3_ebq7x"]
+[ext_resource type="Script" path="res://Scripts/Bank.gd" id="3_ebq7x"]
 
 [node name="Board Space" type="Node2D"]
 script = ExtResource("1_rf26k")

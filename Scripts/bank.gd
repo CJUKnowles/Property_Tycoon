@@ -1,4 +1,5 @@
 extends Node2D
+class_name Bank
 
 var money: int = 50000
 
