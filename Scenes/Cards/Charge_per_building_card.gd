@@ -8,4 +8,4 @@ var bank : Bank
 func on_draw():
 	var player = gameManager.get_current_player()
 	var toPay = (player.numOfHouse * houseVal ) + (player.NumofHotel * hotelVal)
-	Bank.to_recieve(toPay)
+	bank.receive_payment(player,toPay)

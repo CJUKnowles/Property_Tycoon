@@ -6,6 +6,8 @@ class_name Player
 @export var doubleCount: int=0
 @export var inJail: bool=false
 @export var jailTurns: int = 0
+@export var getOutOfJailFreeCard: bool=false
+@export var collectFromGO: bool=true
 var bankrupt = false
 var gameManager
 var owned_spaces:Array[Space] = []
