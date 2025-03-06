@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d3icc2vkwsw7r"]
 
-[ext_resource type="Script" path="res://Scenes/Spaces/Tax_Space.gd" id="1_r7qly"]
+[ext_resource type="Script" uid="uid://b47wkh6a80aji" path="res://Scenes/Spaces/Tax_Space.gd" id="1_r7qly"]
 [ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="2_roc18"]
 
 [node name="Tax_Space" type="Node2D"]

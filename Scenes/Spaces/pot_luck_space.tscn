@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d210jl6mgo7ht"]
 
-[ext_resource type="Script" path="res://Scenes/Spaces/Pot_Luck_Space.gd" id="1_1sael"]
+[ext_resource type="Script" uid="uid://y6ffgoka87r8" path="res://Scenes/Spaces/Pot_Luck_Space.gd" id="1_1sael"]
 [ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="2_xtlt7"]
 
 [node name="Pot_Luck_Space" type="Node2D"]

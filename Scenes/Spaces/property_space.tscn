@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c52oy4uxkluo7"]
 
-[ext_resource type="Script" path="res://Scenes/Spaces/Property_Space.gd" id="1_ym2kd"]
+[ext_resource type="Script" uid="uid://cov2i7crofpkq" path="res://Scenes/Spaces/Property_Space.gd" id="1_ym2kd"]
 [ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="2_3a1oe"]
 
 [node name="property_space" type="Node2D"]

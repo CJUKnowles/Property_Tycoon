@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhorj47kg2vv2"]
 
-[ext_resource type="Script" path="res://Scenes/Spaces/Opportunity_Knocks_Space.gd" id="1_icrbt"]
+[ext_resource type="Script" uid="uid://c1obejs8cxyfc" path="res://Scenes/Spaces/Opportunity_Knocks_Space.gd" id="1_icrbt"]
 [ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="2_nxg1a"]
 
 [node name="Opportunity_Knocks_Space" type="Node2D"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://1su6gemegv05"]
+[gd_scene load_steps=5 format=3 uid="uid://1su6gemegv05"]
 
 [ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="1_ou6w4"]
-[ext_resource type="Script" path="res://Scripts/board_space.gd" id="1_rf26k"]
-[ext_resource type="Script" path="res://Scripts/Bank.gd" id="3_ebq7x"]
+[ext_resource type="Script" uid="uid://bsqv6qkolu0g6" path="res://Scripts/board_space.gd" id="1_rf26k"]
+[ext_resource type="Script" uid="uid://bi4x4usd1s3qg" path="res://Scripts/bank.gd" id="3_ebq7x"]
+[ext_resource type="Script" uid="uid://gtfkim7sutei" path="res://Scenes/row.gd" id="4_7lots"]
 
 [node name="Board Space" type="Node2D"]
 script = ExtResource("1_rf26k")
@@ -25,3 +26,16 @@ texture = ExtResource("1_ou6w4")
 
 [node name="Bank" type="Node2D" parent="."]
 script = ExtResource("3_ebq7x")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -193.0
+offset_top = -304.0
+offset_right = 200.0
+offset_bottom = 311.0
+
+[node name="Row" type="HBoxContainer" parent="."]
+offset_left = -193.0
+offset_top = -305.0
+offset_right = 200.0
+offset_bottom = 308.0
+script = ExtResource("4_7lots")

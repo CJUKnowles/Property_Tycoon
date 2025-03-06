@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkdk5pw3kqydw"]
 
-[ext_resource type="Script" path="res://Scenes/Spaces/Free_Parking_Space.gd" id="1_pxftm"]
+[ext_resource type="Script" uid="uid://dpwbgw4l8vgb2" path="res://Scenes/Spaces/Free_Parking_Space.gd" id="1_pxftm"]
 [ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="2_p8cer"]
 
 [node name="free_parking_space" type="Node2D"]
