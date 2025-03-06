@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bj6wj55pvofo2"]
 
-[ext_resource type="Script" uid="uid://fu5802tlpfl8" path="res://Scripts/GameManager.gd" id="1_n5qa6"]
-[ext_resource type="Script" uid="uid://cov2i7crofpkq" path="res://Scenes/Spaces/Property_Space.gd" id="2_ej7dk"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_n5qa6"]
+[ext_resource type="Script" path="res://Scenes/Spaces/Property_Space.gd" id="2_ej7dk"]
 [ext_resource type="PackedScene" uid="uid://cjrsf0bhlg5s" path="res://Scenes/Spaces/utility_space.tscn" id="3_oav5j"]
 
 [node name="JamesScene" type="Node2D"]
