@@ -1,17 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3icc2vkwsw7r"]
+[gd_scene load_steps=4 format=3 uid="uid://d3icc2vkwsw7r"]
 
-[ext_resource type="Script" uid="uid://b47wkh6a80aji" path="res://Scenes/Spaces/Tax_Space.gd" id="1_r7qly"]
-[ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="2_roc18"]
+[ext_resource type="Script" path="res://Scenes/Spaces/Tax_Space.gd" id="1_r7qly"]
+[ext_resource type="PackedScene" uid="uid://bavskvk5svklf" path="res://Scenes/Spaces/Space Bases/space_base.tscn" id="2_be6xo"]
+[ext_resource type="Texture2D" uid="uid://c2vlkflibei8e" path="res://Assets/UI/Board Icons/Super Tax.png" id="3_wlf0y"]
 
 [node name="Tax_Space" type="Node2D"]
 script = ExtResource("1_r7qly")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_roc18")
+[node name="SpaceTemplatePlaceholder" parent="." instance=ExtResource("2_be6xo")]
 
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_left = -64.0
-offset_top = -127.0
-offset_right = 64.0
-offset_bottom = -52.0
-text = "Pot Luck"
+[node name="FreeParking" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_wlf0y")

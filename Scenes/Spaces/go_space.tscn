@@ -1,17 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3iw2ojgd31to"]
+[gd_scene load_steps=4 format=3 uid="uid://d3iw2ojgd31to"]
 
-[ext_resource type="Script" uid="uid://cv3mwnf5wngpr" path="res://Scenes/Spaces/Go_Space.gd" id="1_g5j1k"]
-[ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="2_7nsvh"]
+[ext_resource type="Script" path="res://Scenes/Spaces/Go_Space.gd" id="1_g5j1k"]
+[ext_resource type="PackedScene" uid="uid://qoij60spbumy" path="res://Scenes/Spaces/Space Bases/space_base_corner.tscn" id="2_3wkfw"]
+[ext_resource type="Texture2D" uid="uid://cn3474tnk8rb3" path="res://Assets/UI/Board/Board.png" id="3_ky5cx"]
 
 [node name="Go_Space" type="Node2D"]
 script = ExtResource("1_g5j1k")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_7nsvh")
+[node name="CornerSpaceTemplatePlaceholder" parent="." instance=ExtResource("2_3wkfw")]
 
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_left = -49.0
-offset_top = -130.0
-offset_right = 48.0
-offset_bottom = -94.0
-text = "GO SPACE"
+[node name="FreeParking" type="Sprite2D" parent="."]
+rotation = -0.785398
+scale = Vector2(0.0653976, 0.105668)
+texture = ExtResource("3_ky5cx")

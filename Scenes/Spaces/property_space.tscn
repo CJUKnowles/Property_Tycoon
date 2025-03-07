@@ -1,17 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://c52oy4uxkluo7"]
+[gd_scene load_steps=4 format=3 uid="uid://c52oy4uxkluo7"]
 
-[ext_resource type="Script" uid="uid://cov2i7crofpkq" path="res://Scenes/Spaces/Property_Space.gd" id="1_ym2kd"]
-[ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="2_3a1oe"]
+[ext_resource type="Script" path="res://Scenes/Spaces/Property_Space.gd" id="1_ym2kd"]
+[ext_resource type="PackedScene" uid="uid://bavskvk5svklf" path="res://Scenes/Spaces/Space Bases/space_base.tscn" id="2_7dgew"]
+[ext_resource type="Texture2D" uid="uid://c6r5c0pcegxda" path="res://Assets/UI/Board Icons/Property_PLACEHOLDER.png" id="3_kww1y"]
 
 [node name="property_space" type="Node2D"]
 script = ExtResource("1_ym2kd")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_3a1oe")
+[node name="SpaceTemplatePlaceholder" parent="." instance=ExtResource("2_7dgew")]
 
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_left = -64.0
-offset_top = -127.0
-offset_right = 64.0
-offset_bottom = -52.0
-text = "Property"
+[node name="FreeParking" type="Sprite2D" parent="."]
+position = Vector2(0, -104)
+texture = ExtResource("3_kww1y")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="FreeParking"]
+offset_left = -71.0
+offset_top = -25.0
+offset_right = 73.0
+offset_bottom = 40.0
+text = "todo: change color in script"

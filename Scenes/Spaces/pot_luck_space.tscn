@@ -1,17 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://d210jl6mgo7ht"]
+[gd_scene load_steps=4 format=3 uid="uid://d210jl6mgo7ht"]
 
-[ext_resource type="Script" uid="uid://y6ffgoka87r8" path="res://Scenes/Spaces/Pot_Luck_Space.gd" id="1_1sael"]
-[ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="2_xtlt7"]
+[ext_resource type="Script" path="res://Scenes/Spaces/Pot_Luck_Space.gd" id="1_1sael"]
+[ext_resource type="PackedScene" uid="uid://bavskvk5svklf" path="res://Scenes/Spaces/Space Bases/space_base.tscn" id="2_i1bmm"]
+[ext_resource type="Texture2D" uid="uid://bvf03d340cwmd" path="res://Assets/UI/Board Icons/Pot Luck.png" id="3_68obe"]
 
 [node name="Pot_Luck_Space" type="Node2D"]
 script = ExtResource("1_1sael")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_xtlt7")
+[node name="SpaceTemplatePlaceholder" parent="." instance=ExtResource("2_i1bmm")]
 
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_left = -64.0
-offset_top = -127.0
-offset_right = 64.0
-offset_bottom = -52.0
-text = "Pot Luck"
+[node name="FreeParking" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_68obe")

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://1su6gemegv05"]
+
+[ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="1_ou6w4"]
+[ext_resource type="Script" path="res://Scripts/board_space.gd" id="1_rf26k"]
+[ext_resource type="Script" path="res://Scenes/square.gd" id="2_pkj00"]
+[ext_resource type="Script" path="res://Scripts/bank.gd" id="3_ebq7x"]
+
+[node name="Board Space" type="Node2D"]
+script = ExtResource("1_rf26k")
+metadata/Owned = false
+metadata/Price = 100
+metadata/Rent = 20
+metadata/Space_Name = "Test1"
+metadata/Has_Hotel = false
+metadata/Has_House = false
+metadata/Space_Type = ""
+
+[node name="Name of Space" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Visual Appearance of Space" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, 2)
+scale = Vector2(3.50877, 3.26316)
+texture = ExtResource("1_ou6w4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Square" type="ColorRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_pkj00")
+
+[node name="Bank" type="Node2D" parent="."]
+script = ExtResource("3_ebq7x")

@@ -20,7 +20,7 @@ enum SpaceType {
 var gameManager:GameManager
 
 func _ready():
-	var random:Vector2 = Vector2(randi_range(100,800), randi_range(100,500))
+	var random:Vector2 = Vector2(randi_range(-1000,1000), randi_range(-800,800))
 	position += random
 
 func on_land():

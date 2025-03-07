@@ -1,18 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkdk5pw3kqydw"]
+[gd_scene load_steps=6 format=3 uid="uid://dkdk5pw3kqydw"]
 
-[ext_resource type="Script" uid="uid://dpwbgw4l8vgb2" path="res://Scenes/Spaces/Free_Parking_Space.gd" id="1_pxftm"]
-[ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="2_p8cer"]
+[ext_resource type="Script" path="res://Scenes/Spaces/Free_Parking_Space.gd" id="1_pxftm"]
+[ext_resource type="PackedScene" uid="uid://qoij60spbumy" path="res://Scenes/Spaces/Space Bases/space_base_corner.tscn" id="2_0sgc2"]
+[ext_resource type="FontFile" uid="uid://bgob8pp8mcuur" path="res://Assets/UI/Fonts/Eina 04/Eina04-SemiBold.ttf" id="3_v4ahy"]
+[ext_resource type="Texture2D" uid="uid://b31anbl58cr0i" path="res://Assets/UI/Board Icons/Free Parking.png" id="4_xnuk5"]
+
+[sub_resource type="Theme" id="Theme_vf3hr"]
+default_base_scale = 8.6
+default_font = ExtResource("3_v4ahy")
+default_font_size = 34
 
 [node name="free_parking_space" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_pxftm")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_p8cer")
+[node name="CornerSpaceTemplatePlaceholder" parent="." instance=ExtResource("2_0sgc2")]
 
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_left = -76.0
-offset_top = -146.0
-offset_right = 76.0
-offset_bottom = -93.0
-text = "Free parking
-"
+[node name="RichTextLabel" type="RichTextLabel" parent="CornerSpaceTemplatePlaceholder"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -244.5
+offset_top = -123.0
+offset_right = -27.5
+offset_bottom = -66.0
+grow_horizontal = 2
+theme = SubResource("Theme_vf3hr")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Free Parking"
+metadata/_edit_use_anchors_ = true
+
+[node name="FreeParking" type="Sprite2D" parent="."]
+rotation = -0.785398
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_xnuk5")

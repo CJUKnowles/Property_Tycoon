@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bavskvk5svklf"]
+
+[ext_resource type="Texture2D" uid="uid://cyhtob1bmcwny" path="res://Assets/UI/Board/Space_template_PLACEHOLDER.png" id="1_dwvkl"]
+
+[node name="SpaceTemplatePlaceholder" type="Sprite2D"]
+texture = ExtResource("1_dwvkl")
