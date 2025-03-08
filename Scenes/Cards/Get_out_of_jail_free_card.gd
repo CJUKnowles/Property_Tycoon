@@ -1,4 +1,5 @@
 extends Card
+class_name Get_out_of_jail_free_card
 
 var player = gameManager.get_current_player()
 # Called when the node enters the scene tree for the first time.
