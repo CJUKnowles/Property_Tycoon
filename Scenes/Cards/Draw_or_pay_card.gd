@@ -6,6 +6,8 @@ var payToParking: bool
 var bank : Bank
 var parking : Free_Parking_Space
 var player = gameManager.get_current_player()
+var OpportunityKnocksDeck : OpportunityKnocksDeck
+var PotLuckDeck : PotLuckDeck
 
 func fine():
 	if payToParking:
@@ -18,19 +20,15 @@ func getMoney():
 	bank.pay_player(player,value)
 	
 func drawOppotunityCard():
-	OpportunityCardDeck.draw()
+	OpportunityKnocksDeck.draw()
 	
 func drawLuckCard():
-	PotLuckCardDeck.draw()
-	
-	
-
-
+	PotLuckDeck.draw()
 
 # Called when the node enters the scene tree for the first time.
 func on_draw():
 	var player = gameManager.get_current_player()
-	for i in range(numOfPlayers):
+	for i in range(gameManager.numOfPlayers):
 		var toGive = gameManager.players[i]
 		if  toGive != player:
 			toGive.money -= value
