@@ -1,4 +1,5 @@
 extends Card
+class_name Charge_per)player_card
 
 var value : int
 var numOfPlayers = gameManager.playerCount

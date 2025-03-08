@@ -21,23 +21,35 @@ func move(toMove: int):
 		currentSpace = gameManager.board.head
 	else:
 		currentSpace.playersOnSpace.erase(self) #removes player from current position
-		for i in range(toMove):
-			if currentSpace.next:
-				currentSpace = currentSpace.next
-	
+		
+		if toMove > 0:
+			for i in range(toMove):
+				if currentSpace.next:
+					currentSpace = currentSpace.next
+		elif toMove < 0:
+			for i in range(abs(toMove)):
+				if currentSpace.previous:
+					currentSpace = currentSpace.previous
+					
 	currentSpace.playersOnSpace.append(self)
 	currentSpace.on_land()
 	
 func moveTo(target: Space):
+	if currentSpace:
+		currentSpace.playersOnSpace.erase(self)
+		
 	while currentSpace != target:
 		if currentSpace.next == null: 
 			print("Error: Target space not found.")
 			return
-		if collectFromGO:
-			if currentSpace == Go_Space:
-				bank.pay_player(self, 200)
-				print(name, " has passed GO and collected £200.")
+			
+		if collectFromGO and currentSpace == Go_Space:
+			bank.pay_player(self, 200)
+			print(name, " has passed GO and collected £200.")
 		currentSpace = currentSpace.next
+		
+	currentSpace.playersOnSpace.append(self)
+	currentSpace.on_land()
 
 func goToJail():
 	inJail = true

@@ -1,4 +1,5 @@
 extends Card
+class_name Move_player_card
 
 var target : String # space the player is moving to
 var passGo : bool # whether the player should collect £200 when passing Go

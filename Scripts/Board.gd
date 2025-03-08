@@ -59,7 +59,9 @@ func addSpace(new_space: Space):
 		while current.next != head:
 			current = current.next 
 		current.next = new_space
+		new_space.previous = current
 		new_space.next = head
+		head.previous = new_space
 
 func findSpace(toFind: String):
 	var found: bool = false

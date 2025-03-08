@@ -1,13 +1,15 @@
 extends Card
+class_name Draw_or_pay_card
 
 var value : int
 var payToParking: bool
 var bank : Bank
+var parking : Free_Parking_Space
 var player = gameManager.get_current_player()
 
 func fine():
 	if payToParking:
-		Free_Parking_Space.money += value
+		parking.money += value
 		player.money -= value
 	else:
 		bank.receive_payment(player,value)

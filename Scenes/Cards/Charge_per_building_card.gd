@@ -1,4 +1,6 @@
 extends Card
+class_name Charge_per_building_card
+
 var houseVal: int
 var hotelVal: int 
 var bank : Bank
