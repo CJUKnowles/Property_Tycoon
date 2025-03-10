@@ -16,8 +16,8 @@ enum SpaceType {
 
 @export var type: SpaceType
 @export var playersOnSpace: Array = []
-@export var next: Space = null
-@export var previous: Space = null
+@export var next: Space = self
+@export var previous: Space = self
 var gameManager:GameManager
 
 func _ready():

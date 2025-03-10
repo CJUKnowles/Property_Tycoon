@@ -31,7 +31,6 @@ func _ready():
 	
 	start_new_round()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var player = get_current_player()

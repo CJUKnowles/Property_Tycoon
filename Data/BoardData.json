@@ -263,7 +263,7 @@
 	"tile_name": "Crusher Creek"
   },
   "30": {
-	"tile_type": "got_to_jail_space",
+	"tile_type": "go_to_jail_space",
 	"tile_name": "Go to Jail"
   },
   "31": {
