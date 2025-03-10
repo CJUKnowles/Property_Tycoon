@@ -12,6 +12,7 @@ zoom = Vector2(0.11, 0.11)
 script = ExtResource("2_t0q61")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
 
 [node name="PlaceholderUI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -61,28 +62,34 @@ text = "2
 [node name="Button3" type="Button" parent="CanvasLayer/PlaceholderUI/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 69.915)
 layout_mode = 2
-text = "3"
+text = "Forfeit UNFINISHED
+"
 
 [node name="Buy" type="Button" parent="CanvasLayer/PlaceholderUI/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 69.915)
 layout_mode = 2
-text = "Buy UNFINISHED"
+text = "Buy UNFINISHED (should be a popup)"
 
 [node name="Sell" type="Button" parent="CanvasLayer/PlaceholderUI/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 69.915)
 layout_mode = 2
-text = "Sell UNFINISHED
-"
+text = "Sell UNFINISHED 
+(we need to be able to click properties to manage them)"
+autowrap_mode = 3
 
 [node name="Mortgage" type="Button" parent="CanvasLayer/PlaceholderUI/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 69.915)
 layout_mode = 2
-text = "Mortgage UNFINISHED"
+text = "Mortgage UNFINISHED 
+(we need to be able to click properties to manage them)"
+autowrap_mode = 3
 
 [node name="RollDiceButton" type="Button" parent="CanvasLayer/PlaceholderUI/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 69.915)
 layout_mode = 2
-text = "Roll Dice"
+text = "Roll Dice 
+(TODO: only rolls once, extra rolls from double require extra press"
+autowrap_mode = 3
 
 [node name="End Turn" type="Button" parent="CanvasLayer/PlaceholderUI/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 69.915)

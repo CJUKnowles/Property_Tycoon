@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6r5c0pcegxda"
-path="res://.godot/imported/Property_PLACEHOLDER.png-51b35a43a11f8c0c535cd774c05482cc.ctex"
+uid="uid://b7wb5qtqqtpvn"
+path="res://.godot/imported/PropertyHeader.png-db060a5ca40c64e742a43b7a1cd951cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Board Icons/Property_PLACEHOLDER.png"
-dest_files=["res://.godot/imported/Property_PLACEHOLDER.png-51b35a43a11f8c0c535cd774c05482cc.ctex"]
+source_file="res://Assets/UI/Board Icons/PropertyHeader.png"
+dest_files=["res://.godot/imported/PropertyHeader.png-db060a5ca40c64e742a43b7a1cd951cd.ctex"]
 
 [params]
 

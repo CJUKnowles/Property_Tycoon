@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c52oy4uxkluo7"]
+[gd_scene load_steps=6 format=3 uid="uid://c52oy4uxkluo7"]
 
 [ext_resource type="Script" uid="uid://cov2i7crofpkq" path="res://Scenes/Spaces/Property_Space.gd" id="1_ym2kd"]
-[ext_resource type="Texture2D" uid="uid://k1gvemtbktfs" path="res://Assets/UI/Single block/PropertyTile.jpg" id="2_8wnah"]
+[ext_resource type="PackedScene" uid="uid://bavskvk5svklf" path="res://Scenes/Spaces/Space Bases/space_base.tscn" id="2_f4aw4"]
+[ext_resource type="Texture2D" uid="uid://b7wb5qtqqtpvn" path="res://Assets/UI/Board Icons/PropertyHeader.png" id="3_f4aw4"]
 [ext_resource type="FontFile" uid="uid://bgob8pp8mcuur" path="res://Assets/UI/Fonts/Eina 04/Eina04-SemiBold.ttf" id="3_xbhjj"]
 
 [sub_resource type="Theme" id="Theme_f4aw4"]
@@ -11,11 +12,11 @@ default_font_size = 55
 [node name="PropertySpace" type="Node2D"]
 script = ExtResource("1_ym2kd")
 
-[node name="PropertyTile" type="Sprite2D" parent="."]
-texture = ExtResource("2_8wnah")
+[node name="Space_Template" parent="." instance=ExtResource("2_f4aw4")]
 
 [node name="ColorLabel" type="Sprite2D" parent="."]
-texture = ExtResource("2_8wnah")
+position = Vector2(0, -303)
+texture = ExtResource("3_f4aw4")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = -212.0

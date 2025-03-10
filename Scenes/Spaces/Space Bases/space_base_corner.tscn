@@ -1,7 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://qoij60spbumy"]
+[gd_scene load_steps=3 format=3 uid="uid://qoij60spbumy"]
 
 [ext_resource type="Texture2D" uid="uid://dolhf418jabk4" path="res://Assets/UI/Single block/Big tile.jpg" id="1_5yhpn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5yhpn"]
 
 [node name="CornerSpaceTemplatePlaceholder" type="Sprite2D"]
 scale = Vector2(1.07, 1.07)
 texture = ExtResource("1_5yhpn")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -364.0
+offset_top = -364.0
+offset_right = -365.0
+offset_bottom = -365.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5yhpn")

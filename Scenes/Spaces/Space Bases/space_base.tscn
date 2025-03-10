@@ -1,6 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bavskvk5svklf"]
+[gd_scene load_steps=3 format=3 uid="uid://bavskvk5svklf"]
 
 [ext_resource type="Texture2D" uid="uid://d3i64yjd3qh20" path="res://Assets/UI/Single block/FunctionTile.jpg" id="1_0nchp"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0nchp"]
+
 [node name="Space_Template" type="Sprite2D"]
 texture = ExtResource("1_0nchp")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -235.0
+offset_top = -391.0
+offset_right = -234.0
+offset_bottom = -390.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0nchp")
