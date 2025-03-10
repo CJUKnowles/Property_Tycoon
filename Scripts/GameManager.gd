@@ -14,6 +14,7 @@ func _ready():
 	board.gameManager = self
 	board.initialize()
 	add_child(board)
+	#Test
 	
 	# Permanent code: Generate example players via playerCount ---------------
 	for i in playerCount:
@@ -30,7 +31,6 @@ func _ready():
 	# ------------------------------------------------------------------------
 	
 	start_new_round()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

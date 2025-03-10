@@ -15,6 +15,8 @@ texture = ExtResource("2_8wnah")
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = -169.0
 offset_top = -341.0
-offset_right = -25.0
-offset_bottom = -276.0
+offset_right = 194.0
+offset_bottom = -249.0
 text = "todo: change color in script"
+fit_content = true
+scroll_active = false
