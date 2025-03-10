@@ -9,28 +9,35 @@ var turnCounter = 0 # increments after each player's turn. Resets to 0 on a new 
 var board:Board # board reference
 
 func _ready():
-	# Permanent code. Generate a board to play the game on.
+	# Generate board from file ---------------
 	board = Board.new()
 	board.gameManager = self
 	board.initialize()
 	add_child(board)
-	#Test
 	
-	# Permanent code: Generate example players via playerCount ---------------
+	# Generate example players via playerCount ---------------
 	for i in playerCount:
-		var newPlayer = Player.new()
-		newPlayer.name = ("Player_" + str(i))
-		newPlayer.currentSpace = board.head
-		newPlayer.gameManager = self
-		add_child(newPlayer)
-		players.append(newPlayer) # add the generated player to the players array
-	
+		var newPlayer = createAndGetPlayer("Player_" + str(i))
+		
 	print("List of players:")
 	for player in players:
 		print(player.name)
 	# ------------------------------------------------------------------------
 	
 	start_new_round()
+
+func createAndGetPlayer(name:String):
+	var path = "res://Scenes/Game/player.tscn"
+	if FileAccess.file_exists(path):
+		var newPlayer:Player = load(path).instantiate()
+		newPlayer.name = (name)
+		newPlayer.currentSpace = board.head
+		newPlayer.gameManager = self
+		add_child(newPlayer)
+		players.append(newPlayer) # add the generated player to the players array
+		return newPlayer
+	else:
+		return null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -48,11 +55,14 @@ func _process(delta):
 		player.goToJail()
 		player.takeTurn()
 		end_turn()
-	if Input.is_action_just_pressed("ui_accept") or Input.is_action_pressed("fast_turn"): # Makes the current player take their turn
-		print("\n" + player.name + "'s turn:")
-		print("----------------")
-		player.takeTurn()
-		end_turn()
+	if Input.is_action_pressed("fast_turn"): # Makes the current player take their turn quickly
+		take_current_turn();
+
+func take_current_turn():
+	print("\n" + self.get_current_player().name + "'s turn:")
+	print("----------------")
+	self.get_current_player().takeTurn()
+	end_turn()
 
 func get_current_player():
 	return players[turnCounter]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://chfvnen7cvdcj"]
+
+[ext_resource type="Texture2D" uid="uid://2s1v5mwsjh3p" path="res://Assets/UI/Game Piece/Purple/Purple Ship.PNG" id="1_lq2ly"]
+[ext_resource type="Script" uid="uid://birnh4bhad0kf" path="res://Scripts/Player.gd" id="2_sjqwj"]
+
+[node name="Player" type="Sprite2D"]
+texture = ExtResource("1_lq2ly")
+script = ExtResource("2_sjqwj")

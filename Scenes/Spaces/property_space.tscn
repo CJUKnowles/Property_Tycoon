@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c52oy4uxkluo7"]
+[gd_scene load_steps=5 format=3 uid="uid://c52oy4uxkluo7"]
 
 [ext_resource type="Script" uid="uid://cov2i7crofpkq" path="res://Scenes/Spaces/Property_Space.gd" id="1_ym2kd"]
 [ext_resource type="Texture2D" uid="uid://k1gvemtbktfs" path="res://Assets/UI/Single block/PropertyTile.jpg" id="2_8wnah"]
+[ext_resource type="FontFile" uid="uid://bgob8pp8mcuur" path="res://Assets/UI/Fonts/Eina 04/Eina04-SemiBold.ttf" id="3_xbhjj"]
 
-[node name="property_space" type="Node2D"]
+[sub_resource type="Theme" id="Theme_f4aw4"]
+default_font = ExtResource("3_xbhjj")
+default_font_size = 55
+
+[node name="PropertySpace" type="Node2D"]
 script = ExtResource("1_ym2kd")
 
 [node name="PropertyTile" type="Sprite2D" parent="."]
@@ -13,10 +18,13 @@ texture = ExtResource("2_8wnah")
 texture = ExtResource("2_8wnah")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -169.0
-offset_top = -341.0
-offset_right = 194.0
-offset_bottom = -249.0
+offset_left = -212.0
+offset_top = -219.0
+offset_right = 211.0
+offset_bottom = -91.0
+theme = SubResource("Theme_f4aw4")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "todo: change color in script"
 fit_content = true
 scroll_active = false
+horizontal_alignment = 1

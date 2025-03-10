@@ -2,12 +2,15 @@ extends Node2D
 class_name Player
 
 @export var money: int = 1500
-@export var currentSpace: Space= null
-@export var doubleCount: int=0
-@export var inJail: bool=false
-@export var jailTurns: int = 0
-@export var getOutOfJailFreeCard: bool=false
-@export var collectFromGO: bool=true
+@export var move_speed: float = 10
+@export var rotate_speed: float = 10
+
+var currentSpace: Space= null
+var doubleCount: int=0
+var inJail: bool=false
+var jailTurns: int = 0
+var getOutOfJailFreeCard: bool=false
+var collectFromGO: bool=true
 var bankrupt = false
 var gameManager
 var owned_spaces:Array[Space] = []
@@ -15,6 +18,10 @@ var bank : Bank
 
 func _ready():
 	print("Player is being setup!")
+	
+func _process(delta: float) -> void:
+	position = lerp(position, currentSpace.position, move_speed * delta)
+	rotation = lerp(rotation, currentSpace.rotation, rotate_speed * delta)
 
 func move(toMove: int):
 	if currentSpace == null:
@@ -30,7 +37,6 @@ func move(toMove: int):
 			for i in range(abs(toMove)):
 				if currentSpace.previous:
 					currentSpace = currentSpace.previous
-					
 	currentSpace.playersOnSpace.append(self)
 	currentSpace.on_land()
 	
@@ -105,12 +111,6 @@ func takeTurn():
 			move(total)
 			doubleCount = 0 #reset count
 			
-		
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-@warning_ignore("unused_parameter")
-func _process(delta: float) -> void:
-	pass
 func report():
 	print(name + " is currently at " + currentSpace.name + " with $" + str(money))
 	

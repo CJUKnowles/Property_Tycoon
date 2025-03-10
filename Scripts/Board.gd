@@ -76,9 +76,6 @@ func initialize():
 				new_space.rotation = deg_to_rad(180)
 			elif j<=40:
 				new_space.rotation = deg_to_rad(270)
-			
-		
-			
 
 # Instantiates and returns a Space scene of the specified type
 func createAndGetSpace(space_type: String):

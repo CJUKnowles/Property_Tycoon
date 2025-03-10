@@ -19,15 +19,16 @@ script = ExtResource("1_pxftm")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CornerSpaceTemplatePlaceholder"]
 anchors_preset = -1
-anchor_left = 0.183128
-anchor_top = -0.0219479
-anchor_right = 0.782579
-anchor_bottom = 0.137174
-offset_left = -473.5
-offset_top = -325.0
-offset_right = -256.5
-offset_bottom = -268.0
+anchor_left = 0.183525
+anchor_top = -0.0225632
+anchor_right = 0.581331
+anchor_bottom = 0.190057
+offset_left = -577.715
+offset_top = -88.2243
+offset_right = -360.715
+offset_bottom = -31.2243
 grow_horizontal = 2
+rotation = -0.785397
 theme = SubResource("Theme_vf3hr")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
