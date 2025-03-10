@@ -21,9 +21,10 @@ enum SpaceType {
 var gameManager:GameManager
 
 func _ready():
-	position = previous.position + Vector2(-450, 0)
+	#position = previous.position + Vector2(-450, 0)
 	#var random:Vector2 = Vector2(randi_range(-2000,2000), randi_range(-1600,1600))
 	#position += random
+	pass
 
 func on_land():
 	print("This is a space! Parent class")

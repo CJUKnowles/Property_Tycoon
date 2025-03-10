@@ -11,11 +11,16 @@ var potLuckPile:Deck = null
 var oppKnocksPile:Deck = null
 var freeParking:Free_Parking_Space
 
+var SPACE_OFFSET = 450
+var SPACE_EXTRA_OFFSET = 160
+
 func initialize():
+	var j = 0
 	# Import external BoardData.json as a dictionary
 	var tile_dict = {}
 	tile_dict = import_json(board_data_path)
 	for i in tile_dict:
+		j += 1
 		# Create and reference tiles from dictionary as tiles on the board
 		var new_space:Space = createAndGetSpace(tile_dict[i]["tile_type"])
 		# Create blank default space in case of undefined tile_type
@@ -44,6 +49,36 @@ func initialize():
 				new_space.price = int(tile_dict[i]["cost"])
 			elif tile_dict[i]["tile_type"] == "free_parking_space":
 				freeParking = new_space
+			var length = tile_dict.size()
+			var oneside = length/4
+			print("J: ", j)
+			
+			var current_offset = SPACE_OFFSET
+			
+			if j ==1 or j ==11 or j==21 or j ==31:
+				current_offset += SPACE_EXTRA_OFFSET
+			if j ==2 or j ==12 or j==22 or j ==32:
+				current_offset += SPACE_EXTRA_OFFSET
+			
+			if j <= 11:
+				new_space.position = new_space.previous.position + Vector2(-current_offset, 0)
+			elif j <= 21:
+				new_space.position = new_space.previous.position + Vector2(0, -current_offset)
+			elif j <= 31:
+				new_space.position = new_space.previous.position + Vector2(current_offset, 0)
+			elif j <= 41:
+				new_space.position = new_space.previous.position + Vector2(0, current_offset)
+			if j<=10:
+				new_space.rotation = deg_to_rad(0)
+			elif j<=20:
+				new_space.rotation = deg_to_rad(90)
+			elif j<=30:
+				new_space.rotation = deg_to_rad(180)
+			elif j<=40:
+				new_space.rotation = deg_to_rad(270)
+			
+		
+			
 
 # Instantiates and returns a Space scene of the specified type
 func createAndGetSpace(space_type: String):

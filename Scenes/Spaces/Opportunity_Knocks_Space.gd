@@ -1,7 +1,7 @@
 extends Space
 class_name Opportunity_Knocks_Space
 
-var deck : OpportunityKnocksDeck 
+var deck : Deck 
 
 func _ready():
 	type = Space.SpaceType.OPPORTUNITY_KNOCKS

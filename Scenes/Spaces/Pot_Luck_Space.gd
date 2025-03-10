@@ -1,7 +1,7 @@
 extends Space
 class_name Pot_Luck_Space
 
-var deck : PotLuckDeck
+var deck : Deck
 
 func _ready():
 	type = Space.SpaceType.POT_LUCK
