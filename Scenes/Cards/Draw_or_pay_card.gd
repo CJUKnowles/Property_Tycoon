@@ -6,8 +6,7 @@ var payToParking: bool
 var bank : Bank
 var parking : Free_Parking_Space
 var player = gameManager.get_current_player()
-var OpportunityKnocksDeck : OpportunityKnocksDeck
-var PotLuckDeck : PotLuckDeck
+var deck_name
 
 func fine():
 	if payToParking:
@@ -19,11 +18,8 @@ func fine():
 func getMoney():
 	bank.pay_player(player,value)
 	
-func drawOppotunityCard():
-	OpportunityKnocksDeck.draw()
-	
-func drawLuckCard():
-	PotLuckDeck.draw()
+func drawCard():
+	pass # draw from correct deck
 
 # Called when the node enters the scene tree for the first time.
 func on_draw():

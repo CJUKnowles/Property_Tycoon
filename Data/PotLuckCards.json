@@ -1,0 +1,100 @@
+{
+  "1": {
+	"card_type": "payout_card",
+	"description": "You inherit £200",
+	"value": 200,
+	"pay_to_parking": false
+  },
+  "2": {
+	"card_type": "payout_card",
+	"description": "You have won 2nd prize in a beauty contest, collect £50",
+	"value": 50,
+	"pay_to_parking": false
+  },
+  "3": {
+	"card_type": "move_player_card",
+	"description": "You are up the creek with no paddle - go back to the Old Creek",
+	"target": "Old Creek",
+	"pass_go": false
+  },
+  "4": {
+	"card_type": "payout_card",
+	"description": "Student loan refund. Collect £20",
+	"value": 20,
+	"pay_to_parking": false
+  },
+  "5": {
+	"card_type": "payout_card",
+	"description": "Bank error in your favour. Collect £200",
+	"value": 200,
+	"pay_to_parking": false
+  },
+  "6": {
+	"card_type": "payout_card",
+	"description": "Pay bill for text books of £100",
+	"value": -100,
+	"pay_to_parking": false
+  },
+  "7": {
+	"card_type": "payout_card",
+	"description": "Mega late night taxi bill pay £50",
+	"value": -100,
+	"pay_to_parking": false
+  },
+  "8": {
+	"card_type": "move_player_card",
+	"description": "Advance to go",
+	"target": "Go",
+	"pass_go": true
+  },
+  "9": {
+	"card_type": "payout_card",
+	"description": "From sale of Bitcoin you get £50",
+	"value": 50,
+	"pay_to_parking": false
+  },
+  "10": {
+	"card_type": "payout_card",
+	"description": "Bitcoin assets fall - pay off Bitcoin short fall",
+	"value": -50,
+	"pay_to_parking": false
+  },
+  "11": {
+	"card_type": "draw_or_pay_card",
+	"description": "Pay a £10 fine or take opportunity knocks",
+	"value": -10,
+	"pay_to_parking": true,
+	"card_list": "opportunity_knocks"
+  },
+  "12": {
+	"card_type": "payout_card",
+	"description": "Pay insurance fee of £50",
+	"value": -50,
+	"pay_to_parking": true
+  },
+  "13": {
+	"card_type": "payout_card",
+	"description": "Savings bond matures, collect £100",
+	"value": 100,
+	"pay_to_parking": false
+  },
+  "14": {
+	"card_type": "go_to_jail_card",
+	"description": "Go to jail. Do not pass GO, do not collect £200"
+  },
+  "15": {
+	"card_type": "payout_card",
+	"description": "Received interest on shares of £25",
+	"value": 25,
+	"pay_to_parking": false
+  },
+  "16": {
+	"card_type": "charge_per_player_card",
+	"description": "It's your birthday. Collect £10 from each player",
+	"value": 10
+  },
+  "17": {
+	"card_type": "get_out_of_jail_free_card",
+	"description": "Get out of jail free"
+  }
+}

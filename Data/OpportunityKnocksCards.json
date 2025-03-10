@@ -1,0 +1,93 @@
+{
+  "1": {
+	"card_type": "payout_card",
+	"description": "Bank pays you divided of £50",
+	"value": 50,
+	"pay_to_parking": false
+  },
+  "2": {
+	"card_type": "payout_card",
+	"description": "You have won a lip sync battle. Collect £100",
+	"value": 100,
+	"pay_to_parking": false
+  },
+  "3": {
+	"card_type": "move_player_card",
+	"description": "Advance to Turing Heights",
+	"target": "Turing Heights",
+	"pass_go": false
+  },
+  "4": {
+	"card_type": "move_player_card",
+	"description": "Advance to Han Xin Gardens. If you pass GO, collect £200",
+	"target": "Han Xin Gardens",
+	"pass_go": true
+  },
+  "5": {
+	"card_type": "payout_card",
+	"description": "Fined £15 for speeding",
+	"value": -15,
+	"pay_to_parking": true
+  },
+  "6": {
+	"card_type": "payout_card",
+	"description": "Pay university fees of £150",
+	"value": -150,
+	"pay_to_parking": false
+  },
+  "7": {
+	"card_type": "move_player_card",
+	"description": "Take a trip to Hove station. If you pass GO collect £200",
+	"target": "Hove Station",
+	"pass_go": true
+  },
+  "8": {
+	"card_type": "payout_card",
+	"description": "Loan matures, collect £150",
+	"value": 150,
+	"pay_to_parking": false
+  },
+  "9": {
+	"card_type": "charge_per_building_card",
+	"description": "You are assessed for repairs, £40/house, £115/hotel",
+	"cost_per_house": 40,
+	"cost_per_hotel": 115
+  },
+  "10": {
+	"card_type": "move_player_card",
+	"description": "Advance to GO",
+	"target": "Go",
+	"pass_go": true
+  },
+  "11": {
+	"card_type": "charge_per_building_card",
+	"description": "You are assessed for repairs, £25/house, £100/hotel",
+	"cost_per_house": 25,
+	"cost_per_hotel": 100
+  },
+  "12": {
+	"card_type": "move_spaces_card",
+	"description": "Go back 3 spaces",
+	"distance": -3
+  },
+  "13": {
+	"card_type": "move_player_card",
+	"description": "Advance to Skywalker Drive. If you pass GO collect £200",
+	"target": "Skywalker Drive",
+	"pass_go": true
+  },
+  "14": {
+	"card_type": "go_to_jail_card",
+	"description": "Go to jail. Do not pass GO, do not collect £200"
+  },
+  "15": {
+	"card_type": "payout_card",
+	"description": "Drunk in charge of a hoverboard. Fine £30",
+	"value": -30,
+	"pay_to_parking": true
+  },
+  "16": {
+	"card_type": "get_out_of_jail_free_card",
+	"description": "Get out of jail free"
+  }
+}
