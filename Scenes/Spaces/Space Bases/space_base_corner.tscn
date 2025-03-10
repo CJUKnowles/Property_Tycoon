@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://qoij60spbumy"]
 
-[ext_resource type="Texture2D" uid="uid://hsgapirn43ry" path="res://Assets/UI/Board/Corner_Space_Template_PLACEHOLDER.png" id="1_70lds"]
+[ext_resource type="Texture2D" uid="uid://dolhf418jabk4" path="res://Assets/UI/Single block/Big tile.jpg" id="1_5yhpn"]
 
 [node name="CornerSpaceTemplatePlaceholder" type="Sprite2D"]
-texture = ExtResource("1_70lds")
+scale = Vector2(1.07, 1.07)
+texture = ExtResource("1_5yhpn")

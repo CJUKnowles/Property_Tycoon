@@ -1,11 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://bj6wj55pvofo2"]
 
-[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_n5qa6"]
+[ext_resource type="Script" uid="uid://fu5802tlpfl8" path="res://Scripts/GameManager.gd" id="1_n5qa6"]
 
 [node name="JamesScene" type="Node2D"]
+texture_filter = 1
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_n5qa6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.3, 0.3)
+zoom = Vector2(0.15, 0.15)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bavskvk5svklf"]
 
-[ext_resource type="Texture2D" uid="uid://cyhtob1bmcwny" path="res://Assets/UI/Board/Space_template_PLACEHOLDER.png" id="1_dwvkl"]
+[ext_resource type="Texture2D" uid="uid://d3i64yjd3qh20" path="res://Assets/UI/Single block/FunctionTile.jpg" id="1_0nchp"]
 
-[node name="SpaceTemplatePlaceholder" type="Sprite2D"]
-texture = ExtResource("1_dwvkl")
+[node name="Space_Template" type="Sprite2D"]
+texture = ExtResource("1_0nchp")

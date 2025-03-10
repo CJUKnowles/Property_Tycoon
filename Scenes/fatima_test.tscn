@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://cq3mxtvb54rff"]
 
 [ext_resource type="Texture2D" uid="uid://bck5qufqu7otx" path="res://Assets/carina nebula.png" id="1_iv5ch"]
-[ext_resource type="Script" path="res://Scripts/fatimatest.gd" id="2_6xpl8"]
-[ext_resource type="Script" path="res://Scripts/boardTest.gd" id="3_t4s6r"]
-[ext_resource type="Script" path="res://Scripts/Die.gd" id="4_e517p"]
+[ext_resource type="Script" uid="uid://br01fmkvp1kix" path="res://Scripts/fatimatest.gd" id="2_6xpl8"]
+[ext_resource type="Script" uid="uid://chu7yssdfurhk" path="res://Scripts/boardTest.gd" id="3_t4s6r"]
+[ext_resource type="Script" uid="uid://dt1kj4gc3b3nw" path="res://Scripts/Die.gd" id="4_e517p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_roojc"]
 

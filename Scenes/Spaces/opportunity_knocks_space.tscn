@@ -1,16 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhorj47kg2vv2"]
 
-[ext_resource type="Script" path="res://Scenes/Spaces/Opportunity_Knocks_Space.gd" id="1_icrbt"]
+[ext_resource type="Script" uid="uid://c1obejs8cxyfc" path="res://Scenes/Spaces/Opportunity_Knocks_Space.gd" id="1_icrbt"]
 [ext_resource type="PackedScene" uid="uid://bavskvk5svklf" path="res://Scenes/Spaces/Space Bases/space_base.tscn" id="2_q2fyh"]
 [ext_resource type="Texture2D" uid="uid://donpfjg0o5qxv" path="res://Assets/UI/Board Icons/Question.png" id="3_cjlpm"]
 
 [node name="Opportunity_Knocks_Space" type="Node2D"]
 script = ExtResource("1_icrbt")
-type = null
-playersOnSpace = null
 
 [node name="SpaceTemplatePlaceholder" parent="." instance=ExtResource("2_q2fyh")]
 
 [node name="FreeParking" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_cjlpm")

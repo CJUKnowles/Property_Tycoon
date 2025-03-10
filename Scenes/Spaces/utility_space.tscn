@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjrsf0bhlg5s"]
 
-[ext_resource type="Script" path="res://Scenes/Spaces/Utility_Space.gd" id="1_vxhup"]
+[ext_resource type="Script" uid="uid://vghxu26i032k" path="res://Scenes/Spaces/Utility_Space.gd" id="1_vxhup"]
 [ext_resource type="PackedScene" uid="uid://bavskvk5svklf" path="res://Scenes/Spaces/Space Bases/space_base.tscn" id="2_y3vpj"]
 [ext_resource type="Texture2D" uid="uid://b4as0tjfrksfy" path="res://Assets/UI/Board Icons/Water Works.png" id="3_gk77o"]
 
@@ -10,5 +10,4 @@ script = ExtResource("1_vxhup")
 [node name="SpaceTemplatePlaceholder" parent="." instance=ExtResource("2_y3vpj")]
 
 [node name="FreeParking" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_gk77o")

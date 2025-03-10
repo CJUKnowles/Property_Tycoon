@@ -8,4 +8,8 @@ func _ready():
 	super._ready()
 	
 func on_land():
-	deck.draw_card()
+	if deck != null:
+		print("Drawing a card")
+		deck.draw_card()
+	else:
+		print("ERROR: Deck is null. Skipping draw.")
