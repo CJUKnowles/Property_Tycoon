@@ -103,6 +103,7 @@ func takeTurn():
 			print(name, " rolled a double and gets another turn!")
 			if doubleCount == 3:
 				doubleCount = 0 #reset count
+				print(name, " rolled three doubles and has to go to jail!")
 				goToJail()
 			else: 
 				move(total)
