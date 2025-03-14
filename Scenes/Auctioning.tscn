@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj731rk7axhlo"]
+
+[ext_resource type="Script" uid="uid://dwken8ip1tyi2" path="res://Scenes/auctioning.gd" id="1_483cr"]
+
+[node name="Auctioning" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_483cr")
+
+[node name="Property_Name" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Current_Bid" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Auction_Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Bidding_Time" type="Timer" parent="."]
