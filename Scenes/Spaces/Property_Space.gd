@@ -29,6 +29,7 @@ func toggle_mortgage():
 		var mortgagePaid = gameManager.get_current_player().charge(price/2)
 		if mortgagePaid:
 			isMortgaged = false
+			
 	else:
 		isMortgaged = true
 		landlord.pay(price/2)
