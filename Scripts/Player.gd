@@ -15,6 +15,8 @@ var bankrupt = false
 var gameManager
 var owned_spaces:Array[Space] = []
 var bank : Bank
+var bankruptManager: Bankrupt
+var freeParking: Free_Parking_Space
 
 func _ready():
 	print("Player is being setup!")
@@ -118,25 +120,36 @@ func report():
 # Attempts to charge the player the specified amount, otherwise go bankrupt
 # Returns true if successfully charged, false otherwise
 func charge(amount: int):
-	if money > amount:
-		money -= amount
-		print(name, " was charged $", str(amount), " and now has $", money, " remaining.")
-		return true
-	else:
+	if money < amount:
 		print(name, " cannot afford the $", str(amount), " charge!")
-		return false
-		# TODO: go bankrupt, or offer chance to sell/mortgage
+		var debt = amount - money
+		if bankruptManager:
+			bankruptManager.cantAfford(self, debt)
+		else:
+			print("Error: bankruptManager is not set!")
+		
+
+	money -= amount
+	print(name, " was charged $", str(amount), " and now has $", money, " remaining.")
+	return true
+
 
 func pay(amount: int):
 	money += amount
 	print(name, " was paid £", str(amount), " and now has £", money, " remaining.")
 
 func fine(amount):
-	if money > amount:
-		money -= amount
-		# TODO: add fine to free parking space funds
-		print(name, " was fined £", str(amount), " and now has £", money, " remaining.")
-		return true
+	if money < amount:
+			print(name, " cannot afford the £", str(amount), " fine!")
+			var debt = amount - money
+			if bankruptManager:
+				bankruptManager.cantAfford(self, debt)
+			else:
+				print("Error: bankruptManager is not set!")
+		
 	else:
-		print(name, " cannot afford the £", str(amount), " fine!")
-		return false
+		money -= amount
+		freeParking.money += amount
+		print(name, " was fined £", str(amount), " and now has £", money, " remaining.")
+
+		

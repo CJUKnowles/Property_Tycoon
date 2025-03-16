@@ -11,6 +11,8 @@ var potLuckPile:Deck = null
 var oppKnocksPile:Deck = null
 var freeParking:Free_Parking_Space
 
+
+
 var SPACE_OFFSET = 450
 var SPACE_EXTRA_OFFSET = 160
 
@@ -123,3 +125,4 @@ func import_json(path: String):
 			print("Error reading file")
 	else:
 		print("File doesn't exist")
+		

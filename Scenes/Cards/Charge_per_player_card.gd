@@ -3,6 +3,8 @@ class_name Charge_per_player_card
 
 var value : int
 var numOfPlayers = gameManager.playerCount
+var bankrupt :Bankrupt
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,5 +13,9 @@ func on_draw():
 	for i in range(numOfPlayers):
 		var toGive = gameManager.players[i]
 		if  toGive != player:
+			if value > toGive.money:
+				var debt = value - toGive.money
+				bankruptManager.cantAfford(toGive,debt)
 			toGive.money -= value
 			player.money += value
+			

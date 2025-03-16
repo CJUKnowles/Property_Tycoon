@@ -7,11 +7,18 @@ var bank : Bank
 var parking : Free_Parking_Space
 var player = gameManager.get_current_player()
 var deck_name
+var bankrupt :Bankrupt
+var potLuckDeck: Deck
+var opportunityKnocksDeck: Deck
 
 func fine():
+	if value > player.money:
+			var debt = value - player.money
+			bankruptManager.cantAfford(player,debt)
+			
 	if payToParking:
-		parking.money += value
 		player.money -= value
+		parking.money += value
 	else:
 		bank.receive_payment(player,value)
 
@@ -19,7 +26,16 @@ func getMoney():
 	bank.pay_player(player,value)
 	
 func drawCard():
-	pass # draw from correct deck
+	var deck = null
+	match deck_name:
+		"POT_LUCK":
+			deck = potLuckDeck
+		"OPPORTUNITY_KNOCK":
+			deck = opportunityKnocksDeck
+		_:
+			print("Error: Unknown deck name - " + deck_name)
+	if deck != null:
+		deck.draw_card()
 
 # Called when the node enters the scene tree for the first time.
 func on_draw():

@@ -1,16 +1,15 @@
-extends Property_Space
-
+extends Node
 class_name Bankrupt
-var value = 0
 
-func cantAfford(player: Player, debt: int):
+func canAfford(player: Player, debt: int):
 	while not player.bankrupt:
 		mortgageOrSell(player,debt)
 	declareBankrupt(player)
 	
 		
 func sell(player: Player, property: Property_Space):
-	if property in player.owned_spaces:
+	var value = 0
+	if player.owned_spaces.has(property):
 		if property.isMortgaged:
 			value = property.price / 2
 		else:
@@ -33,7 +32,7 @@ func enoughMoney(player: Player, debt: int):
 		print("You now have enough money to pay off your debts!")
 		return true
 	else:
-		if player.owned_spaces == null:
+		if player.owned_spaces.is_empty():
 			player.bankrupt = true
 		return false
 	
