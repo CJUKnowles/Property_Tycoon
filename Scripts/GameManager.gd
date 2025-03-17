@@ -73,7 +73,8 @@ func take_current_turn():
 	print("\n" + self.get_current_player().name + "'s turn:")
 	print("----------------")
 	self.get_current_player().takeTurn()
-	end_turn()
+	if get_current_player().doubleCount == 0:
+		end_turn()
 
 func get_current_player():
 	return players[turnCounter]
@@ -97,3 +98,7 @@ func start_new_round():
 func goTo(player : Player, target: Space):
 	while player.currentSpace != target:
 		player.currentSpace = player.currentSpace.next
+
+
+func _on_roll_dice_button_pressed() -> void:
+	pass # Replace with function body.
