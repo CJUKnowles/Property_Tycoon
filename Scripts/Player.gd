@@ -191,10 +191,8 @@ func declareBankrupt():
 	
 func mortgageOrSell(debt: int):
 	while bankrupt == false:
-		print(":(")
-		return null
-			
-			#TODO add buttons for sell + mortagae
+		bankrupt = true #temp fix to avoid infine loop, still need to implement
+			##TODO add buttons for sell + mortagae
 	
 
 		
