@@ -108,7 +108,6 @@ func takeTurn():
 				goToJail()
 			else: 
 				move(total)
-				takeTurn()
 		else: # We did not roll a double
 			move(total)
 			doubleCount = 0 #reset count
