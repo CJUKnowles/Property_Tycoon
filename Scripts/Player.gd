@@ -15,7 +15,6 @@ var bankrupt = false
 var gameManager
 var owned_spaces:Array[Space] = []
 var bank : Bank
-var bankruptManager: Bankrupt
 var freeParking: Free_Parking_Space
 
 func _ready():
@@ -123,10 +122,7 @@ func charge(amount: int):
 	if money < amount:
 		print(name, " cannot afford the $", str(amount), " charge!")
 		var debt = amount - money
-		if bankruptManager:
-			bankruptManager.cantAfford(self, debt)
-		else:
-			print("Error: bankruptManager is not set!")
+		cantAfford(debt)
 		
 
 	money -= amount
@@ -142,14 +138,63 @@ func fine(amount):
 	if money < amount:
 			print(name, " cannot afford the £", str(amount), " fine!")
 			var debt = amount - money
-			if bankruptManager:
-				bankruptManager.cantAfford(self, debt)
-			else:
-				print("Error: bankruptManager is not set!")
-		
+			cantAfford(debt)
+
 	else:
 		money -= amount
 		freeParking.money += amount
 		print(name, " was fined £", str(amount), " and now has £", money, " remaining.")
+
+
+
+func cantAfford(debt: int):
+	while not bankrupt:
+		mortgageOrSell(debt)
+	declareBankrupt()
+	
+		
+func sell(property: Property_Space):
+	var value = 0
+	if owned_spaces.has(property):
+		if property.isMortgaged:
+			value = property.price / 2
+		else:
+			value = property.price
+		print("Selling " + property.name + " for £" + value)
+		money += value
+		owned_spaces.erase(property)
+		property.landlord = null
+	else:
+		print("Invalid property selection or property not owned.")
+
+func mortgage( property: Property_Space):
+	if property.isMortgaged:
+		print("This property has already been mortgaged")
+	else:
+		property.toggle_mortgage()
+
+func enoughMoney(debt: int):
+	if money >= debt:
+		print("You now have enough money to pay off your debts!")
+		return true
+	else:
+		if owned_spaces.is_empty():
+			bankrupt = true
+		return false
+	
+func declareBankrupt():
+	print(name + " is bankrupt!")
+	for property in owned_spaces:
+		property.landlord = null
+	owned_spaces.clear()
+	queue_free()
+	
+func mortgageOrSell(debt: int):
+	while bankrupt == false:
+		print(":(")
+		return null
+			
+			#TODO add buttons for sell + mortagae
+	
 
 		

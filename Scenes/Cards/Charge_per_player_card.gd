@@ -3,7 +3,7 @@ class_name Charge_per_player_card
 
 var value : int
 var numOfPlayers = gameManager.playerCount
-var bankrupt :Bankrupt
+
 
 
 
@@ -15,7 +15,7 @@ func on_draw():
 		if  toGive != player:
 			if value > toGive.money:
 				var debt = value - toGive.money
-				bankruptManager.cantAfford(toGive,debt)
+				toGive.cantAfford(debt)
 			toGive.money -= value
 			player.money += value
 			

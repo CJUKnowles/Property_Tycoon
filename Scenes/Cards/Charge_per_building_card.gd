@@ -4,7 +4,7 @@ class_name Charge_per_building_card
 var houseVal: int
 var hotelVal: int 
 var bank : Bank
-var bankrupt: Bankrupt
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,6 +18,6 @@ func on_draw():
 	
 	if toPay > player.money:
 		var debt = toPay -player.money 
-		bankruptManager.cantAfford(player,debt)
+		player.cantAfford(debt)
 		
 	bank.receive_payment(player,toPay)
