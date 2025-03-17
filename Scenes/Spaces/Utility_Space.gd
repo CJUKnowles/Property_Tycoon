@@ -2,7 +2,7 @@ extends Buyable_Space
 class_name Utility_Space
 
 var cost: int
-var bankruptManager: Bankrupt
+
 
 func _ready():
 	super._ready()
@@ -19,7 +19,7 @@ func on_land():
 			# 10 times the dice roll if 2 utilities owned
 			if charge > player.money:
 				var debt = charge - player.money
-				bankruptManager.cantAfford(player,debt)
+				player.cantAfford(debt)
 	else:
 		print("Landed on an unowned Utility. Attempting to purchase: ")
 		purchase()

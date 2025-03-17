@@ -7,7 +7,7 @@ var players:Array[Player] = [];
 var roundCounter = 0 # increments once all players have had a turn
 var turnCounter = 0 # increments after each player's turn. Resets to 0 on a new round.
 var board:Board # board reference
-@export var bankruptManager: Bankrupt
+
 
 
 
@@ -18,12 +18,6 @@ func _ready():
 	board.gameManager = self
 	board.initialize()
 	add_child(board)
-	
-	if bankruptManager == null:
-		print("Error: BankruptManager is not set in the GameManager! Assigning a default one.")
-		bankruptManager = Bankrupt.new()
-		add_child(bankruptManager)
-
 	
 	# Generate example players via playerCount ---------------
 	for i in playerCount:

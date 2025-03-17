@@ -7,14 +7,14 @@ var bank : Bank
 var parking : Free_Parking_Space
 var player = gameManager.get_current_player()
 var deck_name
-var bankrupt :Bankrupt
+
 var potLuckDeck: Deck
 var opportunityKnocksDeck: Deck
 
 func fine():
 	if value > player.money:
 			var debt = value - player.money
-			bankruptManager.cantAfford(player,debt)
+			player.cantAfford(debt)
 			
 	if payToParking:
 		player.money -= value
