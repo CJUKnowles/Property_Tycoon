@@ -11,8 +11,6 @@ var gameManager:GameManager
 var jailCard : Get_out_of_jail_free_card
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
 
 func draw_card() -> Card:
 	if deck[pointer] == jailCard and !jailCard.inDeck:
@@ -26,8 +24,9 @@ func draw_card() -> Card:
 	return drawn
 	
 
-func initialize():
+func initialize(data_path: String):
 	# Import external card data into deck objects
+	cardData_path = data_path
 	var card_dict = {}
 	card_dict = import_json(cardData_path)
 	for i in card_dict:
