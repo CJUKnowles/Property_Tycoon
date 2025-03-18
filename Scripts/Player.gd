@@ -21,8 +21,8 @@ func _ready():
 	print("Player is being setup!")
 	
 func _process(delta: float) -> void:
-	position = lerp(position, currentSpace.position, move_speed * delta)
-	rotation = lerp(rotation, currentSpace.rotation, rotate_speed * delta)
+	position = lerp(position, currentSpace.global_position, move_speed * delta)
+	rotation = lerp(rotation, currentSpace.global_rotation, rotate_speed * delta)
 
 func move(toMove: int):
 	if currentSpace == null:

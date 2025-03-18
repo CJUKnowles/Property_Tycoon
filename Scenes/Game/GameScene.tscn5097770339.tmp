@@ -12,6 +12,7 @@ texture = ExtResource("3_afrlh")
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_7qrmg")
+playerCount = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(4929, -3039)

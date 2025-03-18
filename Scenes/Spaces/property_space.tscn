@@ -14,21 +14,23 @@ script = ExtResource("1_ym2kd")
 
 [node name="Space_Template" parent="." instance=ExtResource("2_f4aw4")]
 
-[node name="ColorLabel" type="Sprite2D" parent="."]
-position = Vector2(0, -303)
-texture = ExtResource("3_f4aw4")
-
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = -212.0
 offset_top = -219.0
 offset_right = 211.0
 offset_bottom = -91.0
+mouse_filter = 2
 theme = SubResource("Theme_f4aw4")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "todo: change color in script"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
+deselect_on_focus_loss_enabled = false
+
+[node name="ColorLabel" type="Sprite2D" parent="."]
+position = Vector2(0, -303)
+texture = ExtResource("3_f4aw4")
 
 [connection signal="pressed" from="Space_Template/Button" to="." method="on_click"]
 

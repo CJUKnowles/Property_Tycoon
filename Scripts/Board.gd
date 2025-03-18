@@ -17,6 +17,7 @@ var SPACE_OFFSET = 450
 var SPACE_EXTRA_OFFSET = 160
 
 func initialize():
+	self.rotation = deg_to_rad(90)
 	# Initialize card piles
 	potLuckPile.initialize(potluck_path)
 	oppKnocksPile.initialize(oppknocks_path)

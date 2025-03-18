@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://qoij60spbumy"]
+[gd_scene load_steps=4 format=3 uid="uid://qoij60spbumy"]
 
 [ext_resource type="Texture2D" uid="uid://dolhf418jabk4" path="res://Assets/UI/Single block/Big tile.jpg" id="1_5yhpn"]
+[ext_resource type="ButtonGroup" uid="uid://bq65s7up7wd4a" path="res://Resources/spaces_button_group.tres" id="2_owbqy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5yhpn"]
 
@@ -20,3 +21,6 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5yhpn")
+toggle_mode = true
+keep_pressed_outside = true
+button_group = ExtResource("2_owbqy")
