@@ -7,8 +7,12 @@
 [node name="Station_Space" type="Node2D"]
 script = ExtResource("1_cwjit")
 
-[node name="SpaceTemplatePlaceholder" parent="." instance=ExtResource("2_t1010")]
+[node name="Space_Template" parent="." instance=ExtResource("2_t1010")]
 
 [node name="FreeParking" type="Sprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_0f2dl")
+
+[connection signal="pressed" from="Space_Template/Button" to="." method="on_click"]
+
+[editable path="Space_Template"]

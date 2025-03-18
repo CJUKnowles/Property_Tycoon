@@ -14,3 +14,7 @@ script = ExtResource("1_7ltsk")
 rotation = -0.785398
 texture = ExtResource("3_65skr")
 script = ExtResource("4_r0pqt")
+
+[connection signal="pressed" from="CornerSpaceTemplatePlaceholder/Button" to="." method="on_click"]
+
+[editable path="CornerSpaceTemplatePlaceholder"]

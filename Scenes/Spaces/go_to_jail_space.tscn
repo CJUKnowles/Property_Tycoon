@@ -18,3 +18,7 @@ script = ExtResource("4_6de64")
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("4_dr3fj")
+
+[connection signal="pressed" from="CornerSpaceTemplatePlaceholder/Button" to="." method="on_click"]
+
+[editable path="CornerSpaceTemplatePlaceholder"]

@@ -29,3 +29,7 @@ text = "todo: change color in script"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
+
+[connection signal="pressed" from="Space_Template/Button" to="." method="on_click"]
+
+[editable path="Space_Template"]

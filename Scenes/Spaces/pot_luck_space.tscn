@@ -12,3 +12,7 @@ script = ExtResource("1_1sael")
 [node name="FreeParking" type="Sprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_68obe")
+
+[connection signal="pressed" from="SpaceTemplatePlaceholder/Button" to="." method="on_click"]
+
+[editable path="SpaceTemplatePlaceholder"]

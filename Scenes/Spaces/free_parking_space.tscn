@@ -41,3 +41,7 @@ metadata/_edit_use_anchors_ = true
 rotation = -0.785398
 texture = ExtResource("4_xnuk5")
 script = ExtResource("5_job4p")
+
+[connection signal="pressed" from="CornerSpaceTemplatePlaceholder/Button" to="." method="on_click"]
+
+[editable path="CornerSpaceTemplatePlaceholder"]

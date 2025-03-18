@@ -14,3 +14,7 @@ script = ExtResource("1_g5j1k")
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_0qkx6")
 script = ExtResource("4_nupir")
+
+[connection signal="pressed" from="CornerSpaceTemplatePlaceholder/Button" to="." method="on_click"]
+
+[editable path="CornerSpaceTemplatePlaceholder"]
