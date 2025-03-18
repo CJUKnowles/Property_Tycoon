@@ -7,8 +7,8 @@ var board_data_path = "res://Data/BoardData.json"
 var potluck_path = "res://Data/PotLuckCards.json"
 var oppknocks_path = "res://Data/OpportunityKnocksCards.json"
 var gameManager:GameManager
-var potLuckPile:Deck = null
-var oppKnocksPile:Deck = null
+var potLuckPile:Deck = Deck.new()
+var oppKnocksPile:Deck = Deck.new()
 var freeParking:Free_Parking_Space
 
 
@@ -17,6 +17,10 @@ var SPACE_OFFSET = 450
 var SPACE_EXTRA_OFFSET = 160
 
 func initialize():
+	# Initialize card piles
+	potLuckPile.initialize(potluck_path)
+	oppKnocksPile.initialize(oppknocks_path)
+	
 	var j = 0
 	# Import external BoardData.json as a dictionary
 	var tile_dict = {}
@@ -51,6 +55,11 @@ func initialize():
 				new_space.price = int(tile_dict[i]["cost"])
 			elif tile_dict[i]["tile_type"] == "free_parking_space":
 				freeParking = new_space
+			elif tile_dict[i]["tile_type"] == "pot_luck_space":
+				new_space.deck = potLuckPile
+			elif tile_dict[i]["tile_type"] == "opportunity_knocks_space":
+				new_space.deck = oppKnocksPile
+			
 			var length = tile_dict.size()
 			var oneside = length/4
 			print("J: ", j)
