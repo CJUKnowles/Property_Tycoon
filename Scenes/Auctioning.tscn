@@ -23,3 +23,4 @@ offset_right = 8.0
 offset_bottom = 8.0
 
 [node name="Bidding_Time" type="Timer" parent="."]
+wait_time = 5.0
