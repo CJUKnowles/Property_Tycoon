@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkdk5pw3kqydw"]
+[gd_scene load_steps=7 format=3 uid="uid://dkdk5pw3kqydw"]
 
 [ext_resource type="Script" uid="uid://dpwbgw4l8vgb2" path="res://Scenes/Spaces/Free_Parking_Space.gd" id="1_pxftm"]
 [ext_resource type="PackedScene" uid="uid://qoij60spbumy" path="res://Scenes/Spaces/Space Bases/space_base_corner.tscn" id="2_0sgc2"]
-[ext_resource type="ButtonGroup" uid="uid://bq65s7up7wd4a" path="res://Resources/spaces_button_group.tres" id="3_lfpk1"]
 [ext_resource type="FontFile" uid="uid://bgob8pp8mcuur" path="res://Assets/UI/Fonts/Eina 04/Eina04-SemiBold.ttf" id="3_v4ahy"]
 [ext_resource type="Texture2D" uid="uid://b31anbl58cr0i" path="res://Assets/UI/Board Icons/Free Parking.png" id="4_xnuk5"]
 [ext_resource type="Script" uid="uid://dxdoserx2whfq" path="res://Scenes/Spaces/whee.gd" id="5_job4p"]
@@ -17,9 +16,6 @@ texture_filter = 1
 script = ExtResource("1_pxftm")
 
 [node name="CornerSpaceTemplatePlaceholder" parent="." instance=ExtResource("2_0sgc2")]
-
-[node name="Button" parent="CornerSpaceTemplatePlaceholder" index="0"]
-button_group = ExtResource("3_lfpk1")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CornerSpaceTemplatePlaceholder"]
 anchors_preset = -1

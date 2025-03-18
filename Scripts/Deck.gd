@@ -2,7 +2,7 @@ extends Node
 class_name Deck
 
 #array containing Card objects
-var deck = [Card]
+var deck:Array[Card] = []
 var pointer = 0
 
 var cardData_path:String
@@ -13,12 +13,16 @@ var jailCard : Get_out_of_jail_free_card
 # Called when the node enters the scene tree for the first time.
 
 func draw_card() -> Card:
+	if deck.size() <= 0:
+		return null
+	
+	
 	if deck[pointer] == jailCard and !jailCard.inDeck:
-		if pointer == deck.length() - 1:
+		if pointer == deck.size() - 1:
 			pointer = 0
 		pointer += 1
-	var drawn = deck[pointer]
-	if pointer == deck.length() - 1:
+	var drawn:Card = deck[pointer]
+	if pointer == deck.size() - 1:
 			pointer = 0
 	pointer += 1
 	return drawn
