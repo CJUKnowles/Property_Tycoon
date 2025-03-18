@@ -84,6 +84,9 @@ func stayInJail():
 
 	
 func takeTurn():
+	if bankrupt:
+		print("skipping turn, player is bankrupt")
+		return
 	if inJail:
 		print(name, " is in jail.")
 		print("jail time: ", str(jailTurns), "/2")
@@ -147,8 +150,9 @@ func fine(amount):
 
 
 func cantAfford(debt: int):
-	while not bankrupt:
-		mortgageOrSell(debt)
+	while not bankrupt and not enoughMoney(debt):
+		print("You must mortgage or sell properties to cover your debt.")
+		await get_tree().process_frame
 	declareBankrupt()
 	
 		
@@ -159,7 +163,7 @@ func sell(property: Property_Space):
 			value = property.price / 2
 		else:
 			value = property.price
-		print("Selling " + property.name + " for £" + value)
+		print("Selling " + property.name + " for £" + str(value))
 		money += value
 		owned_spaces.erase(property)
 		property.landlord = null
@@ -186,12 +190,7 @@ func declareBankrupt():
 	for property in owned_spaces:
 		property.landlord = null
 	owned_spaces.clear()
-	queue_free()
 	
-func mortgageOrSell(debt: int):
-	while bankrupt == false:
-		bankrupt = true #temp fix to avoid infine loop, still need to implement
-			##TODO add buttons for sell + mortagae
-	
+
 
 		

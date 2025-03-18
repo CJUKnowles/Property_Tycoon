@@ -31,3 +31,4 @@ func on_land():
 
 func on_click():
 	print(name, " was clicked on!")
+	gameManager.selectedSpace = self

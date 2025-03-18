@@ -8,7 +8,6 @@
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_dwwuj")
-playerCount = null
 
 [node name="PropertyTest" type="Node2D" parent="."]
 script = ExtResource("2_s6vyh")

@@ -255,6 +255,8 @@ text = "Dash"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="pressed" from="CanvasLayer/PlaceholderUI/Panel/VBoxContainer/Top Section/HBoxContainer/Sell" to="." method="_on_sell_pressed"]
+[connection signal="pressed" from="CanvasLayer/PlaceholderUI/Panel/VBoxContainer/Top Section/HBoxContainer/Mortgage" to="." method="_on_mortgage_pressed"]
 [connection signal="pressed" from="CanvasLayer/PlaceholderUI/Panel/VBoxContainer/Sell" to="." method="_on_sell_pressed"]
 [connection signal="pressed" from="CanvasLayer/PlaceholderUI/Panel/VBoxContainer/RollDiceButton" to="." method="take_current_turn"]
 [connection signal="pressed" from="CanvasLayer/PlaceholderUI/Panel/VBoxContainer/HBoxContainer/End Turn" to="." method="take_current_turn"]

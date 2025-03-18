@@ -7,6 +7,7 @@ var players:Array[Player] = [];
 var roundCounter = 0 # increments once all players have had a turn
 var turnCounter = 0 # increments after each player's turn. Resets to 0 on a new round.
 var board:Board # board reference
+var selectedSpace:Space
 
 
 
@@ -96,3 +97,11 @@ func goTo(player : Player, target: Space):
 
 func _on_roll_dice_button_pressed() -> void:
 	pass # Replace with function body.
+
+
+func _on_sell_pressed():
+	get_current_player().sell(selectedSpace)
+
+
+func _on_mortgage_pressed() -> void:
+	get_current_player().mortgage(selectedSpace)
