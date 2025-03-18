@@ -170,12 +170,6 @@ func sell(property: Property_Space):
 	else:
 		print("Invalid property selection or property not owned.")
 
-func mortgage( property: Property_Space):
-	if property.isMortgaged:
-		print("This property has already been mortgaged")
-	else:
-		property.toggle_mortgage()
-
 func enoughMoney(debt: int):
 	if money >= debt:
 		print("You now have enough money to pay off your debts!")

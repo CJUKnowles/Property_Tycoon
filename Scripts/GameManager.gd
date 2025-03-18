@@ -100,8 +100,8 @@ func _on_roll_dice_button_pressed() -> void:
 
 
 func _on_sell_pressed():
-	get_current_player().sell(selectedSpace)
+	selectedSpace.sell()
 
 
 func _on_mortgage_pressed() -> void:
-	get_current_player().mortgage(selectedSpace)
+	selectedSpace.toggle_mortgage()

@@ -7,7 +7,6 @@ var colorGroup: String
 var housePrice: int = 50
 var houses: int = 0
 var hotel: bool = false
-var isMortgaged: bool = false
 
 func _ready():
 	super._ready()
@@ -24,15 +23,7 @@ func on_land():
 		print("Landed on an unowned property. Attempting to purchase: ")
 		purchase()
 
-func toggle_mortgage():
-	if isMortgaged:
-		var mortgagePaid = gameManager.get_current_player().charge(price/2)
-		if mortgagePaid:
-			isMortgaged = false
-			
-	else:
-		isMortgaged = true
-		landlord.pay(price/2)
+
 
 
 func buy_house():
