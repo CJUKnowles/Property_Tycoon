@@ -150,9 +150,9 @@ func fine(amount):
 
 
 func cantAfford(debt: int):
-	while not bankrupt and not enoughMoney(debt):
-		print("You must mortgage or sell properties to cover your debt.")
-		await get_tree().process_frame
+	#while not bankrupt and not enoughMoney(debt):
+		#print("You must mortgage or sell properties to cover your debt.")
+		#await get_tree().process_frame
 	declareBankrupt()
 	
 		
@@ -180,10 +180,11 @@ func enoughMoney(debt: int):
 		return false
 	
 func declareBankrupt():
-	print(name + " is bankrupt!")
 	for property in owned_spaces:
 		property.landlord = null
 	owned_spaces.clear()
+	bankrupt = true
+	print(name + " is bankrupt!")
 	
 
 

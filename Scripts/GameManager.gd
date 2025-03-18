@@ -7,11 +7,7 @@ var players:Array[Player] = [];
 var roundCounter = 0 # increments once all players have had a turn
 var turnCounter = 0 # increments after each player's turn. Resets to 0 on a new round.
 var board:Board # board reference
-var selectedSpace:Space
-
-
-
-
+@onready var UI:Control = %UI
 
 func _ready():
 	# Generate board from file ---------------
@@ -105,8 +101,8 @@ func _on_roll_dice_button_pressed() -> void:
 
 
 func _on_sell_pressed():
-	selectedSpace.sell()
+	%UI.selectedSpace.sell()
 
 
 func _on_mortgage_pressed() -> void:
-	selectedSpace.toggle_mortgage()
+	%UI.selectedSpace.toggle_mortgage()

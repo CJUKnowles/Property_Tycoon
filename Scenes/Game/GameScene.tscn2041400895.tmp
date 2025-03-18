@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://doufe62ud8jmp"]
+[gd_scene load_steps=10 format=3 uid="uid://doufe62ud8jmp"]
 
 [ext_resource type="Script" uid="uid://fu5802tlpfl8" path="res://Scripts/GameManager.gd" id="1_7qrmg"]
 [ext_resource type="Script" uid="uid://ftdifqo3fq0x" path="res://Scenes/Game/Camera.gd" id="2_t0q61"]
@@ -13,14 +13,10 @@ bg_color = Color(1, 1, 1, 0.662745)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oytey"]
 texture = ExtResource("3_afrlh")
 
-[sub_resource type="LabelSettings" id="LabelSettings_0toxv"]
-font_size = 25
-font_color = Color(1, 0, 0, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oytey"]
 bg_color = Color(0.858824, 0.913725, 0.803922, 1)
 
-[node name="GameManager" type="Node" groups=["Utility"]]
+[node name="GameManager" type="Node"]
 script = ExtResource("1_7qrmg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -46,7 +42,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_oytey")
 
-[node name="UI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("selected_space_label") groups=["Utility"]]
+[node name="UI" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
@@ -55,7 +51,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_0toxv")
-selected_space_label = NodePath("UI_Right_Panel/VBoxContainer/UI_Space_Manager/Selected_Space/Selected_Space_Name")
 
 [node name="UI_Right_Panel" type="Panel" parent="CanvasLayer/UI"]
 layout_mode = 1
@@ -87,7 +82,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_t0q61")
 
-[node name="Selected_Space" type="Panel" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager"]
+[node name="Panel" type="Panel" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -98,22 +93,6 @@ offset_right = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_oytey")
-
-[node name="Selected_Space_Name" type="Label" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/Selected_Space"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -17.5
-offset_bottom = 17.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "placeholder space name"
-label_settings = SubResource("LabelSettings_0toxv")
-horizontal_alignment = 1
-vertical_alignment = 1
-clip_text = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager"]
 layout_mode = 1
@@ -132,27 +111,23 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Sell"
-clip_text = true
 
 [node name="Mortgage" type="Button" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Mortgage"
-clip_text = true
 
 [node name="Buy House" type="Button" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Buy house
 "
-clip_text = true
 
 [node name="Buy hotel" type="Button" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Buy hotel
 "
-clip_text = true
 
 [node name="Sell" type="Button" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 69.915)

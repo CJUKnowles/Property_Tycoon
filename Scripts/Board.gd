@@ -10,9 +10,6 @@ var gameManager:GameManager
 var potLuckPile:Deck = Deck.new()
 var oppKnocksPile:Deck = Deck.new()
 var freeParking:Free_Parking_Space
-
-
-
 var SPACE_OFFSET = 450
 var SPACE_EXTRA_OFFSET = 160
 

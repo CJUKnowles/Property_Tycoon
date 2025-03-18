@@ -30,5 +30,4 @@ func on_land():
 	print("This is a space! Parent class")
 
 func on_click():
-	print(name, " was clicked on!")
-	gameManager.selectedSpace = self
+	gameManager.UI.select_space(self)
