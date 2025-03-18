@@ -17,8 +17,13 @@ func _ready():
 	# Generate board from file ---------------
 	board = Board.new()
 	board.gameManager = self
+	board.name = "Board"
 	board.initialize()
-	add_child(board)
+	
+	# Makes board scale to screen (work in progress)
+	%CanvasLayer.add_child(board)
+	board.position = Vector2(60.71, 627.325)
+	board.scale = Vector2(.105,.105)
 	
 	# Generate example players via playerCount ---------------
 	for i in playerCount:
@@ -38,7 +43,7 @@ func createAndGetPlayer(name:String):
 		newPlayer.name = (name)
 		newPlayer.currentSpace = board.head
 		newPlayer.gameManager = self
-		add_child(newPlayer)
+		board.add_child(newPlayer)
 		players.append(newPlayer) # add the generated player to the players array
 		return newPlayer
 	else:
