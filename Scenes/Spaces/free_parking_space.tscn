@@ -17,6 +17,9 @@ script = ExtResource("1_pxftm")
 
 [node name="CornerSpaceTemplatePlaceholder" parent="." instance=ExtResource("2_0sgc2")]
 
+[node name="Button" parent="CornerSpaceTemplatePlaceholder" index="0"]
+visible = false
+
 [node name="RichTextLabel" type="RichTextLabel" parent="CornerSpaceTemplatePlaceholder"]
 anchors_preset = -1
 anchor_left = 0.183525

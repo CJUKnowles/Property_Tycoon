@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyctgjltdwne7"]
+
+[sub_resource type="Gradient" id="Gradient_f4aw4"]
+colors = PackedColorArray(0.554693, 0, 0.184686, 0.376471, 0.584064, 0, 0.189564, 0.372549)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_41y8h"]
+gradient = SubResource("Gradient_f4aw4")
+
+[node name="disabled_space_overlay" type="Sprite2D"]
+visible = false
+scale = Vector2(1.66406, 708)
+texture = SubResource("GradientTexture1D_41y8h")

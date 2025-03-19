@@ -9,6 +9,9 @@ script = ExtResource("1_1sael")
 
 [node name="SpaceTemplatePlaceholder" parent="." instance=ExtResource("2_i1bmm")]
 
+[node name="Button" parent="SpaceTemplatePlaceholder" index="0"]
+visible = false
+
 [node name="FreeParking" type="Sprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_68obe")

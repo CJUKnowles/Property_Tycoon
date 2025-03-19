@@ -46,7 +46,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_oytey")
 
-[node name="UI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("selected_space_label") groups=["Utility"]]
+[node name="UI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("space_label", "space_owner_label", "space_mortgaged_label", "sell_button", "mortgage_button", "buy_house_button", "buy_hotel_button") groups=["Utility"]]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
@@ -55,7 +55,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_0toxv")
-selected_space_label = NodePath("UI_Right_Panel/VBoxContainer/UI_Space_Manager/Selected_Space/Selected_Space_Name")
+space_label = NodePath("UI_Right_Panel/VBoxContainer/UI_Space_Manager/Selected_Space/Space_Label")
+space_owner_label = NodePath("UI_Right_Panel/VBoxContainer/UI_Space_Manager/Selected_Space/Owner_Label")
+space_mortgaged_label = NodePath("UI_Right_Panel/VBoxContainer/UI_Space_Manager/Selected_Space/Mortgaged_label")
+sell_button = NodePath("UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer/Sell")
+mortgage_button = NodePath("UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer/Mortgage")
+buy_house_button = NodePath("UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer/Buy House")
+buy_hotel_button = NodePath("UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer/Buy hotel")
 
 [node name="UI_Right_Panel" type="Panel" parent="CanvasLayer/UI"]
 layout_mode = 1
@@ -99,7 +105,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_oytey")
 
-[node name="Selected_Space_Name" type="Label" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/Selected_Space"]
+[node name="Space_Label" type="Label" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/Selected_Space"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -110,6 +116,38 @@ offset_bottom = 17.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "placeholder space name"
+label_settings = SubResource("LabelSettings_0toxv")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Mortgaged_label" type="Label" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/Selected_Space"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 16.2
+offset_bottom = 51.2
+grow_horizontal = 2
+grow_vertical = 2
+text = "Mortgaged: false"
+label_settings = SubResource("LabelSettings_0toxv")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Owner_Label" type="Label" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/Selected_Space"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 50.2
+offset_bottom = 85.2
+grow_horizontal = 2
+grow_vertical = 2
+text = "Owner: None"
 label_settings = SubResource("LabelSettings_0toxv")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -5,6 +5,7 @@ var price: int
 var landlord: Player
 var bought: bool = false
 var isMortgaged: bool = false
+@onready var disabled_overlay:Sprite2D = $disabled_space_overlay
 
 # Makes the given player attempt to purchase this property. Should maybe be moved to Player class, generalize for all property spaces
 func purchase():
@@ -50,3 +51,4 @@ func toggle_mortgage():
 		isMortgaged = true
 		landlord.pay(price/2)
 		print(name + " was mortgaged!")	
+	disabled_overlay.visible = isMortgaged

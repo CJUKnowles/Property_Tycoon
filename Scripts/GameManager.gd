@@ -101,8 +101,8 @@ func _on_roll_dice_button_pressed() -> void:
 
 
 func _on_sell_pressed():
-	%UI.selectedSpace.sell()
+	%UI.selected_space.sell()
 
 
 func _on_mortgage_pressed() -> void:
-	%UI.selectedSpace.toggle_mortgage()
+	%UI.selected_space.toggle_mortgage()

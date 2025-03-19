@@ -10,6 +10,9 @@ script = ExtResource("1_g5j1k")
 
 [node name="CornerSpaceTemplatePlaceholder" parent="." instance=ExtResource("2_3wkfw")]
 
+[node name="Button" parent="CornerSpaceTemplatePlaceholder" index="0"]
+visible = false
+
 [node name="FreeParking" type="Sprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_0qkx6")
