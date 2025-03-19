@@ -16,6 +16,7 @@ var gameManager
 var owned_spaces:Array[Space] = []
 var bank : Bank
 var freeParking: Free_Parking_Space
+var turn_over = false # is true when the player is out of rolls
 
 func _ready():
 	print("Player is being setup!")
@@ -93,6 +94,9 @@ func takeTurn():
 		jailTurns += 1
 		if jailTurns > 2:  # Misses two turns, then gets released
 			exitJail()
+	if turn_over:
+		print(name + " is out of rolls.")
+		return
 	
 	if !inJail:
 		print("jail: ",inJail)

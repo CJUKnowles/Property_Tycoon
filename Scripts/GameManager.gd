@@ -70,15 +70,19 @@ func take_current_turn():
 	print("----------------")
 	self.get_current_player().takeTurn()
 	if get_current_player().doubleCount == 0:
-		end_turn()
-
+		get_current_player().turn_over = true # TODO: clean this up
+		
 func get_current_player():
 	return players[turnCounter]
 
 func end_turn():
-	print("Ending " + get_current_player().name + "'s turn.")
-	turnCounter += 1
-	print("----------------")
+	if get_current_player().turn_over:
+		print("Ending " + get_current_player().name + "'s turn.")
+		get_current_player().turn_over = false
+		turnCounter += 1
+		print("----------------")
+	else:
+		print(get_current_player().name + " still has rolls left!")
 	
 	if turnCounter == playerCount:
 		start_new_round()
