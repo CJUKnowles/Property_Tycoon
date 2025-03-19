@@ -44,7 +44,7 @@ func initialize():
 				new_space.rent_prices.append(int(tile_dict[i]["rent_up4"]))
 				new_space.rent_prices.append(int(tile_dict[i]["rent_final"]))
 				new_space.price = int(tile_dict[i]["cost"])
-				new_space.colorGroup = tile_dict[i]["tile_group"]
+				new_space.set_color(tile_dict[i]["tile_group"])
 			elif tile_dict[i]["tile_type"] == "tax_space":
 				new_space.amount = int(tile_dict[i]["value"])
 			elif tile_dict[i]["tile_type"] == "station_space":
