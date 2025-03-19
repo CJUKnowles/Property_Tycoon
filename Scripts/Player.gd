@@ -185,7 +185,3 @@ func declareBankrupt():
 	owned_spaces.clear()
 	bankrupt = true
 	print(name + " is bankrupt!")
-	
-
-
-		

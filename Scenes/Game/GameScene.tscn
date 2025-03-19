@@ -239,4 +239,5 @@ text = "mobopoly"
 [connection signal="pressed" from="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer/Sell" to="." method="_on_sell_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer/Mortgage" to="." method="_on_mortgage_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/RollDiceButton" to="." method="take_current_turn"]
+[connection signal="pressed" from="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/HBoxContainer/Forfeit" to="." method="_on_forfeit_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/HBoxContainer/End Turn" to="." method="take_current_turn"]

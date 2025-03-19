@@ -21,7 +21,7 @@ func update_values():
 		
 	space_label.text = selected_space.name
 	space_mortgaged_label.text = "Mortgaged: " + str(selected_space.isMortgaged)
-	var landlord = "None"
+	var landlord = "Bank"
 	if selected_space.landlord != null:
 		landlord = selected_space.landlord.name
 	space_owner_label.text = "Owner: " + landlord
