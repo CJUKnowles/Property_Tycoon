@@ -13,6 +13,7 @@ var selected_space:Space
 func _process(delta: float) -> void:
 	# there is probably a more efficient way to do this. Some sort of listener for changing values?
 	update_values() 
+	update_buttons()
 	
 # updates all the text fields of the selected space UI element
 func update_values():
@@ -28,7 +29,7 @@ func update_values():
 
 # dynamically enables/disables buttons depending on the selected space
 func update_buttons():
-	if selected_space.landlord == null:
+	if selected_space == null or selected_space.landlord == null:
 		sell_button.disabled = true
 		mortgage_button.disabled = true
 		buy_house_button.disabled = true

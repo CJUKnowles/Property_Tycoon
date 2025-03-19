@@ -100,10 +100,16 @@ func _on_roll_dice_button_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_sell_pressed():
+	if %UI.selected_space == null:
+		return
 	%UI.selected_space.sell()
 
 func _on_mortgage_pressed() -> void:
+	if %UI.selected_space == null:
+		return
 	%UI.selected_space.toggle_mortgage()
 	
 func _on_forfeit_pressed() -> void:
+	if %UI.selected_space == null:
+		return
 	get_current_player().declareBankrupt()
