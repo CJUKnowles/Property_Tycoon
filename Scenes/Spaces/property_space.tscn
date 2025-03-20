@@ -37,7 +37,6 @@ texture = ExtResource("3_f4aw4")
 
 [node name="disabled_space_overlay" parent="." instance=ExtResource("5_41y8h")]
 position = Vector2(-0.999996, -17)
-scale = Vector2(1.66406, 708)
 
 [connection signal="pressed" from="Space_Template/Button" to="." method="on_click"]
 

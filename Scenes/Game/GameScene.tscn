@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://doufe62ud8jmp"]
+[gd_scene load_steps=14 format=3 uid="uid://doufe62ud8jmp"]
 
 [ext_resource type="Script" uid="uid://fu5802tlpfl8" path="res://Scripts/GameManager.gd" id="1_7qrmg"]
 [ext_resource type="Script" uid="uid://ftdifqo3fq0x" path="res://Scenes/Game/Camera.gd" id="2_t0q61"]
@@ -8,6 +8,8 @@
 [ext_resource type="FontFile" uid="uid://ba1asjcb16ita" path="res://Assets/UI/Fonts/Eina 01/Eina01-Light.ttf" id="5_dicpg"]
 [ext_resource type="StyleBox" path="res://Resources/Button_Hover.tres" id="6_kvjn8"]
 [ext_resource type="StyleBox" uid="uid://dppladllk3af4" path="res://Resources/Button.tres" id="7_volpv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvjn8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0q61"]
 bg_color = Color(1, 1, 1, 0.662745)
@@ -59,45 +61,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_0toxv")
-space_label = NodePath("UI_Right_Panel/VBoxContainer/UI_Space_Manager/Selected_Space/Space_Label")
-space_owner_label = NodePath("UI_Right_Panel/VBoxContainer/UI_Space_Manager/Selected_Space/Owner_Label")
-space_mortgaged_label = NodePath("UI_Right_Panel/VBoxContainer/UI_Space_Manager/Selected_Space/Mortgaged_label")
-sell_button = NodePath("UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer/Sell")
-mortgage_button = NodePath("UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer/Mortgage")
-buy_house_button = NodePath("UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer/Buy House")
-buy_hotel_button = NodePath("UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer/Buy hotel")
+space_label = NodePath("Panel/UI_Space_Manager/Selected_Space/Space_Label")
+space_owner_label = NodePath("Panel/UI_Space_Manager/Selected_Space/Owner_Label")
+space_mortgaged_label = NodePath("Panel/UI_Space_Manager/Selected_Space/Mortgaged_label")
+sell_button = NodePath("Panel/UI_Space_Manager/HBoxContainer/Sell")
+mortgage_button = NodePath("Panel/UI_Space_Manager/HBoxContainer/Mortgage")
+buy_house_button = NodePath("Panel/UI_Space_Manager/HBoxContainer/Buy House")
+buy_hotel_button = NodePath("Panel/UI_Space_Manager/HBoxContainer/Buy hotel")
 
-[node name="UI_Right_Panel" type="Panel" parent="CanvasLayer/UI"]
+[node name="Panel" type="Panel" parent="CanvasLayer/UI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.66
+anchor_left = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = -10.0
-grow_horizontal = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/UI_Right_Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = -10.0
+anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kvjn8")
 
-[node name="UI_Space_Manager" type="Panel" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
+[node name="UI_Space_Manager" type="Panel" parent="CanvasLayer/UI/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_t0q61")
 
-[node name="Selected_Space" type="Panel" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager"]
+[node name="Selected_Space" type="Panel" parent="CanvasLayer/UI/Panel/UI_Space_Manager"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -109,7 +102,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_oytey")
 
-[node name="Space_Label" type="Label" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/Selected_Space"]
+[node name="Space_Label" type="Label" parent="CanvasLayer/UI/Panel/UI_Space_Manager/Selected_Space"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -125,7 +118,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="Mortgaged_label" type="Label" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/Selected_Space"]
+[node name="Mortgaged_label" type="Label" parent="CanvasLayer/UI/Panel/UI_Space_Manager/Selected_Space"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -141,7 +134,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="Owner_Label" type="Label" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/Selected_Space"]
+[node name="Owner_Label" type="Label" parent="CanvasLayer/UI/Panel/UI_Space_Manager/Selected_Space"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -157,7 +150,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/Panel/UI_Space_Manager"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.8
@@ -170,21 +163,21 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sell" type="Button" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer"]
+[node name="Sell" type="Button" parent="CanvasLayer/UI/Panel/UI_Space_Manager/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = ExtResource("7_volpv")
 text = "Sell"
 clip_text = true
 
-[node name="Mortgage" type="Button" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer"]
+[node name="Mortgage" type="Button" parent="CanvasLayer/UI/Panel/UI_Space_Manager/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = ExtResource("7_volpv")
 text = "Mortgage"
 clip_text = true
 
-[node name="Buy House" type="Button" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer"]
+[node name="Buy House" type="Button" parent="CanvasLayer/UI/Panel/UI_Space_Manager/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = ExtResource("7_volpv")
@@ -192,7 +185,7 @@ text = "Buy house
 "
 clip_text = true
 
-[node name="Buy hotel" type="Button" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer"]
+[node name="Buy hotel" type="Button" parent="CanvasLayer/UI/Panel/UI_Space_Manager/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = ExtResource("7_volpv")
@@ -200,17 +193,33 @@ text = "Buy hotel
 "
 clip_text = true
 
-[node name="RollDiceButton" type="Button" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer"]
+[node name="Panel2" type="Panel" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RollDiceButton" type="Button" parent="CanvasLayer/UI/Panel2/Buttons"]
 custom_minimum_size = Vector2(0, 69.915)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_styles/normal = ExtResource("7_volpv")
 text = "Roll Dice"
 autowrap_mode = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer"]
-layout_mode = 2
-
-[node name="Forfeit" type="Button" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/HBoxContainer"]
+[node name="Forfeit" type="Button" parent="CanvasLayer/UI/Panel2/Buttons"]
 custom_minimum_size = Vector2(0, 69.915)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -218,7 +227,7 @@ theme_override_styles/hover = ExtResource("6_kvjn8")
 theme_override_styles/normal = ExtResource("7_volpv")
 text = "Forfeit"
 
-[node name="End Turn" type="Button" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/HBoxContainer"]
+[node name="End Turn" type="Button" parent="CanvasLayer/UI/Panel2/Buttons"]
 custom_minimum_size = Vector2(0, 69.915)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -249,8 +258,8 @@ theme_override_fonts/font = ExtResource("5_dicpg")
 theme_override_font_sizes/font_size = 76
 text = "mobopoly"
 
-[connection signal="pressed" from="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer/Sell" to="." method="_on_sell_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/UI_Space_Manager/HBoxContainer/Mortgage" to="." method="_on_mortgage_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/RollDiceButton" to="." method="take_current_turn"]
-[connection signal="pressed" from="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/HBoxContainer/Forfeit" to="." method="_on_forfeit_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/HBoxContainer/End Turn" to="." method="end_turn"]
+[connection signal="pressed" from="CanvasLayer/UI/Panel/UI_Space_Manager/HBoxContainer/Sell" to="." method="_on_sell_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Panel/UI_Space_Manager/HBoxContainer/Mortgage" to="." method="_on_mortgage_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Panel2/Buttons/RollDiceButton" to="." method="take_current_turn"]
+[connection signal="pressed" from="CanvasLayer/UI/Panel2/Buttons/Forfeit" to="." method="_on_forfeit_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Panel2/Buttons/End Turn" to="." method="end_turn"]
