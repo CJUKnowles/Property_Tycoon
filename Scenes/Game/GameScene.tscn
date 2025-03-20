@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://doufe62ud8jmp"]
+[gd_scene load_steps=13 format=3 uid="uid://doufe62ud8jmp"]
 
 [ext_resource type="Script" uid="uid://fu5802tlpfl8" path="res://Scripts/GameManager.gd" id="1_7qrmg"]
 [ext_resource type="Script" uid="uid://ftdifqo3fq0x" path="res://Scenes/Game/Camera.gd" id="2_t0q61"]
@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cmkjvstrvxi07" path="res://Assets/UI/Background/Demo3.png" id="3_oytey"]
 [ext_resource type="Script" uid="uid://cpvdt38gocth3" path="res://Scenes/Game/UI.gd" id="4_0toxv"]
 [ext_resource type="FontFile" uid="uid://ba1asjcb16ita" path="res://Assets/UI/Fonts/Eina 01/Eina01-Light.ttf" id="5_dicpg"]
-[ext_resource type="Texture2D" uid="uid://cpotu5tv3f5nb" path="res://Assets/UI/Interface/Hover Button.png" id="6_kvjn8"]
-[ext_resource type="Texture2D" uid="uid://bekojq7uqs7u7" path="res://Assets/UI/Interface/Button.png" id="7_volpv"]
+[ext_resource type="StyleBox" uid="uid://b44ebksmdp624" path="res://Resources/Button_Hover.tres" id="6_kvjn8"]
+[ext_resource type="StyleBox" uid="uid://dutb0k474x38g" path="res://Resources/Button.tres" id="7_volpv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0q61"]
 bg_color = Color(1, 1, 1, 0.662745)
@@ -18,12 +18,6 @@ texture = ExtResource("3_afrlh")
 [sub_resource type="LabelSettings" id="LabelSettings_0toxv"]
 font_size = 25
 font_color = Color(1, 0, 0, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_un2ny"]
-texture = ExtResource("6_kvjn8")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0maa"]
-texture = ExtResource("7_volpv")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oytey"]
 bg_color = Color(0.858824, 0.913725, 0.803922, 1)
@@ -203,6 +197,7 @@ clip_text = true
 [node name="RollDiceButton" type="Button" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 69.915)
 layout_mode = 2
+theme_override_styles/normal = ExtResource("7_volpv")
 text = "Roll Dice"
 autowrap_mode = 3
 
@@ -213,14 +208,16 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 69.915)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/hover = ExtResource("6_kvjn8")
+theme_override_styles/normal = ExtResource("7_volpv")
 text = "Forfeit"
 
 [node name="End Turn" type="Button" parent="CanvasLayer/UI/UI_Right_Panel/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 69.915)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/hover = SubResource("StyleBoxTexture_un2ny")
-theme_override_styles/normal = SubResource("StyleBoxTexture_j0maa")
+theme_override_styles/hover = ExtResource("6_kvjn8")
+theme_override_styles/normal = ExtResource("7_volpv")
 text = "End Turn
 "
 

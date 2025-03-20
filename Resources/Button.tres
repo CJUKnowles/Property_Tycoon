@@ -4,3 +4,5 @@
 
 [resource]
 texture = ExtResource("1_2gnie")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
