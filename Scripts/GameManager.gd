@@ -19,7 +19,6 @@ func _ready():
 	
 	# Makes board scale to screen (work in progress)
 	board_spawn_location.add_child(board)
-	board.position = Vector2(60, 340)
 	board.scale = Vector2(.105,.105)
 	
 	# Generate example players via playerCount ---------------

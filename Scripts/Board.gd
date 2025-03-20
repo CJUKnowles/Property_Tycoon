@@ -13,6 +13,9 @@ var freeParking:Free_Parking_Space
 var SPACE_OFFSET = 450
 var SPACE_EXTRA_OFFSET = 160
 
+func _ready():
+	position = Vector2(47, 17)
+
 func initialize():
 	self.rotation = deg_to_rad(90)
 	# Initialize card piles
