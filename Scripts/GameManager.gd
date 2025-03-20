@@ -8,6 +8,7 @@ var roundCounter = 0 # increments once all players have had a turn
 var turnCounter = 0 # increments after each player's turn. Resets to 0 on a new round.
 var board:Board # board reference
 @onready var UI:Control = %UI
+@export var board_spawn_location:Node2D
 
 func _ready():
 	# Generate board from file ---------------
@@ -17,8 +18,8 @@ func _ready():
 	board.initialize()
 	
 	# Makes board scale to screen (work in progress)
-	%CanvasLayer.add_child(board)
-	board.position = Vector2(60.71, 627.325)
+	board_spawn_location.add_child(board)
+	board.position = Vector2(60, 340)
 	board.scale = Vector2(.105,.105)
 	
 	# Generate example players via playerCount ---------------
