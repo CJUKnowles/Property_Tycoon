@@ -8,7 +8,7 @@
 
 [sub_resource type="Theme" id="Theme_f4aw4"]
 default_font = ExtResource("3_xbhjj")
-default_font_size = 55
+default_font_size = 100
 
 [node name="PropertySpace" type="Node2D" node_paths=PackedStringArray("color_header")]
 script = ExtResource("1_ym2kd")
@@ -20,11 +20,11 @@ color_header = NodePath("color_header")
 offset_left = -212.0
 offset_top = -219.0
 offset_right = 211.0
-offset_bottom = -91.0
+offset_bottom = 341.0
 mouse_filter = 2
 theme = SubResource("Theme_f4aw4")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "todo: change color in script"
+text = "Property Name Avenue"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1

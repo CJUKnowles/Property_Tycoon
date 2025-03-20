@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://doufe62ud8jmp"]
+[gd_scene load_steps=18 format=3 uid="uid://doufe62ud8jmp"]
 
 [ext_resource type="Script" uid="uid://fu5802tlpfl8" path="res://Scripts/GameManager.gd" id="1_7qrmg"]
 [ext_resource type="Script" uid="uid://ftdifqo3fq0x" path="res://Scenes/Game/Camera.gd" id="2_t0q61"]
@@ -7,7 +7,8 @@
 [ext_resource type="Script" uid="uid://cpvdt38gocth3" path="res://Scenes/Game/UI.gd" id="4_0toxv"]
 [ext_resource type="FontFile" uid="uid://ba1asjcb16ita" path="res://Assets/UI/Fonts/Eina 01/Eina01-Light.ttf" id="5_dicpg"]
 [ext_resource type="StyleBox" uid="uid://b44ebksmdp624" path="res://Resources/Button_Hover.tres" id="6_kvjn8"]
-[ext_resource type="StyleBox" uid="uid://dppladllk3af4" path="res://Resources/Button.tres" id="7_volpv"]
+[ext_resource type="StyleBox" uid="uid://besgh3cr8hq10" path="res://Resources/Button.tres" id="7_volpv"]
+[ext_resource type="Texture2D" uid="uid://lovlurks10jy" path="res://Assets/UI/Interface/Square_Button_tiny.png" id="8_j0maa"]
 [ext_resource type="Texture2D" uid="uid://dolhf418jabk4" path="res://Assets/UI/Single block/Big tile.jpg" id="8_un2ny"]
 [ext_resource type="Script" uid="uid://1cjkni2127h8" path="res://Scenes/Game/board_scaler.gd" id="9_volpv"]
 
@@ -22,6 +23,17 @@ texture = ExtResource("3_afrlh")
 [sub_resource type="LabelSettings" id="LabelSettings_0toxv"]
 font_size = 25
 font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0maa"]
+texture = ExtResource("8_j0maa")
+texture_margin_left = 18.0
+texture_margin_top = 10.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j0maa"]
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("board_spawn_location") groups=["Utility"]]
 script = ExtResource("1_7qrmg")
@@ -164,7 +176,7 @@ grow_vertical = 2
 [node name="Sell" type="Button" parent="CanvasLayer/UI/Panel/UI_Space_Manager/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = ExtResource("7_volpv")
+theme_override_styles/normal = SubResource("StyleBoxTexture_j0maa")
 text = "Sell"
 clip_text = true
 
@@ -198,8 +210,13 @@ anchor_left = 0.5
 anchor_top = 0.9
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_j0maa")
 
 [node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Panel2"]
 layout_mode = 1
@@ -210,7 +227,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Forfeit" type="Button" parent="CanvasLayer/UI/Panel2/Buttons"]
-custom_minimum_size = Vector2(0, 69.915)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/hover = ExtResource("6_kvjn8")
@@ -218,7 +234,6 @@ theme_override_styles/normal = ExtResource("7_volpv")
 text = "Forfeit"
 
 [node name="RollDiceButton" type="Button" parent="CanvasLayer/UI/Panel2/Buttons"]
-custom_minimum_size = Vector2(0, 69.915)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = ExtResource("7_volpv")
@@ -226,7 +241,6 @@ text = "Roll Dice"
 autowrap_mode = 3
 
 [node name="End Turn" type="Button" parent="CanvasLayer/UI/Panel2/Buttons"]
-custom_minimum_size = Vector2(0, 69.915)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/hover = ExtResource("6_kvjn8")
