@@ -37,12 +37,24 @@ func update_control_buttons():
 	if gameManager.get_current_player() == null:
 		return
 	
+	
+
+	
+	if gameManager.get_current_player().inDebt:
+		roll_button.disabled = true
+		end_turn_button.disabled = true
+	
 	if gameManager.get_current_player().turn_over:
 		roll_button.disabled = true
 		end_turn_button.disabled = false
-	else:
+	else :
 		roll_button.disabled = false
 		end_turn_button.disabled = true
+
+		
+		
+
+		
 
 # dynamically enables/disables buttons depending on the selected space
 func update_space_buttons():

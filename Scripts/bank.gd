@@ -10,7 +10,7 @@ func pay_player(player, amount: int):
 
 func receive_payment(player, amount: int):
 	print(player.name + " pays the bank £" + str(amount))
-	player.money -= amount
+	player.charge(amount)
 	money += amount
 
 # Called when the node enters the scene tree for the first time.

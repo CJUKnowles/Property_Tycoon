@@ -13,9 +13,6 @@ func on_draw():
 	for i in range(numOfPlayers):
 		var toGive = gameManager.players[i]
 		if  toGive != player:
-			if value > toGive.money:
-				var debt = value - toGive.money
-				toGive.cantAfford(debt)
-			toGive.money -= value
+			toGive.charge(value)
 			player.money += value
 			

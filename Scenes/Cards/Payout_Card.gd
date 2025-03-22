@@ -10,9 +10,6 @@ func on_draw():
 	var player = gameManager.get_current_player()
 	if value < 0:
 		value = value * -1
-		if value > player.money:
-			var debt = value - player.money
-			player.cantAfford(debt)
 		if PayFreeParking:
 			player.money -= value
 			freeParking.money += value

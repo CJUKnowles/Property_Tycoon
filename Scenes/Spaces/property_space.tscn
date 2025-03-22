@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bavskvk5svklf" path="res://Scenes/Spaces/Space Bases/space_base.tscn" id="2_f4aw4"]
 [ext_resource type="Texture2D" uid="uid://b7wb5qtqqtpvn" path="res://Assets/UI/Board Icons/PropertyHeader.png" id="3_f4aw4"]
 [ext_resource type="FontFile" uid="uid://bgob8pp8mcuur" path="res://Assets/UI/Fonts/Eina 04/Eina04-SemiBold.ttf" id="3_xbhjj"]
-[ext_resource type="PackedScene" uid="uid://dyctgjltdwne7" path="res://Scenes/Spaces/disabled_space_overlay.tscn" id="5_41y8h"]
+[ext_resource type="PackedScene" path="res://Scenes/Spaces/disabled_space_overlay.tscn" id="5_41y8h"]
 
 [sub_resource type="Theme" id="Theme_f4aw4"]
 default_font = ExtResource("3_xbhjj")

@@ -12,9 +12,7 @@ var potLuckDeck: Deck
 var opportunityKnocksDeck: Deck
 
 func fine():
-	if value > player.money:
-			var debt = value - player.money
-			player.cantAfford(debt)
+	
 			
 	if payToParking:
 		player.money -= value
@@ -43,5 +41,5 @@ func on_draw():
 	for i in range(gameManager.numOfPlayers):
 		var toGive = gameManager.players[i]
 		if  toGive != player:
-			toGive.money -= value
+			toGive.charge(value)
 			player.money += value

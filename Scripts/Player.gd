@@ -1,7 +1,7 @@
 extends Node2D
 class_name Player
 
-@export var money: int = 1500
+@export var money: int = 200
 @export var move_speed: float = 10
 @export var rotate_speed: float = 10
 
@@ -17,6 +17,8 @@ var owned_spaces:Array[Space] = []
 var bank : Bank
 var freeParking: Free_Parking_Space
 var turn_over = false # is true when the player is out of rolls
+var inDebt = false
+var Debt = 0
 
 func _ready():
 	print("Player is being setup!")
@@ -126,10 +128,10 @@ func report():
 # Returns true if successfully charged, false otherwise
 func charge(amount: int):
 	if money < amount:
-		print(name, " cannot afford the $", str(amount), " charge!")
+		print(name, " cannot afford the £", str(amount), " charge!")
 		var debt = amount - money
-		cantAfford(debt)
-		
+		cantAfford(debt)  
+		return false
 
 	money -= amount
 	print(name, " was charged $", str(amount), " and now has $", money, " remaining.")
@@ -154,34 +156,26 @@ func fine(amount):
 
 
 func cantAfford(debt: int):
-	#while not bankrupt and not enoughMoney(debt):
-		#print("You must mortgage or sell properties to cover your debt.")
-		#await get_tree().process_frame
-	declareBankrupt()
+	inDebt = true
+	Debt = debt
 	
-		
-func sell(property: Property_Space):
-	var value = 0
-	if owned_spaces.has(property):
-		if property.isMortgaged:
-			value = property.price / 2
-		else:
-			value = property.price
-		print("Selling " + property.name + " for £" + str(value))
-		money += value
-		owned_spaces.erase(property)
-		property.landlord = null
-	else:
-		print("Invalid property selection or property not owned.")
 
-func enoughMoney(debt: int):
-	if money >= debt:
+func enoughMoney():
+	print("caled")
+	if money >= Debt:
 		print("You now have enough money to pay off your debts!")
+		Debt = 0
+		inDebt = false
 		return true
+	elif money < Debt and !owned_spaces.is_empty():
+		print("You still need more money to pay off your debts!")
+		return false
 	else:
 		if owned_spaces.is_empty():
 			bankrupt = true
+			print("cbankrupt")
 		return false
+	print("called enough mon")
 	
 func declareBankrupt():
 	for property in owned_spaces:
@@ -189,3 +183,11 @@ func declareBankrupt():
 	owned_spaces.clear()
 	bankrupt = true
 	print(name + " is bankrupt!")
+	
+func forfeit():
+	for property in owned_spaces:
+		property.landlord = null
+	owned_spaces.clear()
+	bankrupt = true
+	print(name + " forfeited!")
+	

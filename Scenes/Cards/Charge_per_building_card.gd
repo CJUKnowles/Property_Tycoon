@@ -16,8 +16,4 @@ func on_draw():
 		if property.hotel:
 			toPay += hotelVal
 	
-	if toPay > player.money:
-		var debt = toPay -player.money 
-		player.cantAfford(debt)
-		
 	bank.receive_payment(player,toPay)

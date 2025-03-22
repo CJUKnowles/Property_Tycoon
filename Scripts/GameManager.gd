@@ -70,7 +70,8 @@ func take_current_turn():
 	print("----------------")
 	self.get_current_player().takeTurn()
 	if get_current_player().doubleCount == 0:
-		get_current_player().turn_over = true # TODO: clean this up
+		if !get_current_player().inDebt:
+			get_current_player().turn_over = true # TODO: clean this up
 		
 func get_current_player():
 	return players[turnCounter]
@@ -93,8 +94,21 @@ func start_new_round():
 	print("\n////////////////////////////////////////////////////")
 	print("BEGINNING ROUND " + str(roundCounter) + ":")
 	print("////////////////////////////////////////////////////")
+	check_winner()
 		
 	
+func check_winner():
+	var activePlayers = []
+	
+	for player in players:
+		if !player.bankrupt:
+			activePlayers.append(player)
+	
+	if players.size() == 1:
+		var winner = players[0]
+		print("Game Over! " + winner.name + " is the winner!")
+		
+		
 func goTo(player : Player, target: Space):
 	while player.currentSpace != target:
 		player.currentSpace = player.currentSpace.next
@@ -116,4 +130,4 @@ func _on_mortgage_pressed() -> void:
 func _on_forfeit_pressed() -> void:
 	if %UI.selected_space == null:
 		return
-	get_current_player().declareBankrupt()
+	get_current_player().forfeit()

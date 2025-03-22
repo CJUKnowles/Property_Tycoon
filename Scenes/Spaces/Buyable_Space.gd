@@ -10,12 +10,13 @@ var isMortgaged: bool = false
 # Makes the given player attempt to purchase this property. Should maybe be moved to Player class, generalize for all property spaces
 func purchase():
 	var player = gameManager.get_current_player()
-	var propertyPurchased = player.charge(price)
-	if propertyPurchased:
+	if player.money >= price:
+		var propertyPurchased = player.charge(price)
 		print("Charge successful! Bought ", self.name)
 		landlord = player
 		bought = true
 		player.owned_spaces.append(self)
+	
 	else:
 		print("Couldn't afford to buy the property. Moving on.")
 		pass
@@ -33,7 +34,9 @@ func sell():
 	print("Selling " + name + " for £" + str(sell_value))
 	landlord.money += sell_value
 	landlord.owned_spaces.erase(self)
+	landlord.enoughMoney()
 	landlord = null
+	
 		
 func toggle_mortgage():
 	if landlord == null:
@@ -51,4 +54,5 @@ func toggle_mortgage():
 		isMortgaged = true
 		landlord.pay(price/2)
 		print(name + " was mortgaged!")	
+		landlord.enoughMoney()
 	disabled_overlay.visible = isMortgaged
