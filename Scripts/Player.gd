@@ -19,6 +19,7 @@ var freeParking: Free_Parking_Space
 var turn_over = false # is true when the player is out of rolls
 var inDebt = false
 var Debt = 0
+var rollResult
 
 func _ready():
 	print("Player is being setup!")
@@ -102,7 +103,7 @@ func takeTurn():
 	
 	if !inJail:
 		print("jail: ",inJail)
-		var rollResult = Die.roll()
+		rollResult = Die.roll()
 		var die1 = rollResult[0]
 		var die2 = rollResult[1]
 		var total = rollResult[2]

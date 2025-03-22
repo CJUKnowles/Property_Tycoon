@@ -2,7 +2,7 @@ extends Buyable_Space
 class_name Utility_Space
 
 var cost: int
-
+var rent
 
 func _ready():
 	super._ready()
@@ -19,6 +19,22 @@ func on_land():
 			# 10 times the dice roll if 2 utilities owned
 			player.charge(value)
 			landlord += value
+
+			var roll = player.rollResult[0] + player.rollResult[1]
+			
+			#checks how many utilities landlord owns
+			var utilitiesOwned = 0
+			for i in landlord.owned_spaces:
+				if landlord.owned_spaces[i].type == Space.SpaceType.UTILITY:
+					utilitiesOwned += 1
+			
+			if utilitiesOwned > 1:
+				rent = 10 * roll
+			else:
+				rent = 4 * roll
+			
+			player.charge(rent) 
+			
 	else:
 		print("Landed on an unowned Utility. Attempting to purchase: ")
 		purchase()
