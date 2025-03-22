@@ -1,7 +1,7 @@
 extends Node2D
 class_name Player
 
-@export var money: int = 1500
+@export var money: int = 200
 @export var move_speed: float = 10
 @export var rotate_speed: float = 10
 
@@ -156,8 +156,13 @@ func fine(amount):
 
 
 func cantAfford(debt: int):
-	inDebt = true
-	Debt = debt
+	if owned_spaces.is_empty():
+			bankrupt = true
+			print("cbankrupt")
+			declareBankrupt()
+	else:
+		inDebt = true
+		Debt = debt
 	
 
 func enoughMoney():

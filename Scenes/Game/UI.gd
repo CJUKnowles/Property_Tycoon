@@ -64,19 +64,34 @@ func update_space_buttons():
 		buy_house_button.disabled = true
 		buy_hotel_button.disabled = true
 		return
-	elif selected_space is Property_Space:
+	elif selected_space is Property_Space and selected_space.landlord == gameManager.get_current_player():
 		sell_button.disabled = false
 		mortgage_button.disabled = false
 		buy_house_button.disabled = false
 		buy_hotel_button.disabled = false
-	elif selected_space is Station_Space:
+	elif selected_space is Property_Space and selected_space.landlord != gameManager.get_current_player():
+		sell_button.disabled = true
+		mortgage_button.disabled = true
+		buy_house_button.disabled = true
+		buy_hotel_button.disabled = true
+	elif selected_space is Station_Space and selected_space.landlord == gameManager.get_current_player():
 		sell_button.disabled = false
 		mortgage_button.disabled = false
 		buy_house_button.disabled = true
 		buy_hotel_button.disabled = true
-	elif selected_space is Utility_Space:
+	elif selected_space is Station_Space and selected_space.landlord != gameManager.get_current_player():
+		sell_button.disabled = true
+		mortgage_button.disabled = true
+		buy_house_button.disabled = true
+		buy_hotel_button.disabled = true
+	elif selected_space is Utility_Space and selected_space.landlord == gameManager.get_current_player():
 		sell_button.disabled = false
 		mortgage_button.disabled = false
+		buy_house_button.disabled = true
+		buy_hotel_button.disabled = true
+	elif selected_space is Utility_Space and selected_space.landlord != gameManager.get_current_player():
+		sell_button.disabled = true
+		mortgage_button.disabled = true
 		buy_house_button.disabled = true
 		buy_hotel_button.disabled = true
 

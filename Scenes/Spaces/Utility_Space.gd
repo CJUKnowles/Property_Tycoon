@@ -18,7 +18,7 @@ func on_land():
 			# 4 times the dice roll if 1 utility owned
 			# 10 times the dice roll if 2 utilities owned
 			player.charge(value)
-			landlord += value
+			landlord.money += value
 	else:
 		print("Landed on an unowned Utility. Attempting to purchase: ")
 		purchase()
