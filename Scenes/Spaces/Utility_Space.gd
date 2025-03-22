@@ -11,6 +11,7 @@ func _ready():
 func on_land():
 	var player = gameManager.get_current_player()
 	var value = 0
+	
 	if bought: 
 		if landlord != null and landlord != player:
 			print("Landed on a Utility owned by ", landlord.name, ". Attempting to charge player: ")
