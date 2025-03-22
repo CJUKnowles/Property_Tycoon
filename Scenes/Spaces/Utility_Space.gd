@@ -36,6 +36,7 @@ func on_land():
 			
 			player.charge(rent) 
 			
+			landlord.money += value
 	else:
 		print("Landed on an unowned Utility. Attempting to purchase: ")
 		purchase()
