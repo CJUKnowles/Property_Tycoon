@@ -19,14 +19,14 @@ func on_land():
 			# 4 times the dice roll if 1 utility owned
 			# 10 times the dice roll if 2 utilities owned
 			player.charge(value)
-			landlord += value
+			landlord.money += value
 
 			var roll = player.rollResult[0] + player.rollResult[1]
 			
 			#checks how many utilities landlord owns
 			var utilitiesOwned = 0
 			for i in landlord.owned_spaces:
-				if landlord.owned_spaces[i].type == Space.SpaceType.UTILITY:
+				if i.type == Space.SpaceType.UTILITY:
 					utilitiesOwned += 1
 			
 			if utilitiesOwned > 1:
@@ -35,8 +35,6 @@ func on_land():
 				rent = 4 * roll
 			
 			player.charge(rent) 
-			
-			landlord.money += value
 	else:
 		print("Landed on an unowned Utility. Attempting to purchase: ")
 		purchase()
