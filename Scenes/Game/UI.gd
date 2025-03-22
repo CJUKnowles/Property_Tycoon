@@ -39,7 +39,7 @@ func update_control_buttons():
 	
 	
 
-	
+	#TODO fix
 	if gameManager.get_current_player().inDebt:
 		roll_button.disabled = true
 		end_turn_button.disabled = true
