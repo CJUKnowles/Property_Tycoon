@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://doufe62ud8jmp"]
+[gd_scene load_steps=21 format=3 uid="uid://doufe62ud8jmp"]
 
 [ext_resource type="Script" uid="uid://fu5802tlpfl8" path="res://Scripts/GameManager.gd" id="1_7qrmg"]
 [ext_resource type="Script" uid="uid://ftdifqo3fq0x" path="res://Scenes/Game/Camera.gd" id="2_t0q61"]
@@ -10,6 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://besgh3cr8hq10" path="res://Resources/Button.tres" id="7_volpv"]
 [ext_resource type="Texture2D" uid="uid://lovlurks10jy" path="res://Assets/UI/Interface/Square_Button_tiny.png" id="8_j0maa"]
 [ext_resource type="Texture2D" uid="uid://dolhf418jabk4" path="res://Assets/UI/Single block/Big tile.jpg" id="8_un2ny"]
+[ext_resource type="Texture2D" uid="uid://61fcxrj3krfa" path="res://Assets/UI/Interface/Player.png" id="9_ono4l"]
 [ext_resource type="Script" uid="uid://1cjkni2127h8" path="res://Scenes/Game/board_scaler.gd" id="9_volpv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvjn8"]
@@ -37,6 +38,8 @@ axis_stretch_vertical = 2
 
 [sub_resource type="Theme" id="Theme_j0maa"]
 default_font_size = 0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ono4l"]
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("board_spawn_location") groups=["Utility"]]
 script = ExtResource("1_7qrmg")
@@ -72,17 +75,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_0toxv")
-space_label = NodePath("Panel/UI_Space_Manager/Selected_Space/Space_Label")
-space_owner_label = NodePath("Panel/UI_Space_Manager/Selected_Space/Owner_Label")
-space_mortgaged_label = NodePath("Panel/UI_Space_Manager/Selected_Space/Mortgaged_label")
-sell_button = NodePath("Panel/UI_Space_Manager/HBoxContainer/Sell")
-mortgage_button = NodePath("Panel/UI_Space_Manager/HBoxContainer/Mortgage")
-buy_house_button = NodePath("Panel/UI_Space_Manager/HBoxContainer/Buy House")
-buy_hotel_button = NodePath("Panel/UI_Space_Manager/HBoxContainer/Buy hotel")
-roll_button = NodePath("Panel2/Buttons/RollDiceButton")
-end_turn_button = NodePath("Panel2/Buttons/End Turn")
+space_label = NodePath("context_menu/UI_Space_Manager/Selected_Space/Space_Label")
+space_owner_label = NodePath("context_menu/UI_Space_Manager/Selected_Space/Owner_Label")
+space_mortgaged_label = NodePath("context_menu/UI_Space_Manager/Selected_Space/Mortgaged_label")
+sell_button = NodePath("context_menu/UI_Space_Manager/HBoxContainer/Sell")
+mortgage_button = NodePath("context_menu/UI_Space_Manager/HBoxContainer/Mortgage")
+buy_house_button = NodePath("context_menu/UI_Space_Manager/HBoxContainer/Buy House")
+buy_hotel_button = NodePath("context_menu/UI_Space_Manager/HBoxContainer/Buy hotel")
+roll_button = NodePath("player_controls/Buttons/RollDiceButton")
+end_turn_button = NodePath("player_controls/Buttons/End Turn")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/UI"]
+[node name="context_menu" type="Panel" parent="CanvasLayer/UI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -92,7 +95,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_kvjn8")
 
-[node name="UI_Space_Manager" type="Panel" parent="CanvasLayer/UI/Panel"]
+[node name="UI_Space_Manager" type="Panel" parent="CanvasLayer/UI/context_menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
@@ -103,7 +106,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_t0q61")
 
-[node name="Selected_Space" type="Panel" parent="CanvasLayer/UI/Panel/UI_Space_Manager"]
+[node name="Selected_Space" type="Panel" parent="CanvasLayer/UI/context_menu/UI_Space_Manager"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -115,7 +118,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_oytey")
 
-[node name="Space_Label" type="Label" parent="CanvasLayer/UI/Panel/UI_Space_Manager/Selected_Space"]
+[node name="Space_Label" type="Label" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Selected_Space"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -131,7 +134,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="Mortgaged_label" type="Label" parent="CanvasLayer/UI/Panel/UI_Space_Manager/Selected_Space"]
+[node name="Mortgaged_label" type="Label" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Selected_Space"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -147,7 +150,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="Owner_Label" type="Label" parent="CanvasLayer/UI/Panel/UI_Space_Manager/Selected_Space"]
+[node name="Owner_Label" type="Label" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Selected_Space"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -163,7 +166,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/Panel/UI_Space_Manager"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/context_menu/UI_Space_Manager"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.8
@@ -176,21 +179,21 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sell" type="Button" parent="CanvasLayer/UI/Panel/UI_Space_Manager/HBoxContainer"]
+[node name="Sell" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxTexture_j0maa")
 text = "Sell"
 clip_text = true
 
-[node name="Mortgage" type="Button" parent="CanvasLayer/UI/Panel/UI_Space_Manager/HBoxContainer"]
+[node name="Mortgage" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = ExtResource("7_volpv")
 text = "Mortgage"
 clip_text = true
 
-[node name="Buy House" type="Button" parent="CanvasLayer/UI/Panel/UI_Space_Manager/HBoxContainer"]
+[node name="Buy House" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = ExtResource("7_volpv")
@@ -198,7 +201,7 @@ text = "Buy house
 "
 clip_text = true
 
-[node name="Buy hotel" type="Button" parent="CanvasLayer/UI/Panel/UI_Space_Manager/HBoxContainer"]
+[node name="Buy hotel" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = ExtResource("7_volpv")
@@ -206,7 +209,7 @@ text = "Buy hotel
 "
 clip_text = true
 
-[node name="Panel2" type="Panel" parent="CanvasLayer/UI"]
+[node name="player_controls" type="Panel" parent="CanvasLayer/UI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -221,7 +224,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_j0maa")
 
-[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Panel2"]
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/player_controls"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -229,21 +232,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Forfeit" type="Button" parent="CanvasLayer/UI/Panel2/Buttons"]
+[node name="Forfeit" type="Button" parent="CanvasLayer/UI/player_controls/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/hover = ExtResource("6_kvjn8")
 theme_override_styles/normal = ExtResource("7_volpv")
 text = "Forfeit"
 
-[node name="RollDiceButton" type="Button" parent="CanvasLayer/UI/Panel2/Buttons"]
+[node name="RollDiceButton" type="Button" parent="CanvasLayer/UI/player_controls/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = ExtResource("7_volpv")
 text = "Roll Dice"
 autowrap_mode = 3
 
-[node name="End Turn" type="Button" parent="CanvasLayer/UI/Panel2/Buttons"]
+[node name="End Turn" type="Button" parent="CanvasLayer/UI/player_controls/Buttons"]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -254,6 +257,74 @@ text = "End Turn
 "
 autowrap_mode = 2
 clip_text = true
+
+[node name="player_list" type="Panel" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.08
+offset_left = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ono4l")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/player_list"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/player_list/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("9_ono4l")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/player_list/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("9_ono4l")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/UI/player_list/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("9_ono4l")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/UI/player_list/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("9_ono4l")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/UI/player_list/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("9_ono4l")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/UI/player_list/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("9_ono4l")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect7" type="TextureRect" parent="CanvasLayer/UI/player_list/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("9_ono4l")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="Board_anchor" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -287,8 +358,8 @@ theme_override_fonts/font = ExtResource("5_dicpg")
 theme_override_font_sizes/font_size = 76
 text = "modoboly"
 
-[connection signal="pressed" from="CanvasLayer/UI/Panel/UI_Space_Manager/HBoxContainer/Sell" to="." method="_on_sell_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/Panel/UI_Space_Manager/HBoxContainer/Mortgage" to="." method="_on_mortgage_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/Panel2/Buttons/Forfeit" to="." method="_on_forfeit_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/Panel2/Buttons/RollDiceButton" to="." method="take_current_turn"]
-[connection signal="pressed" from="CanvasLayer/UI/Panel2/Buttons/End Turn" to="." method="end_turn"]
+[connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/HBoxContainer/Sell" to="." method="_on_sell_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/HBoxContainer/Mortgage" to="." method="_on_mortgage_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/player_controls/Buttons/Forfeit" to="." method="_on_forfeit_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/player_controls/Buttons/RollDiceButton" to="." method="take_current_turn"]
+[connection signal="pressed" from="CanvasLayer/UI/player_controls/Buttons/End Turn" to="." method="end_turn"]
