@@ -38,6 +38,7 @@ func createAndGetPlayer(name:String):
 		var newPlayer:Player = load(path).instantiate()
 		newPlayer.name = (name)
 		newPlayer.currentSpace = board.head
+		newPlayer.currentVisualSpace = board.head
 		newPlayer.gameManager = self
 		board.add_child(newPlayer)
 		players.append(newPlayer) # add the generated player to the players array

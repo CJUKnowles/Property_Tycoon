@@ -6,6 +6,8 @@ class_name Player
 @export var rotate_speed: float = 10
 
 var currentSpace: Space= null
+var currentVisualSpace: Space = null
+@export var spaceMoveThreshold = 15 # The distance the player piece needs to be to a space before moving to the next
 var doubleCount: int=0
 var inJail: bool=false
 var jailTurns: int = 0
@@ -25,12 +27,23 @@ func _ready():
 	print("Player is being setup!")
 	
 func _process(delta: float) -> void:
-	position = lerp(position, currentSpace.position, move_speed * delta)
-	rotation = lerp(rotation, currentSpace.rotation, rotate_speed * delta)
+	animate_player(delta)
+	print("currentVisualSpace: ", currentVisualSpace)
+
+func animate_player(delta: float) -> void:
+	if currentVisualSpace == null or currentSpace == null:
+		return
+	
+	if currentVisualSpace != currentSpace and position.distance_squared_to(currentVisualSpace.position) < spaceMoveThreshold:
+		currentVisualSpace = currentVisualSpace.next
+	
+	position = lerp(position, currentVisualSpace.position, move_speed * delta)
+	rotation = lerp(rotation, currentVisualSpace.rotation, rotate_speed * delta)
 
 func move(toMove: int):
 	if currentSpace == null:
 		currentSpace = gameManager.board.head
+		currentVisualSpace = currentSpace
 	else:
 		currentSpace.playersOnSpace.erase(self) #removes player from current position
 		

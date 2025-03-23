@@ -6,3 +6,5 @@
 [node name="Player" type="Sprite2D"]
 texture = ExtResource("1_lq2ly")
 script = ExtResource("2_sjqwj")
+move_speed = 30.0
+spaceMoveThreshold = 16
