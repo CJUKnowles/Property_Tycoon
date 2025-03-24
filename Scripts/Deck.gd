@@ -25,6 +25,7 @@ func draw_card() -> Card:
 	if pointer == deck.size() - 1:
 			pointer = 0
 	pointer += 1
+	print(drawn.description)
 	return drawn
 	
 
@@ -38,7 +39,7 @@ func initialize(data_path: String):
 		var new_card:Card = createAndGetCard(card_dict[i]["card_type"])
 		# Create blank default card in case of undefined card_type
 		if new_card == null:
-			return createAndGetCard("card")
+			createAndGetCard("card")
 		else:
 			# Import card data from dictionary
 			new_card.description = card_dict[i]["description"]
@@ -62,6 +63,8 @@ func initialize(data_path: String):
 			elif card_dict[i]["card_type"] == "charge_per_player_card":
 				new_card.value = card_dict[i]["value"]
 			
+	print("Initialized Deck")
+	print(deck)
 	
 # Instantiates and returns a Card scene of the specified type
 func createAndGetCard(card_type: String):
