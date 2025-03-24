@@ -42,6 +42,7 @@ func createAndGetPlayer(name:String):
 		newPlayer.gameManager = self
 		board.add_child(newPlayer)
 		players.append(newPlayer) # add the generated player to the players array
+		UI.add_player_tab(newPlayer)
 		return newPlayer
 	else:
 		return null

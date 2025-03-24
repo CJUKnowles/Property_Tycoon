@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://doufe62ud8jmp"]
+[gd_scene load_steps=20 format=3 uid="uid://doufe62ud8jmp"]
 
 [ext_resource type="Script" uid="uid://fu5802tlpfl8" path="res://Scripts/GameManager.gd" id="1_7qrmg"]
 [ext_resource type="Script" uid="uid://ftdifqo3fq0x" path="res://Scenes/Game/Camera.gd" id="2_t0q61"]
@@ -6,11 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://cmkjvstrvxi07" path="res://Assets/UI/Background/Demo3.png" id="3_oytey"]
 [ext_resource type="Script" uid="uid://cpvdt38gocth3" path="res://Scenes/Game/UI.gd" id="4_0toxv"]
 [ext_resource type="FontFile" uid="uid://ba1asjcb16ita" path="res://Assets/UI/Fonts/Eina 01/Eina01-Light.ttf" id="5_dicpg"]
-[ext_resource type="StyleBox" uid="uid://b44ebksmdp624" path="res://Resources/Button_Hover.tres" id="6_kvjn8"]
+[ext_resource type="StyleBox" path="res://Resources/Button_Hover.tres" id="6_kvjn8"]
 [ext_resource type="StyleBox" uid="uid://besgh3cr8hq10" path="res://Resources/Button.tres" id="7_volpv"]
 [ext_resource type="Texture2D" uid="uid://lovlurks10jy" path="res://Assets/UI/Interface/Square_Button_tiny.png" id="8_j0maa"]
 [ext_resource type="Texture2D" uid="uid://dolhf418jabk4" path="res://Assets/UI/Single block/Big tile.jpg" id="8_un2ny"]
-[ext_resource type="Texture2D" uid="uid://61fcxrj3krfa" path="res://Assets/UI/Interface/Player.png" id="9_ono4l"]
 [ext_resource type="Script" uid="uid://1cjkni2127h8" path="res://Scenes/Game/board_scaler.gd" id="9_volpv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvjn8"]
@@ -64,7 +63,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_oytey")
 
-[node name="UI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("space_label", "space_owner_label", "space_mortgaged_label", "sell_button", "mortgage_button", "buy_house_button", "buy_hotel_button", "roll_button", "end_turn_button") groups=["Utility"]]
+[node name="UI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("space_label", "space_owner_label", "space_mortgaged_label", "sell_button", "mortgage_button", "buy_house_button", "buy_hotel_button", "roll_button", "end_turn_button", "player_list_location") groups=["Utility"]]
 unique_name_in_owner = true
 texture_filter = 1
 texture_repeat = 1
@@ -84,6 +83,7 @@ buy_house_button = NodePath("context_menu/UI_Space_Manager/HBoxContainer/Buy Hou
 buy_hotel_button = NodePath("context_menu/UI_Space_Manager/HBoxContainer/Buy hotel")
 roll_button = NodePath("player_controls/Buttons/RollDiceButton")
 end_turn_button = NodePath("player_controls/Buttons/End Turn")
+player_list_location = NodePath("player_list/HBoxContainer")
 
 [node name="context_menu" type="Panel" parent="CanvasLayer/UI"]
 layout_mode = 1
@@ -261,8 +261,8 @@ clip_text = true
 [node name="player_list" type="Panel" parent="CanvasLayer/UI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.08
+anchor_right = 1.0
+anchor_bottom = 0.1
 offset_left = 10.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -271,60 +271,11 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_ono4l")
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/player_list"]
 layout_direction = 2
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/player_list/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("9_ono4l")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI/player_list/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("9_ono4l")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/UI/player_list/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("9_ono4l")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/UI/player_list/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("9_ono4l")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/UI/player_list/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("9_ono4l")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/UI/player_list/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("9_ono4l")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="TextureRect7" type="TextureRect" parent="CanvasLayer/UI/player_list/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("9_ono4l")
-expand_mode = 1
-stretch_mode = 4
 
 [node name="Board_anchor" type="Control" parent="CanvasLayer"]
 layout_mode = 3

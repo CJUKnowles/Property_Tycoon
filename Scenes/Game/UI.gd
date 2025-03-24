@@ -12,7 +12,17 @@ var selected_space:Space
 
 @export var roll_button:Button
 @export var end_turn_button:Button
+
+@export var player_list_location:Control
+
+
 @onready var gameManager:GameManager = get_tree().current_scene
+@onready var player_tab_prefab = load("res://Scenes/UI/player_tab.tscn")
+
+func add_player_tab(player:Player):
+	var new_tab = player_tab_prefab.instantiate()
+	new_tab.initialize(player)
+	player_list_location.add_child(new_tab)
 
 func _process(delta: float) -> void:
 	# there is probably a more efficient way to do this. Some sort of listener for changing values?

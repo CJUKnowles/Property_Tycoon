@@ -28,7 +28,6 @@ func _ready():
 	
 func _process(delta: float) -> void:
 	animate_player(delta)
-	print("currentVisualSpace: ", currentVisualSpace)
 
 func animate_player(delta: float) -> void:
 	if currentVisualSpace == null or currentSpace == null:

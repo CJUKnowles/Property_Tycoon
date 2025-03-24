@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://da0opsa3lx80x"]
+
+[ext_resource type="Script" uid="uid://bfhf5xwi5wj2w" path="res://Scenes/Game/PlayerTab.gd" id="1_cb6f0"]
+[ext_resource type="Texture2D" uid="uid://61fcxrj3krfa" path="res://Assets/UI/Interface/Player.png" id="2_cs17r"]
+[ext_resource type="Texture2D" uid="uid://t642pp8ubrcu" path="res://Assets/UI/Game Piece/Blue/Blue Hat.PNG" id="3_1icc8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cb6f0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kie8x"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="player_tab" type="Panel" node_paths=PackedStringArray("money_label", "frame")]
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cb6f0")
+script = ExtResource("1_cb6f0")
+money_label = NodePath("default_frame/Money")
+frame = NodePath("default_frame")
+
+[node name="default_frame" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 228.0
+offset_bottom = 64.0
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_cs17r")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Money" type="Label" parent="default_frame"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.265
+anchor_top = 0.159
+anchor_right = 0.597
+anchor_bottom = 0.617
+grow_horizontal = 2
+grow_vertical = 2
+text = "$365"
+label_settings = SubResource("LabelSettings_kie8x")
+
+[node name="piece_texture" type="TextureRect" parent="default_frame"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.078
+anchor_top = 0.152
+anchor_right = 0.235
+anchor_bottom = 0.675
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_1icc8")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
