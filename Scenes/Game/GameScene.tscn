@@ -1,12 +1,18 @@
-[gd_scene load_steps=20 format=3 uid="uid://doufe62ud8jmp"]
+[gd_scene load_steps=26 format=3 uid="uid://doufe62ud8jmp"]
 
 [ext_resource type="Script" uid="uid://fu5802tlpfl8" path="res://Scripts/GameManager.gd" id="1_7qrmg"]
+[ext_resource type="Texture2D" uid="uid://b36hatn2pk1tt" path="res://Assets/UI/NewPiece/Ship.PNG" id="2_oy1v1"]
 [ext_resource type="Script" uid="uid://ftdifqo3fq0x" path="res://Scenes/Game/Camera.gd" id="2_t0q61"]
+[ext_resource type="Texture2D" uid="uid://bnjbbjd3uasbl" path="res://Assets/UI/NewPiece/Cat.PNG" id="3_68h7r"]
 [ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="3_afrlh"]
 [ext_resource type="Texture2D" uid="uid://cmkjvstrvxi07" path="res://Assets/UI/Background/Demo3.png" id="3_oytey"]
 [ext_resource type="Script" uid="uid://cpvdt38gocth3" path="res://Scenes/Game/UI.gd" id="4_0toxv"]
+[ext_resource type="Texture2D" uid="uid://bqqcn062pqpxw" path="res://Assets/UI/NewPiece/Boots.PNG" id="4_kdufk"]
 [ext_resource type="FontFile" uid="uid://ba1asjcb16ita" path="res://Assets/UI/Fonts/Eina 01/Eina01-Light.ttf" id="5_dicpg"]
+[ext_resource type="Texture2D" uid="uid://bjh4ndrefym6g" path="res://Assets/UI/NewPiece/Iron.PNG" id="5_levtd"]
+[ext_resource type="Texture2D" uid="uid://ckfpxg8nmwk8x" path="res://Assets/UI/NewPiece/Hatstand.PNG" id="6_bkgvn"]
 [ext_resource type="StyleBox" uid="uid://b44ebksmdp624" path="res://Resources/Button_Hover.tres" id="6_kvjn8"]
+[ext_resource type="Texture2D" uid="uid://dufqoqu64ie75" path="res://Assets/UI/NewPiece/Smartphone.PNG" id="7_68h7r"]
 [ext_resource type="StyleBox" uid="uid://besgh3cr8hq10" path="res://Resources/Button.tres" id="7_volpv"]
 [ext_resource type="Texture2D" uid="uid://lovlurks10jy" path="res://Assets/UI/Interface/Square_Button_tiny.png" id="8_j0maa"]
 [ext_resource type="Texture2D" uid="uid://dolhf418jabk4" path="res://Assets/UI/Single block/Big tile.jpg" id="8_un2ny"]
@@ -43,6 +49,7 @@ default_font_size = 0
 [node name="GameManager" type="Node" node_paths=PackedStringArray("board_spawn_location") groups=["Utility"]]
 script = ExtResource("1_7qrmg")
 board_spawn_location = NodePath("CanvasLayer/Board_anchor/Board_Scaler")
+player_piece_textures = [ExtResource("2_oy1v1"), ExtResource("3_68h7r"), ExtResource("6_bkgvn"), ExtResource("7_68h7r"), ExtResource("5_levtd"), ExtResource("4_kdufk")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(4929, -3039)

@@ -9,6 +9,7 @@ var turnCounter = 0 # increments after each player's turn. Resets to 0 on a new 
 var board:Board # board reference
 @onready var UI:Control = %UI
 @export var board_spawn_location:Node2D
+@export var player_piece_textures:Array
 
 func _ready():
 	# Generate board from file ---------------
@@ -42,6 +43,7 @@ func createAndGetPlayer(i:int):
 		newPlayer.currentSpace = board.head
 		newPlayer.currentVisualSpace = board.head
 		newPlayer.gameManager = self
+		newPlayer.get_child(0).texture = player_piece_textures[i]
 		board.add_child(newPlayer)
 		players.append(newPlayer) # add the generated player to the players array
 		UI.add_player_tab(newPlayer)

@@ -8,9 +8,9 @@ var initialized:bool = false # true if the player is properly assigned and ready
 
 @export var money_label:Label
 @export var frame:TextureRect
+@export var piece_texture:TextureRect
 @onready var default_frame_tex:CompressedTexture2D = load("res://Assets/UI/Interface/Player.png")
 @onready var current_frame_tex:CompressedTexture2D = load("res://Assets/UI/Interface/Player_Now.png")
-var piece_texture:TextureRect
 
 # The PlayerTab should be created by the player or gamemanager on player creation
 # The 
@@ -18,7 +18,7 @@ var piece_texture:TextureRect
 func initialize(new_player:Player):
 	player = new_player
 	gameManager = player.gameManager
-	# piece_texture = player.piece
+	piece_texture.texture = new_player.get_child(0).texture
 	# TODO: Assign the piece texture based on the player. Don't do this until pieces are fully implemented.
 	initialized = true
 
