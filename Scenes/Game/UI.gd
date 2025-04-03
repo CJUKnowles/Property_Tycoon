@@ -54,6 +54,8 @@ func update_control_buttons():
 
 # dynamically enables/disables buttons depending on the selected space
 func update_space_buttons():
+	var canManage = gameManager.get_current_player().turn_over or gameManager.get_current_player().inDebt
+	
 	if selected_space == null or selected_space.landlord == null:
 		sell_button.disabled = true
 		mortgage_button.disabled = true
@@ -61,18 +63,18 @@ func update_space_buttons():
 		buy_hotel_button.disabled = true
 		return
 	elif selected_space is Property_Space and selected_space.landlord == gameManager.get_current_player():
-		sell_button.disabled = false
-		mortgage_button.disabled = false
-		buy_house_button.disabled = false
-		buy_hotel_button.disabled = false
+		sell_button.disabled = !canManage
+		mortgage_button.disabled = !canManage
+		buy_house_button.disabled = !canManage
+		buy_hotel_button.disabled = !canManage
 	elif selected_space is Property_Space and selected_space.landlord != gameManager.get_current_player():
 		sell_button.disabled = true
 		mortgage_button.disabled = true
 		buy_house_button.disabled = true
 		buy_hotel_button.disabled = true
 	elif selected_space is Station_Space and selected_space.landlord == gameManager.get_current_player():
-		sell_button.disabled = false
-		mortgage_button.disabled = false
+		sell_button.disabled = !canManage
+		mortgage_button.disabled = !canManage
 		buy_house_button.disabled = true
 		buy_hotel_button.disabled = true
 	elif selected_space is Station_Space and selected_space.landlord != gameManager.get_current_player():
@@ -81,8 +83,8 @@ func update_space_buttons():
 		buy_house_button.disabled = true
 		buy_hotel_button.disabled = true
 	elif selected_space is Utility_Space and selected_space.landlord == gameManager.get_current_player():
-		sell_button.disabled = false
-		mortgage_button.disabled = false
+		sell_button.disabled = !canManage
+		mortgage_button.disabled = !canManage
 		buy_house_button.disabled = true
 		buy_hotel_button.disabled = true
 	elif selected_space is Utility_Space and selected_space.landlord != gameManager.get_current_player():
