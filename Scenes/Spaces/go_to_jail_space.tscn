@@ -6,8 +6,9 @@
 [ext_resource type="Script" uid="uid://dxdoserx2whfq" path="res://Scenes/Spaces/whee.gd" id="4_6de64"]
 [ext_resource type="Script" uid="uid://nobdl1jf7ef0" path="res://Scripts/Deck.gd" id="4_dr3fj"]
 
-[node name="go_to_jail_space" type="Node2D"]
+[node name="go_to_jail_space" type="Node2D" node_paths=PackedStringArray("landing_positions")]
 script = ExtResource("1_6q6y4")
+landing_positions = NodePath("CornerSpaceTemplatePlaceholder/landing_positions")
 
 [node name="CornerSpaceTemplatePlaceholder" parent="." instance=ExtResource("2_ly1fq")]
 

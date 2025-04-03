@@ -11,9 +11,10 @@ default_base_scale = 8.6
 default_font = ExtResource("3_v4ahy")
 default_font_size = 105
 
-[node name="free_parking_space" type="Node2D"]
+[node name="free_parking_space" type="Node2D" node_paths=PackedStringArray("landing_positions")]
 texture_filter = 1
 script = ExtResource("1_pxftm")
+landing_positions = NodePath("CornerSpaceTemplatePlaceholder/landing_positions")
 
 [node name="CornerSpaceTemplatePlaceholder" parent="." instance=ExtResource("2_0sgc2")]
 

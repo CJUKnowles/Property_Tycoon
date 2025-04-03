@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bavskvk5svklf"]
+[gd_scene load_steps=6 format=3 uid="uid://bavskvk5svklf"]
 
 [ext_resource type="Texture2D" uid="uid://d3i64yjd3qh20" path="res://Assets/UI/Single block/FunctionTile.jpg" id="1_0nchp"]
 [ext_resource type="ButtonGroup" uid="uid://bq65s7up7wd4a" path="res://Resources/spaces_button_group.tres" id="2_3m15x"]
@@ -6,6 +6,8 @@
 [sub_resource type="Theme" id="Theme_3m15x"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0nchp"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3m15x"]
 
 [node name="Space_Template" type="Sprite2D"]
 texture = ExtResource("1_0nchp")
@@ -25,3 +27,45 @@ theme = SubResource("Theme_3m15x")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0nchp")
 toggle_mode = true
 button_group = ExtResource("2_3m15x")
+
+[node name="landing_positions" type="Node2D" parent="."]
+
+[node name="landing_pos_1" type="Node2D" parent="landing_positions"]
+position = Vector2(-67, 37)
+
+[node name="Sprite2D" type="Sprite2D" parent="landing_positions/landing_pos_1"]
+visible = false
+scale = Vector2(42, 36)
+texture = SubResource("PlaceholderTexture2D_3m15x")
+
+[node name="landing_pos_2" type="Node2D" parent="landing_positions"]
+position = Vector2(75, 38)
+
+[node name="Sprite2D" type="Sprite2D" parent="landing_positions/landing_pos_2"]
+visible = false
+scale = Vector2(42, 36)
+texture = SubResource("PlaceholderTexture2D_3m15x")
+
+[node name="landing_pos_3" type="Node2D" parent="landing_positions"]
+position = Vector2(-58, 136)
+
+[node name="Sprite2D" type="Sprite2D" parent="landing_positions/landing_pos_3"]
+visible = false
+scale = Vector2(42, 36)
+texture = SubResource("PlaceholderTexture2D_3m15x")
+
+[node name="landing_pos_4" type="Node2D" parent="landing_positions"]
+position = Vector2(37, 119)
+
+[node name="Sprite2D" type="Sprite2D" parent="landing_positions/landing_pos_4"]
+visible = false
+scale = Vector2(42, 36)
+texture = SubResource("PlaceholderTexture2D_3m15x")
+
+[node name="landing_pos_5" type="Node2D" parent="landing_positions"]
+position = Vector2(0, 84)
+
+[node name="Sprite2D" type="Sprite2D" parent="landing_positions/landing_pos_5"]
+visible = false
+scale = Vector2(42, 36)
+texture = SubResource("PlaceholderTexture2D_3m15x")

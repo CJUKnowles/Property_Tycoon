@@ -24,3 +24,20 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_5yhpn")
 toggle_mode = true
 keep_pressed_outside = true
 button_group = ExtResource("2_owbqy")
+
+[node name="landing_positions" type="Node2D" parent="."]
+
+[node name="landing_pos_1" type="Node2D" parent="landing_positions"]
+position = Vector2(8.41121, 119.626)
+
+[node name="landing_pos_2" type="Node2D" parent="landing_positions"]
+position = Vector2(99.0654, 57.0093)
+
+[node name="landing_pos_3" type="Node2D" parent="landing_positions"]
+position = Vector2(130.841, 91.5888)
+
+[node name="landing_pos_4" type="Node2D" parent="landing_positions"]
+position = Vector2(79.4392, 156.075)
+
+[node name="landing_pos_5" type="Node2D" parent="landing_positions"]
+position = Vector2(34.5794, 34.5794)

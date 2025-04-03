@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bavskvk5svklf" path="res://Scenes/Spaces/Space Bases/space_base.tscn" id="2_be6xo"]
 [ext_resource type="Texture2D" uid="uid://c2vlkflibei8e" path="res://Assets/UI/Board Icons/Super Tax.png" id="3_wlf0y"]
 
-[node name="Tax_Space" type="Node2D"]
+[node name="Tax_Space" type="Node2D" node_paths=PackedStringArray("landing_positions")]
 script = ExtResource("1_r7qly")
+landing_positions = NodePath("SpaceTemplatePlaceholder/landing_positions")
 
 [node name="SpaceTemplatePlaceholder" parent="." instance=ExtResource("2_be6xo")]
 

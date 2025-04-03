@@ -10,9 +10,10 @@
 default_font = ExtResource("3_xbhjj")
 default_font_size = 80
 
-[node name="PropertySpace" type="Node2D" node_paths=PackedStringArray("color_header")]
+[node name="PropertySpace" type="Node2D" node_paths=PackedStringArray("color_header", "landing_positions")]
 script = ExtResource("1_ym2kd")
 color_header = NodePath("color_header")
+landing_positions = NodePath("Space_Template/landing_positions")
 
 [node name="Space_Template" parent="." instance=ExtResource("2_f4aw4")]
 

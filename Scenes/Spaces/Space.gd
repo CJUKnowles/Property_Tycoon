@@ -14,6 +14,9 @@ enum SpaceType {
 	UTILITY
 }
 
+
+@export var landing_positions:Node2D
+var landing_positions_list: Array = []
 @export var type: SpaceType
 @export var playersOnSpace: Array = []
 @export var next: Space = self
@@ -27,6 +30,10 @@ func _ready():
 	if($name != null):
 		print("i have a name")
 		$name.text = name
+	for pos in landing_positions.get_children():
+		#pos.reparent(gameManager.board)
+		landing_positions_list.append(pos)
+		print(pos)
 	pass
 
 func on_land():
@@ -34,3 +41,7 @@ func on_land():
 
 func on_click():
 	gameManager.UI.select_space(self)
+
+func get_landing_position(player_num):
+	#return position + landing_positions.get_child(player_num).position
+	return landing_positions_list[player_num].global_position

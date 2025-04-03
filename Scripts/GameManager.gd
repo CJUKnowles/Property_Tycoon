@@ -23,7 +23,8 @@ func _ready():
 	
 	# Generate example players via playerCount ---------------
 	for i in playerCount:
-		var newPlayer = createAndGetPlayer("Player_" + str(i))
+		var newPlayer = createAndGetPlayer(i)
+		
 		
 	print("List of players:")
 	for player in players:
@@ -32,11 +33,12 @@ func _ready():
 	
 	start_new_round()
 
-func createAndGetPlayer(name:String):
+func createAndGetPlayer(i:int):
 	var path = "res://Scenes/Game/player.tscn"
 	if FileAccess.file_exists(path):
 		var newPlayer:Player = load(path).instantiate()
-		newPlayer.name = (name)
+		newPlayer.name = "Player_" + str(i)
+		newPlayer.id_number = i
 		newPlayer.currentSpace = board.head
 		newPlayer.currentVisualSpace = board.head
 		newPlayer.gameManager = self

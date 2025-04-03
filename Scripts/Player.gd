@@ -2,12 +2,13 @@ extends Node2D
 class_name Player
 
 @export var money: int = 1500
-@export var move_speed: float = 10
+@export var move_speed: float = 30.0
 @export var rotate_speed: float = 10
+@export var spaceMoveThreshold = 16 # The distance the player piece needs to be to a space before moving to the next
 
+var id_number = -1
 var currentSpace: Space= null
 var currentVisualSpace: Space = null
-@export var spaceMoveThreshold = 15 # The distance the player piece needs to be to a space before moving to the next
 var doubleCount: int=0
 var inJail: bool=false
 var jailTurns: int = 0
@@ -22,6 +23,7 @@ var turn_over = false # is true when the player is out of rolls
 var inDebt = false
 var Debt = 0
 var rollResult
+var is_human
 
 func _ready():
 	print("Player is being setup!")
@@ -33,10 +35,14 @@ func animate_player(delta: float) -> void:
 	if currentVisualSpace == null or currentSpace == null:
 		return
 	
-	if currentVisualSpace != currentSpace and position.distance_squared_to(currentVisualSpace.position) < spaceMoveThreshold:
+	if currentVisualSpace != currentSpace and global_position.distance_squared_to(currentVisualSpace.get_landing_position(id_number)) < spaceMoveThreshold:
 		currentVisualSpace = currentVisualSpace.next
 	
-	position = lerp(position, currentVisualSpace.position, move_speed * delta)
+	print("currentSpace position: ", currentVisualSpace.position)
+	print("currentSpace landpos: ", currentVisualSpace.get_landing_position(id_number))
+	print("---------")
+	
+	global_position = lerp(global_position, currentVisualSpace.get_landing_position(id_number), move_speed * delta)
 	rotation = lerp(rotation, currentVisualSpace.rotation, rotate_speed * delta)
 
 func move(toMove: int):
@@ -100,39 +106,7 @@ func stayInJail():
 
 	
 func takeTurn():
-	if bankrupt:
-		print("skipping turn, player is bankrupt")
-		return
-	if inJail:
-		print(name, " is in jail.")
-		print("jail time: ", str(jailTurns), "/2")
-		jailTurns += 1
-		if jailTurns > 2:  # Misses two turns, then gets released
-			exitJail()
-	if turn_over:
-		print(name + " is out of rolls.")
-		return
-	
-	if !inJail:
-		print("jail: ",inJail)
-		rollResult = Die.roll()
-		var die1 = rollResult[0]
-		var die2 = rollResult[1]
-		var total = rollResult[2]
-		print("die1: ",die1,", die2: ",die2,", total: ",total)
-		
-		if die1 == die2: # We rolled a double
-			doubleCount += 1
-			print(name, " rolled a double and gets another turn!")
-			if doubleCount == 3:
-				doubleCount = 0 #reset count
-				print(name, " rolled three doubles and has to go to jail!")
-				goToJail()
-			else: 
-				move(total)
-		else: # We did not roll a double
-			move(total)
-			doubleCount = 0 #reset count
+	print("humanPlayer and AIPlayer should override this. If this is being printed, something has gone wrong.")
 			
 func report():
 	print(name + " is currently at " + currentSpace.name + " with $" + str(money))

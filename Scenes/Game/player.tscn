@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://chfvnen7cvdcj"]
 
-[ext_resource type="Texture2D" uid="uid://2s1v5mwsjh3p" path="res://Assets/UI/Game Piece/Purple/Purple Ship.PNG" id="1_lq2ly"]
-[ext_resource type="Script" uid="uid://birnh4bhad0kf" path="res://Scripts/Player.gd" id="2_sjqwj"]
+[ext_resource type="Texture2D" uid="uid://b36hatn2pk1tt" path="res://Assets/UI/NewPiece/Ship.PNG" id="1_lq2ly"]
+[ext_resource type="Script" uid="uid://b2jn0p48lpmwk" path="res://Scripts/HumanPlayer.gd" id="2_lq2ly"]
 
 [node name="Player" type="Sprite2D"]
+scale = Vector2(0.51, 0.51)
 texture = ExtResource("1_lq2ly")
-script = ExtResource("2_sjqwj")
-move_speed = 30.0
-spaceMoveThreshold = 16
+offset = Vector2(-59.69, -59.445)
+script = ExtResource("2_lq2ly")

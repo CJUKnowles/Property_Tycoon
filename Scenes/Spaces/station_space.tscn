@@ -10,8 +10,9 @@
 default_font = ExtResource("5_ds31g")
 default_font_size = 80
 
-[node name="Station_Space" type="Node2D"]
+[node name="Station_Space" type="Node2D" node_paths=PackedStringArray("landing_positions")]
 script = ExtResource("1_cwjit")
+landing_positions = NodePath("Space_Template/landing_positions")
 
 [node name="Space_Template" parent="." instance=ExtResource("2_t1010")]
 
