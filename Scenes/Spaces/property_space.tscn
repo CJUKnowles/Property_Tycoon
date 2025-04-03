@@ -8,7 +8,7 @@
 
 [sub_resource type="Theme" id="Theme_f4aw4"]
 default_font = ExtResource("3_xbhjj")
-default_font_size = 100
+default_font_size = 80
 
 [node name="PropertySpace" type="Node2D" node_paths=PackedStringArray("color_header")]
 script = ExtResource("1_ym2kd")
@@ -16,17 +16,18 @@ color_header = NodePath("color_header")
 
 [node name="Space_Template" parent="." instance=ExtResource("2_f4aw4")]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="name" type="RichTextLabel" parent="."]
 offset_left = -212.0
-offset_top = -219.0
+offset_top = -200.0
 offset_right = 211.0
-offset_bottom = 341.0
+offset_bottom = 336.0
 mouse_filter = 2
 theme = SubResource("Theme_f4aw4")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "Property Name Avenue"
+text = "Genghis Crescent"
 fit_content = true
 scroll_active = false
+autowrap_mode = 2
 horizontal_alignment = 1
 deselect_on_focus_loss_enabled = false
 
