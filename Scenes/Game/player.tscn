@@ -1,10 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://chfvnen7cvdcj"]
+[gd_scene load_steps=7 format=3 uid="uid://chfvnen7cvdcj"]
 
 [ext_resource type="Texture2D" uid="uid://b36hatn2pk1tt" path="res://Assets/UI/NewPiece/Ship.PNG" id="1_lq2ly"]
 [ext_resource type="Script" uid="uid://b2jn0p48lpmwk" path="res://Scripts/HumanPlayer.gd" id="2_lq2ly"]
+[ext_resource type="Script" uid="uid://dehas4dpmi8d7" path="res://Scenes/Game/player_animator.gd" id="3_sjqwj"]
+
+[sub_resource type="Animation" id="Animation_sjqwj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.51, 0.51)]
+}
+
+[sub_resource type="Animation" id="Animation_lq2ly"]
+resource_name = "soft_pulsate"
+length = 7.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 3.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.59, 0.59), Vector2(0.43, 0.43)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8jfvq"]
+_data = {
+&"RESET": SubResource("Animation_sjqwj"),
+&"soft_pulsate": SubResource("Animation_lq2ly")
+}
 
 [node name="Player" type="Sprite2D"]
 scale = Vector2(0.51, 0.51)
 texture = ExtResource("1_lq2ly")
 offset = Vector2(-59.69, -59.445)
 script = ExtResource("2_lq2ly")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8jfvq")
+}
+script = ExtResource("3_sjqwj")
