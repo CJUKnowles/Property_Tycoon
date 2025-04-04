@@ -170,12 +170,16 @@ func declareBankrupt():
 		property.landlord = null
 	owned_spaces.clear()
 	bankrupt = true
+	visible = false
 	print(name + " is bankrupt!")
+	gameManager.end_turn()
 	
 func forfeit():
 	for property in owned_spaces:
 		property.landlord = null
 	owned_spaces.clear()
 	bankrupt = true
+	visible = false
 	print(name + " forfeited!")
+	gameManager.end_turn()
 	

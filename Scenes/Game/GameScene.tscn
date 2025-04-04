@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://doufe62ud8jmp"]
+[gd_scene load_steps=27 format=3 uid="uid://doufe62ud8jmp"]
 
 [ext_resource type="Script" uid="uid://fu5802tlpfl8" path="res://Scripts/GameManager.gd" id="1_7qrmg"]
 [ext_resource type="Texture2D" uid="uid://b36hatn2pk1tt" path="res://Assets/UI/NewPiece/Ship.PNG" id="2_oy1v1"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://lovlurks10jy" path="res://Assets/UI/Interface/Square_Button_tiny.png" id="8_j0maa"]
 [ext_resource type="Texture2D" uid="uid://dolhf418jabk4" path="res://Assets/UI/Single block/Big tile.jpg" id="8_un2ny"]
 [ext_resource type="Script" uid="uid://1cjkni2127h8" path="res://Scenes/Game/board_scaler.gd" id="9_volpv"]
+[ext_resource type="Texture2D" uid="uid://bfeb5dd0i2grr" path="res://Assets/UI/Logo/Logo2.PNG" id="18_kdufk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kvjn8"]
 
@@ -305,7 +306,8 @@ texture = ExtResource("8_un2ny")
 region_enabled = true
 region_rect = Rect2(25, 30, 652, 643)
 
-[node name="Label" type="Label" parent="CanvasLayer/Board_anchor/Board_Scaler/Board_center"]
+[node name="modopoly ;)" type="Label" parent="CanvasLayer/Board_anchor/Board_Scaler/Board_center"]
+visible = false
 offset_left = -180.599
 offset_top = 82.4769
 offset_right = 331.401
@@ -315,6 +317,12 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_dicpg")
 theme_override_font_sizes/font_size = 76
 text = "modoboly"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Board_anchor/Board_Scaler/Board_center"]
+position = Vector2(11.5594, -11.4139)
+rotation = 0.785398
+scale = Vector2(0.351835, 0.351835)
+texture = ExtResource("18_kdufk")
 
 [connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/HBoxContainer/Sell" to="." method="_on_sell_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/HBoxContainer/Mortgage" to="." method="_on_mortgage_pressed"]

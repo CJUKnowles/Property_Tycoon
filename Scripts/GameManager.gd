@@ -3,8 +3,7 @@ class_name GameManager
 
 var player_count
 @export var human_count:int = 1 # Number of players in the game
-@export var AI_count:int = 4
-@export var playerPrefab:Node2D
+@export var AI_count:int = 3
 var players:Array[Player] = [];
 var roundCounter = 0 # increments once all players have had a turn
 var turnCounter = 0 # increments after each player's turn. Resets to 0 on a new round.
@@ -104,10 +103,15 @@ func end_turn():
 	else:
 		print(get_current_player().name + " still has rolls left!")
 	
-	get_current_player().z_index = 1 # Makes the current player render on top of others
-	
 	if turnCounter == player_count:
 		start_new_round()
+	
+	get_current_player().z_index = 1 # Makes the current player render on top of others
+	
+	if get_current_player().bankrupt:
+		print(get_current_player().name + " is bankrupt.")
+		get_current_player().turn_over = true
+		end_turn()
 		
 func start_new_round():
 	turnCounter = 0
@@ -149,6 +153,4 @@ func _on_mortgage_pressed() -> void:
 	%UI.selected_space.toggle_mortgage()
 	
 func _on_forfeit_pressed() -> void:
-	if %UI.selected_space == null:
-		return
 	get_current_player().forfeit()
