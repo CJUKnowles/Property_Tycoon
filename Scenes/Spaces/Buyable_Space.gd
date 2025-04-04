@@ -21,6 +21,14 @@ func purchase():
 		print("Couldn't afford to buy the property. Moving on.")
 		pass
 		
+func on_land():
+	if !bought:
+		if gameManager.get_current_player() is AIPlayer:
+			purchase()
+		else:
+			print("Player landed on a buyable space! Autopurchasing for now - add a popup here")
+			purchase()
+		
 func sell():
 	if landlord == null:
 		print(name + " must be owned to be sold!")

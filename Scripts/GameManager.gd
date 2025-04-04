@@ -112,6 +112,8 @@ func end_turn():
 		print(get_current_player().name + " is bankrupt.")
 		get_current_player().turn_over = true
 		end_turn()
+	else:
+		get_current_player().start_turn()
 		
 func start_new_round():
 	turnCounter = 0

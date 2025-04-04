@@ -25,15 +25,13 @@ func _ready():
 	type = Space.SpaceType.PROPERTY
 
 func on_land():
+	super()
 	var player = gameManager.get_current_player()
 	
 	if bought: 
 		if !isMortgaged and landlord != null and landlord != player:
 			print("Landed on a property owned by ", landlord.name, ". Attempting to charge rent: ")
 			player.charge(rent) # Charges rent if the player does 
-	else:
-		print("Landed on an unowned property. Attempting to purchase: ")
-		purchase()
 
 func buy_house():
 	if houses < 5:

@@ -1,4 +1,5 @@
 extends Player
+class_name HumanPlayer
 
 func takeTurn():
 	if bankrupt:

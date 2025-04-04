@@ -12,6 +12,7 @@ var selected_space:Space
 
 @export var roll_button:Button
 @export var end_turn_button:Button
+@export var forfeit_button:Button
 
 @export var player_list_location:Control
 
@@ -46,17 +47,27 @@ func update_space_values():
 func update_control_buttons():
 	if gameManager.get_current_player() == null:
 		return
+	if gameManager.get_current_player() is AIPlayer:
+		roll_button.disabled = true
+		end_turn_button.disabled = true
+		forfeit_button.disabled = true
+		return
+		
 	var turn_over = gameManager.get_current_player().turn_over
 	var inDebt = gameManager.get_current_player().inDebt
-		
+	
+	forfeit_button.disabled = false
 	roll_button.disabled = inDebt or turn_over
 	end_turn_button.disabled = inDebt or !turn_over
 
 # dynamically enables/disables buttons depending on the selected space
 func update_space_buttons():
+	if gameManager.get_current_player() == null:
+		return
+	
 	var canManage = gameManager.get_current_player().turn_over or gameManager.get_current_player().inDebt
 	
-	if selected_space == null or selected_space.landlord == null:
+	if selected_space == null or selected_space.landlord == null or gameManager.get_current_player() is AIPlayer:
 		sell_button.disabled = true
 		mortgage_button.disabled = true
 		buy_house_button.disabled = true

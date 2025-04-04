@@ -71,7 +71,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("3_oytey")
 
-[node name="UI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("space_label", "space_owner_label", "space_mortgaged_label", "sell_button", "mortgage_button", "buy_house_button", "buy_hotel_button", "roll_button", "end_turn_button", "player_list_location") groups=["Utility"]]
+[node name="UI" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("space_label", "space_owner_label", "space_mortgaged_label", "sell_button", "mortgage_button", "buy_house_button", "buy_hotel_button", "roll_button", "end_turn_button", "forfeit_button", "player_list_location") groups=["Utility"]]
 unique_name_in_owner = true
 texture_filter = 1
 texture_repeat = 1
@@ -91,6 +91,7 @@ buy_house_button = NodePath("context_menu/UI_Space_Manager/HBoxContainer/Buy Hou
 buy_hotel_button = NodePath("context_menu/UI_Space_Manager/HBoxContainer/Buy hotel")
 roll_button = NodePath("player_controls/Buttons/RollDiceButton")
 end_turn_button = NodePath("player_controls/Buttons/End Turn")
+forfeit_button = NodePath("player_controls/Buttons/Forfeit")
 player_list_location = NodePath("player_list/HBoxContainer")
 
 [node name="context_menu" type="Panel" parent="CanvasLayer/UI"]

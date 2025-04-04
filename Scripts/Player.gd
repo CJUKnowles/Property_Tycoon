@@ -31,6 +31,10 @@ func _ready():
 func _process(delta: float) -> void:
 	animate_player(delta)
 
+func start_turn():
+	# this will only be overridden by the AI_player class - it will call all the appropriate methods to take its turn
+	pass
+
 func animate_player(delta: float) -> void:
 	if currentVisualSpace == null or currentSpace == null:
 		return

@@ -1,4 +1,20 @@
 extends Player
+class_name AIPlayer
+
+@export var roll_delay:float # time delay in seconds between each roll
+@export var turn_delay:float # time delay in seconds before releasing control to the next player
+@export var instant_turns_DEBUG:bool = false
+
+func start_turn():
+	if instant_turns_DEBUG:
+		roll_delay = 0
+		turn_delay = 0
+	
+	while(!turn_over):
+		await get_tree().create_timer(roll_delay).timeout
+		gameManager.take_current_turn()
+	await get_tree().create_timer(turn_delay).timeout
+	gameManager.end_turn()
 
 func takeTurn():
 	if bankrupt:
