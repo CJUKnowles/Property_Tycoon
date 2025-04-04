@@ -1,7 +1,9 @@
 extends Node
 class_name GameManager
 
-@export var playerCount:int = 4 # Number of players in the game
+var player_count
+@export var human_count:int = 1 # Number of players in the game
+@export var AI_count:int = 4
 @export var playerPrefab:Node2D
 var players:Array[Player] = [];
 var roundCounter = 0 # increments once all players have had a turn
@@ -12,6 +14,7 @@ var board:Board # board reference
 @export var player_piece_textures:Array
 
 func _ready():
+	player_count = human_count + AI_count
 	# Generate board from file ---------------
 	board = Board.new()
 	board.gameManager = self
@@ -23,8 +26,10 @@ func _ready():
 	board.scale = Vector2(.105,.105)
 	
 	# Generate example players via playerCount ---------------
-	for i in playerCount:
-		var newPlayer = createAndGetPlayer(i)
+	for i in human_count:
+		createAndGetPlayer(i, true)
+	for i in AI_count:
+		createAndGetPlayer(i + human_count, false)
 		
 		
 	print("List of players:")
@@ -34,10 +39,17 @@ func _ready():
 	
 	start_new_round()
 
-func createAndGetPlayer(i:int):
-	var path = "res://Scenes/Game/player.tscn"
+func createAndGetPlayer(i:int, is_human:bool):
+	
+	var path
+	if is_human:
+		path = "res://Scenes/Game/human_player.tscn"
+	else:
+		path = "res://Scenes/Game/AI_player.tscn"
+		
 	if FileAccess.file_exists(path):
 		var newPlayer:Player = load(path).instantiate()
+	
 		newPlayer.name = "Player_" + str(i)
 		newPlayer.id_number = i
 		newPlayer.currentSpace = board.head
@@ -86,12 +98,15 @@ func end_turn():
 	if get_current_player().turn_over:
 		print("Ending " + get_current_player().name + "'s turn.")
 		get_current_player().turn_over = false
+		get_current_player().z_index = 0 
 		turnCounter += 1
 		print("----------------")
 	else:
 		print(get_current_player().name + " still has rolls left!")
 	
-	if turnCounter == playerCount:
+	get_current_player().z_index = 1 # Makes the current player render on top of others
+	
+	if turnCounter == player_count:
 		start_new_round()
 		
 func start_new_round():

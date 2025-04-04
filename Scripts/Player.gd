@@ -38,10 +38,6 @@ func animate_player(delta: float) -> void:
 	if currentVisualSpace != currentSpace and global_position.distance_squared_to(currentVisualSpace.get_landing_position(id_number)) < spaceMoveThreshold:
 		currentVisualSpace = currentVisualSpace.next
 	
-	print("currentSpace position: ", currentVisualSpace.position)
-	print("currentSpace landpos: ", currentVisualSpace.get_landing_position(id_number))
-	print("---------")
-	
 	global_position = lerp(global_position, currentVisualSpace.get_landing_position(id_number), move_speed * delta)
 	rotation = lerp(rotation, currentVisualSpace.rotation, rotate_speed * delta)
 
