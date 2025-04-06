@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://doufe62ud8jmp"]
+[gd_scene load_steps=30 format=3 uid="uid://doufe62ud8jmp"]
 
 [ext_resource type="Script" uid="uid://fu5802tlpfl8" path="res://Scripts/GameManager.gd" id="1_7qrmg"]
 [ext_resource type="Texture2D" uid="uid://b36hatn2pk1tt" path="res://Assets/UI/NewPiece/Ship.PNG" id="2_oy1v1"]
@@ -39,6 +39,18 @@ texture_margin_right = 5.0
 texture_margin_bottom = 5.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdufk"]
+bg_color = Color(0.847059, 0.901961, 0.803922, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.380392, 0.592157, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kdufk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_levtd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j0maa"]
 
@@ -217,6 +229,221 @@ theme_override_styles/normal = ExtResource("7_volpv")
 text = "Buy hotel
 "
 clip_text = true
+
+[node name="UI_Player_Manager" type="Panel" parent="CanvasLayer/UI/context_menu"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t0q61")
+
+[node name="Info_Container" type="Panel" parent="CanvasLayer/UI/context_menu/UI_Player_Manager"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kdufk")
+
+[node name="Player_info" type="Panel" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kdufk")
+
+[node name="Player_Piece" type="TextureRect" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_info"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+texture = ExtResource("2_oy1v1")
+expand_mode = 3
+
+[node name="Player_name" type="Label" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_info"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1.52588e-05
+offset_right = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+text = "Player_0"
+label_settings = SubResource("LabelSettings_0toxv")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Player_Money" type="Label" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_info"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 0.6
+offset_left = -1.52588e-05
+offset_right = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+text = "$612"
+label_settings = SubResource("LabelSettings_0toxv")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Player_Properties" type="Panel" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.475
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_levtd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button2" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button3" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button2" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button3" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button2" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button3" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button2" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button3" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button2" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button3" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer5"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer6"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button2" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer6"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button3" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer6"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer7" type="VBoxContainer" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer7"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button2" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer7"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button3" type="Button" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_Properties/HBoxContainer/VBoxContainer7"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="player_controls" type="Panel" parent="CanvasLayer/UI"]
 layout_mode = 1
