@@ -1,8 +1,8 @@
 extends Card
 class_name Payout_card
 
-var value: int # payout amount
-var PayFreeParking: bool # target of payout
+var value: int = 0 # payout amount
+var PayFreeParking: bool = true # target of payout
 var bank: Bank
 var freeParking: Free_Parking_Space
 

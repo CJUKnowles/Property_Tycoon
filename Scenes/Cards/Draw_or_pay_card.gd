@@ -1,8 +1,8 @@
 extends Card
 class_name Draw_or_pay_card
 
-var value : int
-var payToParking: bool
+var value : int = 0
+var payToParking: bool = true
 var bank : Bank
 var parking : Free_Parking_Space
 var player = gameManager.get_current_player()

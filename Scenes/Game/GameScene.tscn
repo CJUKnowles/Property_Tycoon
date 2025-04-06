@@ -11,7 +11,7 @@
 [ext_resource type="FontFile" uid="uid://ba1asjcb16ita" path="res://Assets/UI/Fonts/Eina 01/Eina01-Light.ttf" id="5_dicpg"]
 [ext_resource type="Texture2D" uid="uid://bjh4ndrefym6g" path="res://Assets/UI/NewPiece/Iron.PNG" id="5_levtd"]
 [ext_resource type="Texture2D" uid="uid://ckfpxg8nmwk8x" path="res://Assets/UI/NewPiece/Hatstand.PNG" id="6_bkgvn"]
-[ext_resource type="StyleBox" path="res://Resources/Button_Hover.tres" id="6_kvjn8"]
+[ext_resource type="StyleBox" uid="uid://b44ebksmdp624" path="res://Resources/Button_Hover.tres" id="6_kvjn8"]
 [ext_resource type="Texture2D" uid="uid://dufqoqu64ie75" path="res://Assets/UI/NewPiece/Smartphone.PNG" id="7_68h7r"]
 [ext_resource type="StyleBox" uid="uid://besgh3cr8hq10" path="res://Resources/Button.tres" id="7_volpv"]
 [ext_resource type="Texture2D" uid="uid://lovlurks10jy" path="res://Assets/UI/Interface/Square_Button_tiny.png" id="8_j0maa"]

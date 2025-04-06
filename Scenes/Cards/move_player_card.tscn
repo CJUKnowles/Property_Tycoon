@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://brds3nbq1r0st"]
+
+[node name="MovePlayerCard" type="Node2D"]
