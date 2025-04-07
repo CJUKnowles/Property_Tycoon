@@ -70,18 +70,17 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.10834
 anchor_top = 0.121
-anchor_right = 0.336536
+anchor_right = 0.33
 anchor_bottom = 0.658625
-offset_left = -9.576
-offset_top = -9.744
-offset_right = 10.51
-offset_bottom = 6.848
+offset_left = -8.576
+offset_top = -8.744
+offset_right = 8.51
+offset_bottom = 8.848
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_cb6f0")
 expand_mode = 1
 stretch_mode = 4
-metadata/_edit_use_anchors_ = true
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]

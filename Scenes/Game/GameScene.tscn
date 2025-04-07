@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://doufe62ud8jmp"]
+[gd_scene load_steps=39 format=3 uid="uid://doufe62ud8jmp"]
 
 [ext_resource type="Script" uid="uid://fu5802tlpfl8" path="res://Scripts/GameManager.gd" id="1_7qrmg"]
 [ext_resource type="Texture2D" uid="uid://b36hatn2pk1tt" path="res://Assets/UI/NewPiece/Ship.PNG" id="2_oy1v1"]
@@ -52,6 +52,13 @@ border_width_bottom = 5
 border_color = Color(0, 0.380392, 0.592157, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kdufk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kpkqq"]
+font = ExtResource("13_yrgw4")
+font_size = 25
+font_color = Color(0, 0.643137, 0, 1)
+shadow_size = 0
+shadow_offset = Vector2(1.675, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_levtd"]
 
@@ -332,11 +339,19 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_kdufk")
 [node name="Player_Piece" type="TextureRect" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_info"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_left = 0.21
+anchor_top = 0.5
+anchor_right = 0.246
+anchor_bottom = 0.582
+offset_left = -88.368
+offset_top = -90.3
+offset_right = 77.4832
+offset_bottom = 75.8908
 grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_oy1v1")
 expand_mode = 3
+stretch_mode = 5
 
 [node name="Player_name" type="Label" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_info"]
 layout_mode = 1
@@ -351,7 +366,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Player_0"
 label_settings = ExtResource("13_cqmde")
-horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
@@ -367,8 +381,7 @@ offset_right = -3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
 text = "$612"
-label_settings = ExtResource("13_cqmde")
-horizontal_alignment = 1
+label_settings = SubResource("LabelSettings_kpkqq")
 vertical_alignment = 1
 clip_text = true
 
