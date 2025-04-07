@@ -1,3 +1,6 @@
-[gd_scene load_steps=0 format=3 uid="uid://d0ltskc6d6uf7"]
+[gd_scene load_steps=2 format=3 uid="uid://d0ltskc6d6uf7"]
+
+[ext_resource type="Script" uid="uid://dodk7c3yvdsed" path="res://Scenes/Cards/Charge_per_player_card.gd" id="1_svrkl"]
 
 [node name="ChargePerPlayerCard" type="Node2D"]
+script = ExtResource("1_svrkl")

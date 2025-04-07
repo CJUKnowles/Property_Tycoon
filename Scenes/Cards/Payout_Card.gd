@@ -2,7 +2,7 @@ extends Card
 class_name Payout_card
 
 var value: int = 0 # payout amount
-var PayFreeParking: bool = true # target of payout
+var payToParking: bool = true # target of payout
 var bank: Bank
 var freeParking: Free_Parking_Space
 
@@ -10,7 +10,7 @@ func on_draw():
 	var player = gameManager.get_current_player()
 	if value < 0:
 		value = value * -1
-		if PayFreeParking:
+		if payToParking:
 			player.money -= value
 			freeParking.money += value
 		else:

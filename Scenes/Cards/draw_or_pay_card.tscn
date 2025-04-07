@@ -1,3 +1,6 @@
-[gd_scene load_steps=0 format=3 uid="uid://dltqncpq7aame"]
+[gd_scene load_steps=2 format=3 uid="uid://dltqncpq7aame"]
+
+[ext_resource type="Script" uid="uid://dbgkxvlintfrm" path="res://Scenes/Cards/Draw_or_pay_card.gd" id="1_ix4ao"]
 
 [node name="DrawOrPayCard" type="Node2D"]
+script = ExtResource("1_ix4ao")

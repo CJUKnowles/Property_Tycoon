@@ -19,6 +19,8 @@ func _ready():
 func initialize():
 	self.rotation = deg_to_rad(90)
 	# Initialize card piles
+	potLuckPile.gameManager = gameManager
+	oppKnocksPile.gameManager = gameManager
 	potLuckPile.initialize(potluck_path)
 	oppKnocksPile.initialize(oppknocks_path)
 	

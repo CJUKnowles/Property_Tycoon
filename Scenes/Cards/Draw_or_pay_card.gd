@@ -5,14 +5,13 @@ var value : int = 0
 var payToParking: bool = true
 var bank : Bank
 var parking : Free_Parking_Space
-var player = gameManager.get_current_player()
 var deck_name
 
 var potLuckDeck: Deck
 var opportunityKnocksDeck: Deck
 
 func fine():
-	
+	var player = gameManager.get_current_player()
 			
 	if payToParking:
 		player.money -= value
@@ -21,6 +20,7 @@ func fine():
 		bank.receive_payment(player,value)
 
 func getMoney():
+	var player = gameManager.get_current_player()
 	bank.pay_player(player,value)
 	
 func drawCard():

@@ -1,3 +1,6 @@
-[gd_scene load_steps=0 format=3 uid="uid://c5c42jihupsto"]
+[gd_scene load_steps=2 format=3 uid="uid://c5c42jihupsto"]
+
+[ext_resource type="Script" uid="uid://oasjm2vb8xf5" path="res://Scenes/Cards/Get_out_of_jail_free_card.gd" id="1_h8sta"]
 
 [node name="GetOutOfJailFreeCard" type="Node2D"]
+script = ExtResource("1_h8sta")
