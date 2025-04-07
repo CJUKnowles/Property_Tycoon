@@ -22,6 +22,7 @@ var landing_positions_list: Array = []
 @export var next: Space = self
 @export var previous: Space = self
 var gameManager:GameManager
+@onready var icon:Sprite2D = $icon
 
 func _ready():
 	#position = previous.position + Vector2(-450, 0)

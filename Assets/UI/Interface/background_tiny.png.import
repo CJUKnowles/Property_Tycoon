@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k1gvemtbktfs"
-path="res://.godot/imported/PropertyTile.jpg-17fbd6b4ad6289c4136c46bc9730f96e.ctex"
+uid="uid://q5yckry7dhfy"
+path="res://.godot/imported/background_tiny.png-f967fde0c9ed0c5e3f5f69228ccb50c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Single block/PropertyTile.jpg"
-dest_files=["res://.godot/imported/PropertyTile.jpg-17fbd6b4ad6289c4136c46bc9730f96e.ctex"]
+source_file="res://Assets/UI/Interface/background_tiny.png"
+dest_files=["res://.godot/imported/background_tiny.png-f967fde0c9ed0c5e3f5f69228ccb50c5.ctex"]
 
 [params]
 

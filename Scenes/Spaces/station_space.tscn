@@ -16,7 +16,7 @@ landing_positions = NodePath("Space_Template/landing_positions")
 
 [node name="Space_Template" parent="." instance=ExtResource("2_t1010")]
 
-[node name="FreeParking" type="Sprite2D" parent="."]
+[node name="icon" type="Sprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_0f2dl")
 
