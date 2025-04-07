@@ -9,6 +9,7 @@ extends Control
 @onready var gameManager:GameManager = get_tree().current_scene
 @onready var player_tab_prefab = load("res://Scenes/UI/player_tab.tscn")
 @onready var space_manager = $context_menu/UI_Space_Manager
+@onready var player_manager = $context_menu/UI_Player_Manager
 
 func add_player_tab(player:Player):
 	var new_tab = player_tab_prefab.instantiate()
@@ -37,4 +38,11 @@ func update_control_buttons():
 	end_turn_button.disabled = inDebt or !turn_over
 
 func select_space(space:Space):
+	space_manager.visible = true
+	player_manager.visible = false
 	space_manager.select_space(space)
+
+func select_player(player:Player):
+	space_manager.visible = false
+	player_manager.visible = true
+	player_manager.select_player(player)

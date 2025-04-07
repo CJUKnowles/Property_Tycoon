@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://doufe62ud8jmp"]
+[gd_scene load_steps=38 format=3 uid="uid://doufe62ud8jmp"]
 
 [ext_resource type="Script" uid="uid://fu5802tlpfl8" path="res://Scripts/GameManager.gd" id="1_7qrmg"]
 [ext_resource type="Texture2D" uid="uid://b36hatn2pk1tt" path="res://Assets/UI/NewPiece/Ship.PNG" id="2_oy1v1"]
@@ -25,6 +25,7 @@
 [ext_resource type="StyleBox" uid="uid://cuw6w8m0lhvrx" path="res://Resources/Button_pressed.tres" id="15_bkgvn"]
 [ext_resource type="Script" uid="uid://c8tes1r67ab3c" path="res://Scenes/Game/UI_Player_Controls.gd" id="17_d00j0"]
 [ext_resource type="Texture2D" uid="uid://bfeb5dd0i2grr" path="res://Assets/UI/Logo/Logo2.PNG" id="18_kdufk"]
+[ext_resource type="Script" uid="uid://bcy1iglh084t4" path="res://Scenes/Game/UI_Player_Manager.gd" id="21_kpkqq"]
 [ext_resource type="Texture2D" uid="uid://x7fxk0ppfn60" path="res://Assets/UI/Cards/OpportunityCard.png" id="22_gp0h6"]
 [ext_resource type="Texture2D" uid="uid://jlmi13tha4ck" path="res://Assets/UI/Cards/PotLuckCard.png" id="23_yrgw4"]
 
@@ -289,8 +290,7 @@ text = "Buy hotel
 text_overrun_behavior = 3
 autowrap_mode = 2
 
-[node name="UI_Player_Manager" type="Panel" parent="CanvasLayer/UI/context_menu"]
-visible = false
+[node name="UI_Player_Manager" type="Panel" parent="CanvasLayer/UI/context_menu" node_paths=PackedStringArray("player_icon", "player_name_label", "player_money_label")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -298,6 +298,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_t0q61")
+script = ExtResource("21_kpkqq")
+player_icon = NodePath("Info_Container/Player_info/Player_Piece")
+player_name_label = NodePath("Info_Container/Player_info/Player_name")
+player_money_label = NodePath("Info_Container/Player_info/Player_Money")
 
 [node name="Info_Container" type="Panel" parent="CanvasLayer/UI/context_menu/UI_Player_Manager"]
 layout_mode = 1

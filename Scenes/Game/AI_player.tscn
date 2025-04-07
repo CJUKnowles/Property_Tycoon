@@ -47,14 +47,14 @@ script = ExtResource("1_nux0t")
 roll_delay = 0.6
 turn_delay = 1.0
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="piece" type="Sprite2D" parent="."]
 self_modulate = Color(0.712129, 0.712129, 0.712129, 0.901961)
 scale = Vector2(0.51, 0.51)
 texture = ExtResource("2_34knc")
 offset = Vector2(-59.69, -59.445)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../sprite")
+root_node = NodePath("../piece")
 libraries = {
 &"": SubResource("AnimationLibrary_8jfvq")
 }
