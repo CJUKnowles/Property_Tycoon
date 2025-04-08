@@ -3,33 +3,37 @@ class_name HumanPlayer
 
 func takeTurn():
 	#var player = gameManager.get_current_player()
-	#player.move(5)
-	
-#var target : String =   "Go"# space the player is moving to
+	#player.goToJail()
+
+
+	#var target : String =   "test" # space the player is moving to
 	#var player = gameManager.get_current_player()
 	#var target_space = gameManager.board.findSpace(target)
 	#player.moveTo(target_space)
 
-	
-
-
+	#
+	#collectFromGO = false
+#
 	if bankrupt:
 		print("skipping turn, player is bankrupt")
 		return
 	if inJail:
-		print(name, " is in jail.")
-		print("Rolling to get out of jail.....")
-		rollResult = Die.roll()
-		var die1 = rollResult[0]
-		var die2 = rollResult[1]
-		print("Dice 1: ",die1,", Dice 2: ", die2)
-		if die1 == die2:
-			print("Rolled doubles! you can leave jail")
+		if jailTurns == 2:
 			exitJail()
 		else:
-			print("Uh oh! you can't leave yet")
-			jailTurns += 1
-			print("jail time: ", str(jailTurns), "/2")
+			print(name, " is in jail.")
+			print("Rolling to get out of jail.....")
+			rollResult = Die.roll()
+			var die1 = rollResult[0]
+			var die2 = rollResult[1]
+			print("Dice 1: ",die1,", Dice 2: ", die2)
+			if die1 == die2:
+				print("Rolled doubles! you can leave jail")
+				exitJail()
+			else:
+				print("Uh oh! you can't leave yet")
+				jailTurns += 1
+				print("jail time: ", str(jailTurns), "/2")
 	if turn_over:
 		print(name + " is out of rolls.")
 		return

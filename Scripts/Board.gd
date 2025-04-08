@@ -116,15 +116,21 @@ func addSpace(new_space: Space):
 		head.previous = new_space
 
 func findSpace(toFind: String):
+	var max: int =0
 	var found: bool = false
 	var target : Space = head
-	while not found :
+	while not found and max <40:
 		if target.name == toFind:
 			found = true
 		else:
 			# print(target)
 			target = target.next
-	return target
+			max +=1
+	if max >= 40 :
+		print("Error: ", toFind, " is not valid")
+		return null
+	else:
+		return target
 
 func import_json(path: String):
 	if FileAccess.file_exists(path):

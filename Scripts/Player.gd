@@ -67,10 +67,11 @@ func move(toMove: int):
 	currentSpace.on_land()
 	
 func moveTo(target: Space):
+	var max :int = 0
 	if currentSpace:
 		currentSpace.playersOnSpace.erase(self)
 		
-	while currentSpace != target:
+	while currentSpace != target and max < 40:
 		if currentSpace.next == null: 
 			print("Error: Target space not found.")
 			return
@@ -79,16 +80,25 @@ func moveTo(target: Space):
 		if collectFromGO and currentSpace == Go_Space:
 			self.money+=200
 			print(name, " has passed GO and collected £200.")
+		elif !collectFromGO and currentSpace == Go_Space:
+			print(name, " has passed GO and did not collect £200.")
+		max +=1
 		currentSpace = currentSpace.next
-		
-	currentSpace.playersOnSpace.append(self)
-	currentSpace.on_land()
+	
+	if max >= 40:
+		print("Error: Space not found")
+	else:
+		currentSpace.playersOnSpace.append(self)
+		currentSpace.on_land()
 
 func goToJail():
-	inJail = true
-	var jail = gameManager.board.findSpace("Jail")
-	moveTo(jail)
-	print(name, " was sent to jail!")
+	if inJail:
+		print(name, " is already in jail!")
+	else:
+		inJail = true
+		var jail = gameManager.board.findSpace("Jail")
+		moveTo(jail)
+		print(name, " was sent to jail!")
 	
 func exitJail():
 	inJail = false
@@ -104,9 +114,6 @@ func payBail():
 		print(name + " cannot afford to pay to leave jail!")
 		print(name + " stays in jail and loses this turn. (" + str(jailTurns) + "/2)")
 		
-	
-func stayInJail():
-	print(name + " stays in jail and loses this turn. (" + str(jailTurns) + "/2)")
 
 	
 func takeTurn():
