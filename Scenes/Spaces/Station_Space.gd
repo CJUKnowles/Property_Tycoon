@@ -37,4 +37,4 @@ func on_land():
 			landlord.money += value
 	else:
 		print("Landed on an unowned Station. Attempting to purchase: ")
-		purchase()
+		super()

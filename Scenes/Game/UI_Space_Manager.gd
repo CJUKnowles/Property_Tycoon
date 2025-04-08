@@ -134,9 +134,8 @@ func _on_mortgage_pressed() -> void:
 		return
 	selected_space.toggle_mortgage()
 
-
-		
 func buy_menu_popup():
+	print("popping up buy menu")
 	select_space(gameManager.get_current_player().currentSpace)
 	buying = true # locks this method into the buying state - player is now unable to select other spaces until buy menu is closed
 	space_buttons.visible = false
