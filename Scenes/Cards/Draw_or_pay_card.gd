@@ -3,7 +3,6 @@ class_name Draw_or_pay_card
 
 var value : int = 0
 var payToParking: bool = true
-var bank : Bank
 var parking : Free_Parking_Space
 var deck_name
 
@@ -17,11 +16,11 @@ func fine():
 		player.money -= value
 		parking.money += value
 	else:
-		bank.receive_payment(player,value)
+		player.charge(value)
 
 func getMoney():
 	var player = gameManager.get_current_player()
-	bank.pay_player(player,value)
+	player+= value
 	
 func drawCard():
 	var deck = null

@@ -8,4 +8,5 @@ func _ready():
 	super._ready()
 
 func on_land():
-	print("This is a free parking space! Child class")
+	gameManager.get_current_player().money +=money
+	money = 0

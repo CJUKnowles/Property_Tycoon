@@ -18,7 +18,7 @@ func start_auction(property: String, players_list: Array):
 	Highest_Bidder = null
 	players = players_list
 	Property_Label.text = "Auctioning: " + Property_Name
-	Current_Bid_Label.text = "Current Bid: $" + str(Current_Bid)
+	Current_Bid_Label.text = "Current Bid: £" + str(Current_Bid)
 	timer.start(Bidding_Time)
 	if players.len() > 1:
 		next_bidder()

@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 		else:
 			frame.modulate = Color(1,1,1)
 				
-		money_label.text = "$" + str(player.money)
+		money_label.text = "£" + str(player.money)
 		
 		if gameManager.get_current_player() == player:
 			frame.texture = current_frame_tex

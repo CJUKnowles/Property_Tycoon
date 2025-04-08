@@ -4,12 +4,15 @@ extends Control
 @export var end_turn_button:Button
 @export var forfeit_button:Button
 
+
+
 @export var player_list_location:Control
 
 @onready var gameManager:GameManager = get_tree().current_scene
 @onready var player_tab_prefab = load("res://Scenes/UI/player_tab.tscn")
 @onready var space_manager = $context_menu/UI_Space_Manager
 @onready var player_manager = $context_menu/UI_Player_Manager
+
 
 func add_player_tab(player:Player):
 	var new_tab = player_tab_prefab.instantiate()

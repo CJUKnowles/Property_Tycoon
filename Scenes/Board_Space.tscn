@@ -3,7 +3,32 @@
 [ext_resource type="Texture2D" uid="uid://dyq7kf8fmxckm" path="res://Assets/Monopoly Board UK.png" id="1_ou6w4"]
 [ext_resource type="Script" uid="uid://bsqv6qkolu0g6" path="res://Scripts/board_space.gd" id="1_rf26k"]
 [ext_resource type="Script" uid="uid://68ybcik8do6n" path="res://Scenes/square.gd" id="2_pkj00"]
-[ext_resource type="Script" uid="uid://bi4x4usd1s3qg" path="res://Scripts/bank.gd" id="3_ebq7x"]
+
+[sub_resource type="GDScript" id="GDScript_0m6wr"]
+script/source = "extends Node2D
+class_name Bank
+
+var money: int = 50000
+
+func pay_player(player, amount: int):
+	print(\"Bank pays \" + player.name + \" £\" + str(amount))
+	player.money += amount
+	money -= amount
+
+func receive_payment(player, amount: int):
+	print(player.name + \" pays the bank £\" + str(amount))
+	player.charge(amount)
+	money += amount
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="Board Space" type="Node2D"]
 script = ExtResource("1_rf26k")
@@ -36,4 +61,4 @@ layout_mode = 2
 script = ExtResource("2_pkj00")
 
 [node name="Bank" type="Node2D" parent="."]
-script = ExtResource("3_ebq7x")
+script = SubResource("GDScript_0m6wr")

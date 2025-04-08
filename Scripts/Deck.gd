@@ -26,6 +26,7 @@ func draw_card() -> Card:
 			pointer = 0
 	pointer += 1
 	print(drawn.description)
+	drawn.on_draw()
 	return drawn
 	
 

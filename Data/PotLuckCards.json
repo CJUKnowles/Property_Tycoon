@@ -14,7 +14,7 @@
   "3": {
 	"card_type": "move_player_card",
 	"description": "You are up the creek with no paddle - go back to the Old Creek",
-	"target": "Old Creek",
+	"target": "The Old Creek",
 	"pass_go": false
   },
   "4": {

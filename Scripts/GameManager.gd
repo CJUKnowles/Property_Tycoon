@@ -11,6 +11,7 @@ var board:Board # board reference
 @onready var UI:Control = %UI
 @export var board_spawn_location:Node2D
 @export var player_piece_textures:Array
+@onready var space_UI = %UI.get_node("UI_Space_Manager")
 
 func _ready():
 	player_count = human_count + AI_count
@@ -145,14 +146,14 @@ func _on_roll_dice_button_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_sell_pressed():
-	if %UI.selected_space == null:
+	if space_UI.selected_space == null:
 		return
-	%UI.selected_space.sell()
+	space_UI.selected_space.sell()
 
 func _on_mortgage_pressed() -> void:
-	if %UI.selected_space == null:
+	if space_UI.selected_space == null:
 		return
-	%UI.selected_space.toggle_mortgage()
+	space_UI.selected_space.toggle_mortgage()
 	
 func _on_forfeit_pressed() -> void:
 	get_current_player().forfeit()

@@ -1,7 +1,7 @@
 extends Node2D
 class_name Player
 
-@export var money: int = 1500
+@export var money: int = 500
 @export var move_speed: float = 30.0
 @export var rotate_speed: float = 10
 @export var spaceMoveThreshold = 16 # The distance the player piece needs to be to a space before moving to the next
@@ -17,7 +17,6 @@ var collectFromGO: bool=true
 var bankrupt = false
 var gameManager
 var owned_spaces:Array[Space] = []
-var bank : Bank
 var freeParking: Free_Parking_Space
 var turn_over = false # is true when the player is out of rolls
 var inDebt = false
@@ -46,6 +45,7 @@ func animate_player(delta: float) -> void:
 	rotation = lerp(rotation, currentVisualSpace.rotation, rotate_speed * delta)
 
 func move(toMove: int):
+	
 	if currentSpace == null:
 		currentSpace = gameManager.board.head
 		currentVisualSpace = currentSpace
@@ -55,6 +55,9 @@ func move(toMove: int):
 		if toMove > 0:
 			for i in range(toMove):
 				if currentSpace.next:
+					if collectFromGO and currentSpace == gameManager.board.findSpace("Go"):
+						self.money+=200
+						print(name, " has passed GO and collected £200.")
 					currentSpace = currentSpace.next
 		elif toMove < 0:
 			for i in range(abs(toMove)):
@@ -71,9 +74,10 @@ func moveTo(target: Space):
 		if currentSpace.next == null: 
 			print("Error: Target space not found.")
 			return
+		
 			
 		if collectFromGO and currentSpace == Go_Space:
-			bank.pay_player(self, 200)
+			self.money+=200
 			print(name, " has passed GO and collected £200.")
 		currentSpace = currentSpace.next
 		
@@ -109,7 +113,7 @@ func takeTurn():
 	print("humanPlayer and AIPlayer should override this. If this is being printed, something has gone wrong.")
 			
 func report():
-	print(name + " is currently at " + currentSpace.name + " with $" + str(money))
+	print(name + " is currently at " + currentSpace.name + " with £" + str(money))
 	
 # Attempts to charge the player the specified amount, otherwise go bankrupt
 # Returns true if successfully charged, false otherwise
@@ -119,10 +123,10 @@ func charge(amount: int):
 		var debt = amount - money
 		cantAfford(debt)  
 		return false
-
-	money -= amount
-	print(name, " was charged $", str(amount), " and now has $", money, " remaining.")
-	return true
+	else:
+		money -= amount
+		print(name, " was charged £", str(amount), " and now has £", money, " remaining.")
+		return true
 
 
 func pay(amount: int):
@@ -145,7 +149,7 @@ func fine(amount):
 func cantAfford(debt: int):
 	if owned_spaces.is_empty():
 			bankrupt = true
-			print("cbankrupt")
+			print("bankrupt")
 			declareBankrupt()
 	else:
 		inDebt = true
@@ -153,9 +157,10 @@ func cantAfford(debt: int):
 	
 
 func enoughMoney():
-	print("caled")
+	print("called")
 	if money >= Debt:
 		print("You now have enough money to pay off your debts!")
+		money -= Debt
 		Debt = 0
 		inDebt = false
 		return true

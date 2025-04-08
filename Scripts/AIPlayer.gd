@@ -30,6 +30,7 @@ func takeTurn():
 		print(name + " is out of rolls.")
 		return
 	if !inJail:
+		print("start money: " , money)
 		print("jail: ",inJail)
 		rollResult = Die.roll()
 		var die1 = rollResult[0]
@@ -49,3 +50,4 @@ func takeTurn():
 		else: # We did not roll a double
 			move(total)
 			doubleCount = 0 #reset count
+		print("end money: " , money)
