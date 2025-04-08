@@ -11,6 +11,12 @@ var selected_space:Space
 @export var buy_house_button:Button
 @export var buy_hotel_button:Button
 
+@export var space_visual:Panel
+@export var space_buttons:HBoxContainer
+@export var buy_menu:Panel
+
+var buying = false
+
 @onready var gameManager:GameManager = get_tree().current_scene
 
 func _process(delta: float) -> void:
@@ -82,7 +88,57 @@ func update_space_buttons():
 		buy_hotel_button.disabled = true
 
 func select_space(new_selected_space:Buyable_Space):
+	if buying:
+		return
 	print("Selecting " + new_selected_space.name)
 	selected_space = new_selected_space
+	
+	space_visual.visible = true
+	space_buttons.visible = true
+	
 	update_space_visuals()
 	update_space_buttons()
+
+func buy_pressed():
+	print("Player selected buy!")
+	update_space_visuals()
+	if selected_space is Buyable_Space:
+		var purchased = selected_space.purchase()
+		print("Purchase attempted")
+		if purchased:
+			print("purchase successful")
+			space_buttons.visible = false
+			buy_menu.visible = false
+			space_visual.visible = false
+			buying = false
+		else:
+			print("Purchase failed")
+			_on_mortgage_pressed()
+			
+func auction_pressed():
+	if selected_space is Buyable_Space:
+		print("Auction triggered! Demetri connect your code up to here thanks love u ")
+		space_buttons.visible = false
+		buy_menu.visible = false
+		space_visual.visible = false
+		buying = false
+		# TODO: set auction context menu visible here
+
+func _on_sell_pressed():
+	if selected_space == null:
+		return
+	selected_space.sell()
+
+func _on_mortgage_pressed() -> void:
+	if selected_space == null:
+		return
+	selected_space.toggle_mortgage()
+
+
+		
+func buy_menu_popup():
+	select_space(gameManager.get_current_player().currentSpace)
+	buying = true # locks this method into the buying state - player is now unable to select other spaces until buy menu is closed
+	space_buttons.visible = false
+	buy_menu.visible = true
+	space_visual.visible = true

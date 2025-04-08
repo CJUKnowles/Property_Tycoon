@@ -8,7 +8,7 @@ var players:Array[Player] = [];
 var roundCounter = 0 # increments once all players have had a turn
 var turnCounter = 0 # increments after each player's turn. Resets to 0 on a new round.
 var board:Board # board reference
-@onready var UI:Control = %UI
+@onready var UI:UI_Manager = %UI
 @export var board_spawn_location:Node2D
 @export var player_piece_textures:Array
 @onready var space_UI = %UI.get_node("UI_Space_Manager")
@@ -30,17 +30,17 @@ func _ready():
 		createAndGetPlayer(i, true)
 	for i in AI_count:
 		createAndGetPlayer(i + human_count, false)
-		
-		
+	
 	print("List of players:")
 	for player in players:
 		print(player.name)
 	# ------------------------------------------------------------------------
 	
 	start_new_round()
+	if get_current_player() is AIPlayer:
+		get_current_player().start_turn()
 
 func createAndGetPlayer(i:int, is_human:bool):
-	
 	var path
 	if is_human:
 		path = "res://Scenes/Game/human_player.tscn"

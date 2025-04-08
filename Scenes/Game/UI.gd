@@ -1,4 +1,5 @@
 extends Control
+class_name UI_Manager
 
 @export var roll_button:Button
 @export var end_turn_button:Button
@@ -46,6 +47,15 @@ func select_space(space:Space):
 	space_manager.select_space(space)
 
 func select_player(player:Player):
+	if space_manager.buying:
+		return
 	space_manager.visible = false
 	player_manager.visible = true
 	player_manager.select_player(player)
+
+func _on_forfeit_pressed() -> void:
+	gameManager.get_current_player().forfeit()
+
+func buy_menu_popup():
+	space_manager.visible = true
+	space_manager.buy_menu_popup()
