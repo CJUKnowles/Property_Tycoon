@@ -37,4 +37,4 @@ func on_land():
 			player.charge(rent) 
 	else:
 		print("Landed on an unowned Utility. Attempting to purchase: ")
-		purchase()
+		super()

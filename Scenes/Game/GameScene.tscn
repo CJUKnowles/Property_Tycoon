@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dufqoqu64ie75" path="res://Assets/UI/NewPiece/Smartphone.PNG" id="7_68h7r"]
 [ext_resource type="StyleBox" uid="uid://besgh3cr8hq10" path="res://Resources/Button.tres" id="7_volpv"]
 [ext_resource type="Texture2D" uid="uid://dolhf418jabk4" path="res://Assets/UI/Single block/Big tile.jpg" id="8_un2ny"]
-[ext_resource type="Script" path="res://Scenes/Game/board_scaler.gd" id="9_volpv"]
+[ext_resource type="Script" uid="uid://1cjkni2127h8" path="res://Scenes/Game/board_scaler.gd" id="9_volpv"]
 [ext_resource type="StyleBox" uid="uid://8nh4iee4sxqi" path="res://Resources/panel_background.tres" id="10_levtd"]
 [ext_resource type="StyleBox" uid="uid://ccnfu57vk3wbv" path="res://Resources/Button_disabled.tres" id="11_levtd"]
 [ext_resource type="Script" uid="uid://b4578cyn52vj8" path="res://Scenes/Game/UI_Space_Manager.gd" id="11_u3f3e"]
