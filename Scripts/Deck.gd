@@ -64,6 +64,7 @@ func initialize(data_path: String):
 			elif card_dict[i]["card_type"] == "charge_per_player_card":
 				new_card.value = card_dict[i]["value"]
 			
+	deck.shuffle()
 	print("Initialized Deck")
 	print(deck)
 	
