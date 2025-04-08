@@ -18,24 +18,8 @@ func start_auction(property: Property_Space, players_list: Array):
 	Current_Bid = 0
 	Highest_Bidder = null
 	players = players_list
-<<<<<<< Updated upstream
-	Property_Label.text = "Auctioning: " + Property_Name
-	Current_Bid_Label.text = "Current Bid: £" + str(Current_Bid)
-=======
 	Property_Label.text = "Auctioning: " + Property.name
 	Current_Bid_Label.text = "Current Bid: $" + str(Current_Bid)
->>>>>>> Stashed changes
-	timer.start(Bidding_Time)
-	if players.len() > 1:
-		next_bidder()
-	else:
-		print("TOO FEW PLAYERS FOR AUCTION")
-		end_auction()
-	if Bidding_Time == 0:
-		next_bidder()
-	if roundCounter >= players.len():
-		end_auction()
-	show()
 
 func end_auction():
 	if Highest_Bidder == null:
@@ -47,24 +31,27 @@ func end_auction():
 		#no other higher bidder
 
 func next_bidder():
-	
-	if Current_Player.money <= Current_Bid:
-		if player_iterator < players.len() - 1:
-			Current_Player = players[player_iterator]
-			player_iterator = player_iterator + 1
-		elif player_iterator >= players.len() - 1:
-			player_iterator = 0
-		next_bidder()
-	elif Player_Bid <= Current_Bid:
-		#reinput value to place higher value
-		if player_iterator < players.len() - 1:
-			Current_Player = players[player_iterator]
-			player_iterator = player_iterator + 1
-		elif player_iterator >= players.len() - 1:
-			player_iterator = 0
-		next_bidder()
 	if Current_Player.bankrupt == false:
 		players.remove_at(player_iterator)
+		next_bidder()
+	elif Current_Player.money <= Current_Bid:
+		players.remove_at(player_iterator)
+		next_bidder()
+	
+	Player_Bid = int(OS.read_string_from_stdin())
+	
+	# TODO: Type checking on input
+	if Player_Bid <= Current_Bid:
+		#reinput value to place higher value
+		next_bidder()
+	elif Player_Bid > Current_Bid:
+		Current_Bid = Player_Bid
+		Highest_Bidder = players[player_iterator]
+		if player_iterator < players.len() - 1:
+			Current_Player = players[player_iterator]
+			player_iterator = player_iterator + 1
+		elif player_iterator >= players.len() - 1:
+			player_iterator = 0
 		next_bidder()
 	
 	
