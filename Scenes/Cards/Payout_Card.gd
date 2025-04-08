@@ -1,5 +1,5 @@
 extends Card
-class_name Payout_card
+class_name payout_card
 
 ## Payout_card class
 ##

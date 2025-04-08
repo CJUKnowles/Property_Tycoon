@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cjbb5lp6aiym2"]
 
-[ext_resource type="Script" uid="uid://bicm2786t8rkq" path="res://Scenes/Cards/Payout_card.gd" id="1_gohpk"]
+[ext_resource type="Script" uid="uid://bicm2786t8rkq" path="res://Scenes/Cards/Payout_Card.gd" id="1_gohpk"]
 
 [node name="PayoutCard" type="Node2D"]
 script = ExtResource("1_gohpk")
