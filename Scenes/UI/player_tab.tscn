@@ -1,28 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://da0opsa3lx80x"]
+[gd_scene load_steps=8 format=3 uid="uid://da0opsa3lx80x"]
 
 [ext_resource type="Script" uid="uid://bfhf5xwi5wj2w" path="res://Scenes/Game/PlayerTab.gd" id="1_cb6f0"]
+[ext_resource type="StyleBox" uid="uid://besgh3cr8hq10" path="res://Resources/Button.tres" id="1_cs17r"]
+[ext_resource type="Texture2D" uid="uid://lovlurks10jy" path="res://Assets/UI/Interface/Square_Button_tiny.png" id="2_1icc8"]
 [ext_resource type="Texture2D" uid="uid://61fcxrj3krfa" path="res://Assets/UI/Interface/Player.png" id="2_cs17r"]
 [ext_resource type="Texture2D" uid="uid://bnjbbjd3uasbl" path="res://Assets/UI/NewPiece/Cat.PNG" id="3_cb6f0"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cb6f0"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m7ri8"]
+content_margin_right = 16.0
+content_margin_bottom = 9.0
+texture = ExtResource("2_1icc8")
+texture_margin_left = 17.0
+texture_margin_top = 12.0
+texture_margin_right = 6.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_kie8x"]
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
-[node name="player_tab" type="Panel" node_paths=PackedStringArray("money_label", "frame", "piece_texture")]
+[node name="Button" type="Button" node_paths=PackedStringArray("money_label", "frame", "piece_texture")]
+clip_children = 1
+offset_right = 155.0
+offset_bottom = 62.0
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxEmpty_cb6f0")
+size_flags_vertical = 3
+theme_override_styles/disabled = ExtResource("1_cs17r")
+theme_override_styles/hover = SubResource("StyleBoxTexture_m7ri8")
+theme_override_styles/pressed = ExtResource("1_cs17r")
+theme_override_styles/normal = ExtResource("1_cs17r")
 script = ExtResource("1_cb6f0")
 money_label = NodePath("default_frame/Money")
 frame = NodePath("default_frame")
 piece_texture = NodePath("default_frame/piece_texture")
+hover_color = Color(0.808998, 0.808998, 0.808998, 1)
+press_color = Color(0.41598, 0.41598, 0.41598, 1)
+bankrupt_color = Color(0.227451, 0.227451, 0.227451, 0.454902)
 
 [node name="default_frame" type="TextureRect" parent="."]
+show_behind_parent = true
 layout_mode = 2
 offset_left = 4.0
-offset_right = 228.0
+offset_right = 157.0
 offset_bottom = 64.0
+grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_cs17r")
@@ -32,28 +55,35 @@ stretch_mode = 4
 [node name="Money" type="Label" parent="default_frame"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.265
-anchor_top = 0.159
-anchor_right = 0.597
-anchor_bottom = 0.617
+anchor_left = 0.464052
+anchor_top = 0.171875
+anchor_right = 0.796052
+anchor_bottom = 0.629875
 grow_horizontal = 2
 grow_vertical = 2
 text = "$365"
 label_settings = SubResource("LabelSettings_kie8x")
+metadata/_edit_use_anchors_ = true
 
 [node name="piece_texture" type="TextureRect" parent="default_frame"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.074
+anchor_left = 0.10834
 anchor_top = 0.121
-anchor_right = 0.227
-anchor_bottom = 0.652
-offset_left = -9.576
-offset_top = -9.744
-offset_right = 9.152
-offset_bottom = 9.272
+anchor_right = 0.33
+anchor_bottom = 0.658625
+offset_left = -8.576
+offset_top = -8.744
+offset_right = 8.51
+offset_bottom = 8.848
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_cb6f0")
 expand_mode = 1
 stretch_mode = 4
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="on_press"]

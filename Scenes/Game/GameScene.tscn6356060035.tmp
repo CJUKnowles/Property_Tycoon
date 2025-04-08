@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://doufe62ud8jmp"]
+[gd_scene load_steps=32 format=3 uid="uid://doufe62ud8jmp"]
 
 [ext_resource type="Script" uid="uid://fu5802tlpfl8" path="res://Scripts/GameManager.gd" id="1_7qrmg"]
 [ext_resource type="Texture2D" uid="uid://b36hatn2pk1tt" path="res://Assets/UI/NewPiece/Ship.PNG" id="2_oy1v1"]
@@ -14,20 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://dolhf418jabk4" path="res://Assets/UI/Single block/Big tile.jpg" id="8_un2ny"]
 [ext_resource type="Script" uid="uid://1cjkni2127h8" path="res://Scenes/Game/board_scaler.gd" id="9_volpv"]
 [ext_resource type="StyleBox" uid="uid://8nh4iee4sxqi" path="res://Resources/panel_background.tres" id="10_levtd"]
+[ext_resource type="Texture2D" uid="uid://vlammvydi8m7" path="res://Assets/UI/Board Icons/Train Station.png" id="11_bkgvn"]
 [ext_resource type="StyleBox" uid="uid://ccnfu57vk3wbv" path="res://Resources/Button_disabled.tres" id="11_levtd"]
 [ext_resource type="Script" uid="uid://b4578cyn52vj8" path="res://Scenes/Game/UI_Space_Manager.gd" id="11_u3f3e"]
-[ext_resource type="Texture2D" uid="uid://dvfbbxdu3382g" path="res://Assets/UI/Single block/PropertyTile.png" id="12_b2eve"]
-[ext_resource type="Texture2D" uid="uid://cxllc1mwrfww4" path="res://Assets/UI/Single block/PropertyTile_bottom.png" id="13_butuv"]
-[ext_resource type="LabelSettings" uid="uid://da7xgg8bwp8f1" path="res://Resources/title_lable_settings.tres" id="13_cqmde"]
-[ext_resource type="FontFile" uid="uid://m70a6rt350mp" path="res://Assets/UI/Fonts/Eina 02/Eina02-Bold.ttf" id="13_yrgw4"]
-[ext_resource type="LabelSettings" uid="uid://cm66l4bmrf8aj" path="res://Resources/regular_label_settings.tres" id="14_b2eve"]
 [ext_resource type="StyleBox" uid="uid://c0l6cr4wiwff" path="res://Resources/Button_hover.tres" id="14_levtd"]
 [ext_resource type="StyleBox" uid="uid://cuw6w8m0lhvrx" path="res://Resources/Button_pressed.tres" id="15_bkgvn"]
 [ext_resource type="Script" uid="uid://c8tes1r67ab3c" path="res://Scenes/Game/UI_Player_Controls.gd" id="17_d00j0"]
 [ext_resource type="Texture2D" uid="uid://bfeb5dd0i2grr" path="res://Assets/UI/Logo/Logo2.PNG" id="18_kdufk"]
-[ext_resource type="Script" uid="uid://bcy1iglh084t4" path="res://Scenes/Game/UI_Player_Manager.gd" id="21_kpkqq"]
-[ext_resource type="Texture2D" uid="uid://x7fxk0ppfn60" path="res://Assets/UI/Cards/OpportunityCard.png" id="22_gp0h6"]
-[ext_resource type="Texture2D" uid="uid://jlmi13tha4ck" path="res://Assets/UI/Cards/PotLuckCard.png" id="23_yrgw4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bkgvn"]
 
@@ -39,6 +32,10 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0, 0, 0, 1)
 corner_detail = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_0toxv"]
+font_size = 25
+font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0q61"]
 bg_color = Color(1, 1, 1, 0.662745)
@@ -52,13 +49,6 @@ border_width_bottom = 5
 border_color = Color(0, 0.380392, 0.592157, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kdufk"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_kpkqq"]
-font = ExtResource("13_yrgw4")
-font_size = 25
-font_color = Color(0, 0.643137, 0, 1)
-shadow_size = 0
-shadow_offset = Vector2(1.675, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_levtd"]
 
@@ -120,7 +110,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("10_levtd")
 
-[node name="UI_Space_Manager" type="Panel" parent="CanvasLayer/UI/context_menu" node_paths=PackedStringArray("space_icon", "space_label", "space_owner_label", "space_mortgaged_label", "sell_button", "mortgage_button", "buy_house_button", "buy_hotel_button")]
+[node name="UI_Space_Manager" type="Panel" parent="CanvasLayer/UI/context_menu" node_paths=PackedStringArray("space_icon", "space_label", "space_owner_label", "space_mortgaged_label")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -133,10 +123,6 @@ space_icon = NodePath("Selected_Space/icon")
 space_label = NodePath("Selected_Space/Space_Label")
 space_owner_label = NodePath("Selected_Space/Owner_Label")
 space_mortgaged_label = NodePath("Selected_Space/Mortgaged_label")
-sell_button = NodePath("Space buttons/Sell")
-mortgage_button = NodePath("Space buttons/Mortgage")
-buy_house_button = NodePath("Space buttons/Buy House")
-buy_hotel_button = NodePath("Space buttons/Buy hotel")
 
 [node name="Selected_Space" type="Panel" parent="CanvasLayer/UI/context_menu/UI_Space_Manager"]
 layout_mode = 1
@@ -153,82 +139,63 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_levtd")
 [node name="icon" type="TextureRect" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Selected_Space"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0725952
-anchor_top = 0.0734035
-anchor_right = 0.50363
-anchor_bottom = 0.547468
+anchor_left = 0.25
+anchor_top = 0.05
+anchor_right = 0.75
+anchor_bottom = 0.5
 offset_left = 1.52588e-05
 grow_vertical = 2
-texture = ExtResource("12_b2eve")
-expand_mode = 3
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
-
-[node name="bottom" type="TextureRect" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Selected_Space/icon"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("13_butuv")
+texture = ExtResource("11_bkgvn")
 expand_mode = 3
 stretch_mode = 5
 
 [node name="Space_Label" type="Label" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Selected_Space"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.495463
-anchor_top = 0.259053
-anchor_right = 0.985481
-anchor_bottom = 0.482322
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
 offset_top = -17.5
 offset_bottom = 17.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "placeholder space name"
-label_settings = ExtResource("13_cqmde")
+label_settings = SubResource("LabelSettings_0toxv")
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
 clip_text = true
-metadata/_edit_use_anchors_ = true
 
 [node name="Owner_Label" type="Label" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Selected_Space"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.00998177
-anchor_top = 0.396623
-anchor_right = 1.00998
-anchor_bottom = 0.396623
-offset_left = 12.0
-offset_top = 50.52
-offset_right = -0.799988
-offset_bottom = 85.52
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 50.2
+offset_bottom = 85.2
 grow_horizontal = 2
 grow_vertical = 2
 text = "Owner: None"
-label_settings = ExtResource("14_b2eve")
+label_settings = SubResource("LabelSettings_0toxv")
+horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
-metadata/_edit_use_anchors_ = true
 
 [node name="Mortgaged_label" type="Label" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Selected_Space"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.037205
-anchor_top = 0.596403
-anchor_right = 1.0059
-anchor_bottom = 0.596403
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
 offset_top = 16.2
 offset_bottom = 51.2
 grow_horizontal = 2
 grow_vertical = 2
 text = "Mortgaged: false"
-label_settings = ExtResource("14_b2eve")
+label_settings = SubResource("LabelSettings_0toxv")
+horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
-metadata/_edit_use_anchors_ = true
 
 [node name="Space buttons" type="HBoxContainer" parent="CanvasLayer/UI/context_menu/UI_Space_Manager"]
 layout_mode = 1
@@ -247,33 +214,30 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
-theme_override_fonts/font = ExtResource("13_yrgw4")
 theme_override_styles/disabled = ExtResource("11_levtd")
 theme_override_styles/hover = ExtResource("14_levtd")
 theme_override_styles/pressed = ExtResource("15_bkgvn")
 theme_override_styles/normal = ExtResource("7_volpv")
 text = "Sell"
 text_overrun_behavior = 3
-autowrap_mode = 2
+clip_text = true
 
 [node name="Mortgage" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Space buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
-theme_override_fonts/font = ExtResource("13_yrgw4")
 theme_override_styles/disabled = ExtResource("11_levtd")
 theme_override_styles/hover = ExtResource("14_levtd")
 theme_override_styles/pressed = ExtResource("15_bkgvn")
 theme_override_styles/normal = ExtResource("7_volpv")
 text = "Mortgage"
 text_overrun_behavior = 3
-autowrap_mode = 2
+clip_text = true
 
 [node name="Buy House" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Space buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
-theme_override_fonts/font = ExtResource("13_yrgw4")
 theme_override_styles/disabled = ExtResource("11_levtd")
 theme_override_styles/hover = ExtResource("14_levtd")
 theme_override_styles/pressed = ExtResource("15_bkgvn")
@@ -281,13 +245,12 @@ theme_override_styles/normal = ExtResource("7_volpv")
 text = "Buy house
 "
 text_overrun_behavior = 3
-autowrap_mode = 2
+clip_text = true
 
 [node name="Buy hotel" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Space buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
-theme_override_fonts/font = ExtResource("13_yrgw4")
 theme_override_styles/disabled = ExtResource("11_levtd")
 theme_override_styles/hover = ExtResource("14_levtd")
 theme_override_styles/pressed = ExtResource("15_bkgvn")
@@ -295,9 +258,10 @@ theme_override_styles/normal = ExtResource("7_volpv")
 text = "Buy hotel
 "
 text_overrun_behavior = 3
-autowrap_mode = 2
+clip_text = true
 
-[node name="UI_Player_Manager" type="Panel" parent="CanvasLayer/UI/context_menu" node_paths=PackedStringArray("player_icon", "player_name_label", "player_money_label")]
+[node name="UI_Player_Manager" type="Panel" parent="CanvasLayer/UI/context_menu"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -305,10 +269,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_t0q61")
-script = ExtResource("21_kpkqq")
-player_icon = NodePath("Info_Container/Player_info/Player_Piece")
-player_name_label = NodePath("Info_Container/Player_info/Player_name")
-player_money_label = NodePath("Info_Container/Player_info/Player_Money")
 
 [node name="Info_Container" type="Panel" parent="CanvasLayer/UI/context_menu/UI_Player_Manager"]
 layout_mode = 1
@@ -339,19 +299,11 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_kdufk")
 [node name="Player_Piece" type="TextureRect" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_info"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.21
-anchor_top = 0.5
-anchor_right = 0.246
-anchor_bottom = 0.582
-offset_left = -88.368
-offset_top = -90.3
-offset_right = 77.4832
-offset_bottom = 75.8908
+anchor_right = 0.5
+anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
 texture = ExtResource("2_oy1v1")
 expand_mode = 3
-stretch_mode = 5
 
 [node name="Player_name" type="Label" parent="CanvasLayer/UI/context_menu/UI_Player_Manager/Info_Container/Player_info"]
 layout_mode = 1
@@ -365,7 +317,8 @@ offset_right = -3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
 text = "Player_0"
-label_settings = ExtResource("13_cqmde")
+label_settings = SubResource("LabelSettings_0toxv")
+horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
@@ -381,7 +334,8 @@ offset_right = -3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
 text = "$612"
-label_settings = SubResource("LabelSettings_kpkqq")
+label_settings = SubResource("LabelSettings_0toxv")
+horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
@@ -547,34 +501,30 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
-theme_override_fonts/font = ExtResource("13_yrgw4")
 theme_override_styles/disabled = ExtResource("11_levtd")
 theme_override_styles/hover = ExtResource("14_levtd")
 theme_override_styles/pressed = ExtResource("15_bkgvn")
 theme_override_styles/normal = ExtResource("7_volpv")
 text = "Forfeit"
 text_overrun_behavior = 3
-autowrap_mode = 2
 
 [node name="RollDiceButton" type="Button" parent="CanvasLayer/UI/player_controls/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
-theme_override_fonts/font = ExtResource("13_yrgw4")
 theme_override_styles/disabled = ExtResource("11_levtd")
 theme_override_styles/hover = ExtResource("14_levtd")
 theme_override_styles/pressed = ExtResource("15_bkgvn")
 theme_override_styles/normal = ExtResource("7_volpv")
 text = "Roll Dice"
 text_overrun_behavior = 3
-autowrap_mode = 2
+autowrap_mode = 3
 
 [node name="End Turn" type="Button" parent="CanvasLayer/UI/player_controls/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
 theme = SubResource("Theme_j0maa")
-theme_override_fonts/font = ExtResource("13_yrgw4")
 theme_override_styles/disabled = ExtResource("11_levtd")
 theme_override_styles/hover = ExtResource("14_levtd")
 theme_override_styles/pressed = ExtResource("15_bkgvn")
@@ -583,6 +533,7 @@ text = "End Turn
 "
 text_overrun_behavior = 3
 autowrap_mode = 2
+clip_text = true
 
 [node name="player_list" type="Panel" parent="CanvasLayer/UI"]
 layout_mode = 1
@@ -636,36 +587,11 @@ theme_override_fonts/font = ExtResource("5_dicpg")
 theme_override_font_sizes/font_size = 76
 text = "modoboly"
 
-[node name="Logo" type="Sprite2D" parent="CanvasLayer/Board_anchor/Board_Scaler/Board_center"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Board_anchor/Board_Scaler/Board_center"]
 position = Vector2(11.5594, -11.4139)
 rotation = 0.785398
 scale = Vector2(0.351835, 0.351835)
 texture = ExtResource("18_kdufk")
-
-[node name="pot_luck" type="Sprite2D" parent="CanvasLayer/Board_anchor/Board_Scaler/Board_center"]
-position = Vector2(-144.413, 140.541)
-rotation = 0.785398
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("22_gp0h6")
-
-[node name="opportunity_knocks3" type="Sprite2D" parent="CanvasLayer/Board_anchor/Board_Scaler/Board_center/pot_luck"]
-modulate = Color(0, 0, 0, 0.298039)
-show_behind_parent = true
-position = Vector2(17.646, -17.6461)
-rotation = -3.14159
-texture = ExtResource("23_yrgw4")
-
-[node name="opportunity_knocks" type="Sprite2D" parent="CanvasLayer/Board_anchor/Board_Scaler/Board_center"]
-position = Vector2(165.036, -162.133)
-rotation = -2.35619
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("23_yrgw4")
-
-[node name="opportunity_knocks2" type="Sprite2D" parent="CanvasLayer/Board_anchor/Board_Scaler/Board_center/opportunity_knocks"]
-modulate = Color(0, 0, 0, 0.298039)
-show_behind_parent = true
-position = Vector2(-17.6462, 17.6463)
-texture = ExtResource("23_yrgw4")
 
 [connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/Space buttons/Sell" to="." method="_on_sell_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/Space buttons/Mortgage" to="." method="_on_mortgage_pressed"]

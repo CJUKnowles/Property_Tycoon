@@ -187,3 +187,5 @@ func forfeit():
 	print(name + " forfeited!")
 	gameManager.end_turn()
 	
+func get_piece_texture():
+	return $piece.texture

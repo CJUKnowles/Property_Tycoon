@@ -45,13 +45,13 @@ _data = {
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_gb3rd")
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="piece" type="Sprite2D" parent="."]
 scale = Vector2(0.51, 0.51)
 texture = ExtResource("2_5x4um")
 offset = Vector2(-59.69, -59.445)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../sprite")
+root_node = NodePath("../piece")
 libraries = {
 &"": SubResource("AnimationLibrary_8jfvq")
 }

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bck5qufqu7otx"
-path="res://.godot/imported/carina nebula.png-2e13110f944eb521428cbc422fc5bfb5.ctex"
+uid="uid://cxllc1mwrfww4"
+path="res://.godot/imported/PropertyTile_bottom.png-b0a70d943f96a59ec6e3f85164c5d9e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/carina nebula.png"
-dest_files=["res://.godot/imported/carina nebula.png-2e13110f944eb521428cbc422fc5bfb5.ctex"]
+source_file="res://Assets/UI/Single block/PropertyTile_bottom.png"
+dest_files=["res://.godot/imported/PropertyTile_bottom.png-b0a70d943f96a59ec6e3f85164c5d9e2.ctex"]
 
 [params]
 

@@ -53,3 +53,6 @@ func set_color(color:String):
 		color_header.modulate = color_dict[color]
 	else:
 		color_header.modulate = color_dict["BLACK"]
+		
+func get_color():
+	return color_dict[colorGroup]

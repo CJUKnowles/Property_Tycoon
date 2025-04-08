@@ -13,7 +13,7 @@ landing_positions = NodePath("SpaceTemplatePlaceholder/landing_positions")
 [node name="Button" parent="SpaceTemplatePlaceholder" index="0"]
 visible = false
 
-[node name="FreeParking" type="Sprite2D" parent="."]
+[node name="icon" type="Sprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_68obe")
 

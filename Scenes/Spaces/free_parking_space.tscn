@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkdk5pw3kqydw"]
+[gd_scene load_steps=6 format=3 uid="uid://dkdk5pw3kqydw"]
 
 [ext_resource type="Script" uid="uid://dpwbgw4l8vgb2" path="res://Scenes/Spaces/Free_Parking_Space.gd" id="1_pxftm"]
 [ext_resource type="PackedScene" uid="uid://qoij60spbumy" path="res://Scenes/Spaces/Space Bases/space_base_corner.tscn" id="2_0sgc2"]
 [ext_resource type="FontFile" uid="uid://bgob8pp8mcuur" path="res://Assets/UI/Fonts/Eina 04/Eina04-SemiBold.ttf" id="3_v4ahy"]
 [ext_resource type="Texture2D" uid="uid://b31anbl58cr0i" path="res://Assets/UI/Board Icons/Free Parking.png" id="4_xnuk5"]
-[ext_resource type="Script" uid="uid://dxdoserx2whfq" path="res://Scenes/Spaces/whee.gd" id="5_job4p"]
 
 [sub_resource type="Theme" id="Theme_vf3hr"]
 default_base_scale = 8.6
@@ -41,10 +40,9 @@ fit_content = true
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="FreeParking" type="Sprite2D" parent="."]
+[node name="icon" type="Sprite2D" parent="."]
 rotation = -0.785398
 texture = ExtResource("4_xnuk5")
-script = ExtResource("5_job4p")
 
 [connection signal="pressed" from="CornerSpaceTemplatePlaceholder/Button" to="." method="on_click"]
 

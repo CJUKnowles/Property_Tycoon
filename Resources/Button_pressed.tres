@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cuw6w8m0lhvrx"]
+
+[ext_resource type="Texture2D" uid="uid://lovlurks10jy" path="res://Assets/UI/Interface/Square_Button_tiny.png" id="1_j7hg1"]
+
+[resource]
+content_margin_right = 11.0
+texture = ExtResource("1_j7hg1")
+texture_margin_left = 17.0
+texture_margin_top = 12.0
+texture_margin_right = 6.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color(0.317647, 0.317647, 0.317647, 1)
