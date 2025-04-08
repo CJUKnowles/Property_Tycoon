@@ -64,3 +64,6 @@ func toggle_mortgage():
 		print(name + " was mortgaged!")	
 		landlord.enoughMoney()
 	disabled_overlay.visible = isMortgaged
+	
+func set_landlord(Player):
+	landlord = Player
