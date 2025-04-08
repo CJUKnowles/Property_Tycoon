@@ -3,7 +3,7 @@ class_name HumanPlayer
 
 func takeTurn():
 	#var player = gameManager.get_current_player()
-	#player.goToJail()
+	#player.charge(500)
 
 
 	#var target : String =   "test" # space the player is moving to
@@ -13,7 +13,7 @@ func takeTurn():
 
 	#
 	#collectFromGO = false
-#
+##
 	if bankrupt:
 		print("skipping turn, player is bankrupt")
 		return
