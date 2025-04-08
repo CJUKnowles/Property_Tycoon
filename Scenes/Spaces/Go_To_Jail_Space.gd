@@ -6,4 +6,6 @@ func _ready():
 	super._ready()
 	
 func on_land():
+	gameManager.get_current_player().collectFromGO = false
+	gameManager.get_current_player().goToJail()
 	print("This is a go to jail space! Child class")
