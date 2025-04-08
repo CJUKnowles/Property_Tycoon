@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://doufe62ud8jmp"]
+[gd_scene load_steps=40 format=3 uid="uid://doufe62ud8jmp"]
 
 [ext_resource type="Script" uid="uid://fu5802tlpfl8" path="res://Scripts/GameManager.gd" id="1_7qrmg"]
 [ext_resource type="Texture2D" uid="uid://b36hatn2pk1tt" path="res://Assets/UI/NewPiece/Ship.PNG" id="2_oy1v1"]
@@ -21,11 +21,11 @@
 [ext_resource type="LabelSettings" uid="uid://da7xgg8bwp8f1" path="res://Resources/title_lable_settings.tres" id="13_cqmde"]
 [ext_resource type="FontFile" uid="uid://m70a6rt350mp" path="res://Assets/UI/Fonts/Eina 02/Eina02-Bold.ttf" id="13_yrgw4"]
 [ext_resource type="LabelSettings" uid="uid://cm66l4bmrf8aj" path="res://Resources/regular_label_settings.tres" id="14_b2eve"]
-[ext_resource type="StyleBox" uid="uid://c0l6cr4wiwff" path="res://Resources/Button_hover.tres" id="14_levtd"]
+[ext_resource type="StyleBox" uid="uid://c0l6cr4wiwff" path="res://Resources/Button_Hover.tres" id="14_levtd"]
 [ext_resource type="StyleBox" uid="uid://cuw6w8m0lhvrx" path="res://Resources/Button_pressed.tres" id="15_bkgvn"]
-[ext_resource type="Script" uid="uid://c8tes1r67ab3c" path="res://Scenes/Game/UI_Player_Controls.gd" id="17_d00j0"]
+[ext_resource type="Script" path="res://Scenes/Game/UI_Player_Controls.gd" id="17_d00j0"]
 [ext_resource type="Texture2D" uid="uid://bfeb5dd0i2grr" path="res://Assets/UI/Logo/Logo2.PNG" id="18_kdufk"]
-[ext_resource type="Script" uid="uid://bcy1iglh084t4" path="res://Scenes/Game/UI_Player_Manager.gd" id="21_kpkqq"]
+[ext_resource type="Script" path="res://Scenes/Game/UI_Player_Manager.gd" id="21_kpkqq"]
 [ext_resource type="Texture2D" uid="uid://x7fxk0ppfn60" path="res://Assets/UI/Cards/OpportunityCard.png" id="22_gp0h6"]
 [ext_resource type="Texture2D" uid="uid://jlmi13tha4ck" path="res://Assets/UI/Cards/PotLuckCard.png" id="23_yrgw4"]
 
@@ -40,8 +40,9 @@ border_width_bottom = 5
 border_color = Color(0, 0, 0, 1)
 corner_detail = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0q61"]
-bg_color = Color(1, 1, 1, 0.662745)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wx4mk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kpkqq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdufk"]
 bg_color = Color(0.847059, 0.901961, 0.803922, 1)
@@ -71,7 +72,6 @@ default_font_size = 0
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("board_spawn_location") groups=["Utility"]]
 script = ExtResource("1_7qrmg")
-AI_count = 4
 board_spawn_location = NodePath("CanvasLayer/Board_anchor/Board_Scaler")
 player_piece_textures = [ExtResource("2_oy1v1"), ExtResource("3_68h7r"), ExtResource("6_bkgvn"), ExtResource("7_68h7r"), ExtResource("5_levtd"), ExtResource("4_kdufk")]
 
@@ -113,14 +113,14 @@ player_list_location = NodePath("player_list/HBoxContainer")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.55
-anchor_top = 0.1
+anchor_top = 0.15
 anchor_right = 0.95
 anchor_bottom = 0.75
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("10_levtd")
 
-[node name="UI_Space_Manager" type="Panel" parent="CanvasLayer/UI/context_menu" node_paths=PackedStringArray("space_icon", "space_label", "space_owner_label", "space_mortgaged_label", "sell_button", "mortgage_button", "buy_house_button", "buy_hotel_button")]
+[node name="UI_Space_Manager" type="Panel" parent="CanvasLayer/UI/context_menu" node_paths=PackedStringArray("space_icon", "space_label", "space_owner_label", "space_mortgaged_label", "sell_button", "mortgage_button", "buy_house_button", "buy_hotel_button", "space_visual", "space_buttons", "buy_menu")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -133,12 +133,16 @@ space_icon = NodePath("Selected_Space/icon")
 space_label = NodePath("Selected_Space/Space_Label")
 space_owner_label = NodePath("Selected_Space/Owner_Label")
 space_mortgaged_label = NodePath("Selected_Space/Mortgaged_label")
-sell_button = NodePath("Space buttons/Sell")
-mortgage_button = NodePath("Space buttons/Mortgage")
-buy_house_button = NodePath("Space buttons/Buy House")
-buy_hotel_button = NodePath("Space buttons/Buy hotel")
+sell_button = NodePath("Space_buttons/Sell")
+mortgage_button = NodePath("Space_buttons/Mortgage")
+buy_house_button = NodePath("Space_buttons/Buy House")
+buy_hotel_button = NodePath("Space_buttons/Buy hotel")
+space_visual = NodePath("Selected_Space")
+space_buttons = NodePath("Space_buttons")
+buy_menu = NodePath("Buy_Menu")
 
 [node name="Selected_Space" type="Panel" parent="CanvasLayer/UI/context_menu/UI_Space_Manager"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -230,7 +234,8 @@ vertical_alignment = 1
 clip_text = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Space buttons" type="HBoxContainer" parent="CanvasLayer/UI/context_menu/UI_Space_Manager"]
+[node name="Space_buttons" type="HBoxContainer" parent="CanvasLayer/UI/context_menu/UI_Space_Manager"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.8
@@ -243,7 +248,7 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sell" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Space buttons"]
+[node name="Sell" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Space_buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -256,7 +261,7 @@ text = "Sell"
 text_overrun_behavior = 3
 autowrap_mode = 2
 
-[node name="Mortgage" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Space buttons"]
+[node name="Mortgage" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Space_buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -269,7 +274,7 @@ text = "Mortgage"
 text_overrun_behavior = 3
 autowrap_mode = 2
 
-[node name="Buy House" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Space buttons"]
+[node name="Buy House" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Space_buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -283,7 +288,7 @@ text = "Buy house
 text_overrun_behavior = 3
 autowrap_mode = 2
 
-[node name="Buy hotel" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Space buttons"]
+[node name="Buy hotel" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Space_buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -297,14 +302,71 @@ text = "Buy hotel
 text_overrun_behavior = 3
 autowrap_mode = 2
 
-[node name="UI_Player_Manager" type="Panel" parent="CanvasLayer/UI/context_menu" node_paths=PackedStringArray("player_icon", "player_name_label", "player_money_label")]
+[node name="Buy_Menu" type="Panel" parent="CanvasLayer/UI/context_menu/UI_Space_Manager"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wx4mk")
+
+[node name="Space buttons" type="HBoxContainer" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Buy_Menu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_t0q61")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Buy_Menu/Space buttons"]
+layout_mode = 2
+text = "Would you like
+ to purchase?"
+label_settings = ExtResource("14_b2eve")
+
+[node name="Buy" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Buy_Menu/Space buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_fonts/font = ExtResource("13_yrgw4")
+theme_override_styles/disabled = ExtResource("11_levtd")
+theme_override_styles/hover = ExtResource("14_levtd")
+theme_override_styles/pressed = ExtResource("15_bkgvn")
+theme_override_styles/normal = ExtResource("7_volpv")
+text = "Yes"
+text_overrun_behavior = 3
+autowrap_mode = 2
+
+[node name="Auction" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Buy_Menu/Space buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+theme_override_fonts/font = ExtResource("13_yrgw4")
+theme_override_styles/disabled = ExtResource("11_levtd")
+theme_override_styles/hover = ExtResource("14_levtd")
+theme_override_styles/pressed = ExtResource("15_bkgvn")
+theme_override_styles/normal = ExtResource("7_volpv")
+text = "No
+(auction)"
+text_overrun_behavior = 3
+autowrap_mode = 2
+
+[node name="UI_Player_Manager" type="Panel" parent="CanvasLayer/UI/context_menu" node_paths=PackedStringArray("player_icon", "player_name_label", "player_money_label")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kpkqq")
 script = ExtResource("21_kpkqq")
 player_icon = NodePath("Info_Container/Player_info/Player_Piece")
 player_name_label = NodePath("Info_Container/Player_info/Player_name")
@@ -667,8 +729,10 @@ show_behind_parent = true
 position = Vector2(-17.6462, 17.6463)
 texture = ExtResource("23_yrgw4")
 
-[connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/Space buttons/Sell" to="." method="_on_sell_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/Space buttons/Mortgage" to="." method="_on_mortgage_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/player_controls/Buttons/Forfeit" to="." method="_on_forfeit_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/Space_buttons/Sell" to="CanvasLayer/UI/context_menu/UI_Space_Manager" method="_on_sell_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/Space_buttons/Mortgage" to="CanvasLayer/UI/context_menu/UI_Space_Manager" method="_on_mortgage_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/Buy_Menu/Space buttons/Buy" to="CanvasLayer/UI/context_menu/UI_Space_Manager" method="buy_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/Buy_Menu/Space buttons/Auction" to="CanvasLayer/UI/context_menu/UI_Space_Manager" method="auction_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/player_controls/Buttons/Forfeit" to="CanvasLayer/UI" method="_on_forfeit_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/player_controls/Buttons/RollDiceButton" to="." method="take_current_turn"]
 [connection signal="pressed" from="CanvasLayer/UI/player_controls/Buttons/End Turn" to="." method="end_turn"]

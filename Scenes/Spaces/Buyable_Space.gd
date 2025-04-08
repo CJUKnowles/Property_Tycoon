@@ -9,6 +9,10 @@ var isMortgaged: bool = false
 
 # Makes the given player attempt to purchase this property. Should maybe be moved to Player class, generalize for all property spaces
 func purchase():
+	if landlord != null:
+		print("Cannot purchase - ", name, " currently has an owner")
+		return false
+	
 	var player = gameManager.get_current_player()
 	if player.money >= price:
 		var propertyPurchased = player.charge(price)
@@ -16,18 +20,18 @@ func purchase():
 		landlord = player
 		bought = true
 		player.owned_spaces.append(self)
+		return true
 	
 	else:
 		print("Couldn't afford to buy the property. Moving on.")
-		pass
+		return false
 		
 func on_land():
 	if !bought:
 		if gameManager.get_current_player() is AIPlayer:
 			purchase()
 		else:
-			print("Player landed on a buyable space! Autopurchasing for now - add a popup here")
-			purchase()
+			gameManager.UI.buy_menu_popup()
 		
 func sell():
 	if landlord == null:

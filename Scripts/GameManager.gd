@@ -8,7 +8,7 @@ var players:Array[Player] = [];
 var roundCounter = 0 # increments once all players have had a turn
 var turnCounter = 0 # increments after each player's turn. Resets to 0 on a new round.
 var board:Board # board reference
-@onready var UI:Control = %UI
+@onready var UI:UI_Manager = %UI
 @export var board_spawn_location:Node2D
 @export var player_piece_textures:Array
 
@@ -29,17 +29,17 @@ func _ready():
 		createAndGetPlayer(i, true)
 	for i in AI_count:
 		createAndGetPlayer(i + human_count, false)
-		
-		
+	
 	print("List of players:")
 	for player in players:
 		print(player.name)
 	# ------------------------------------------------------------------------
 	
 	start_new_round()
+	if get_current_player() is AIPlayer:
+		get_current_player().start_turn()
 
 func createAndGetPlayer(i:int, is_human:bool):
-	
 	var path
 	if is_human:
 		path = "res://Scenes/Game/human_player.tscn"
@@ -139,20 +139,3 @@ func check_winner():
 func goTo(player : Player, target: Space):
 	while player.currentSpace != target:
 		player.currentSpace = player.currentSpace.next
-
-
-func _on_roll_dice_button_pressed() -> void:
-	pass # Replace with function body.
-
-func _on_sell_pressed():
-	if %UI.selected_space == null:
-		return
-	%UI.selected_space.sell()
-
-func _on_mortgage_pressed() -> void:
-	if %UI.selected_space == null:
-		return
-	%UI.selected_space.toggle_mortgage()
-	
-func _on_forfeit_pressed() -> void:
-	get_current_player().forfeit()
