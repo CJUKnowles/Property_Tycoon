@@ -1,7 +1,7 @@
 extends Node2D
 class_name Player
 
-@export var money: int = 500
+@export var money: int = 1500
 @export var move_speed: float = 30.0
 @export var rotate_speed: float = 10
 @export var spaceMoveThreshold = 16 # The distance the player piece needs to be to a space before moving to the next
