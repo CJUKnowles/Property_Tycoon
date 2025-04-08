@@ -44,7 +44,7 @@ _data = {
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_nux0t")
-roll_delay = 0.6
+roll_delay = 1.5
 turn_delay = 1.0
 
 [node name="piece" type="Sprite2D" parent="."]
