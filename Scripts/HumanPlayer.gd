@@ -1,6 +1,10 @@
 extends Player
 class_name HumanPlayer
 
+# attempts to roll the dice and take a turn. Perhaps rollDice() would have been
+# a better name, as a single turn can encompass up to 3 calls of this method if 
+# doubles are rolled consecutively. This method is usually called by gameManager
+# when the player clicks "roll dice" or the AI player decides to move.
 func takeTurn():
 
 	#var target : String =   "test" # space the player is moving to

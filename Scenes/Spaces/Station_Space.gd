@@ -7,6 +7,7 @@ func _ready():
 	type = Space.SpaceType.UTILITY
 	super._ready()
 
+# called when the player lands on this space
 func on_land():
 	var player = gameManager.get_current_player()
 	var value = 0

@@ -1,5 +1,12 @@
 extends Panel
 
+##############################################################################
+# This class is responsible for displaying information about the currently selected space
+# it is managed by the main UI class, like all other UI elements
+# This class is the most complicated UI element as it needs to dynamically enable/disable
+# 4 UI buttons based on a variety of factors, such as the property selected,
+# the selected property's owner, and whose current turn it is.
+##############################################################################
 var selected_space:Space
 @export var space_icon:TextureRect
 @export var space_label:Label
@@ -19,6 +26,7 @@ var buying = false
 
 @onready var gameManager:GameManager = get_tree().current_scene
 
+# Updates the UI visuals every frame
 func _process(delta: float) -> void:
 	# there is probably a more efficient way to do this. Some sort of listener for changing values?
 	update_space_visuals() 
@@ -87,6 +95,7 @@ func update_space_buttons():
 		buy_house_button.disabled = true
 		buy_hotel_button.disabled = true
 
+# Selects the given space, displaying its information
 func select_space(new_selected_space:Buyable_Space):
 	if buying:
 		return
@@ -99,6 +108,9 @@ func select_space(new_selected_space:Buyable_Space):
 	update_space_visuals()
 	update_space_buttons()
 
+# Attempts to buy the selected space, if possible.
+# When buying is available, the selected_space will always be the one just landed
+# on by the player
 func buy_pressed():
 	print("Player selected buy!")
 	update_space_visuals()
@@ -114,7 +126,8 @@ func buy_pressed():
 		else:
 			print("Purchase failed")
 			_on_mortgage_pressed()
-			
+
+# Denies an optional purchase and starts an auction (enabling the auction menu)
 func auction_pressed():
 	if selected_space is Buyable_Space:
 		print("Auction triggered! Demetri connect your code up to here thanks love u ")
@@ -124,16 +137,20 @@ func auction_pressed():
 		buying = false
 		# TODO: set auction context menu visible here
 
+# Sells the currently selected space, rewarding money to the current player
+# can only be pressed if selling is available (correct player, property, and ownership status)
 func _on_sell_pressed():
 	if selected_space == null:
 		return
 	selected_space.sell()
 
+# Toggles the mortgage status of the selected space (only possible if mortgaging is available)
 func _on_mortgage_pressed() -> void:
 	if selected_space == null:
 		return
 	selected_space.toggle_mortgage()
 
+# Makes the buy menu visible, called when a player lands on an unowned buyable space
 func buy_menu_popup():
 	print("popping up buy menu")
 	select_space(gameManager.get_current_player().currentSpace)

@@ -16,14 +16,19 @@ var SPACE_EXTRA_OFFSET = 160
 func _ready():
 	position = Vector2(47, 17)
 
+# Creates the pot luck and opportunity knocks decks, and creates all the spaces
+# in the board. Also creates a visualization of the board to show to the player. 
+# This visualization is currently hard coded for 40 spaces, and could be expanded
+# to dynamically adapt to any amount of spaces given more development time.
 func initialize():
 	self.rotation = deg_to_rad(90)
-	# Initialize card piles
+	# Initialize card piles ------------------------
 	potLuckPile.gameManager = gameManager
 	oppKnocksPile.gameManager = gameManager
 	potLuckPile.initialize(potluck_path)
 	oppKnocksPile.initialize(oppknocks_path)
 	
+	# Initialize Spaces -------------------------------------------------------
 	var j = 0
 	# Import external BoardData.json as a dictionary
 	var tile_dict = {}
@@ -62,6 +67,8 @@ func initialize():
 				new_space.deck = potLuckPile
 			elif tile_dict[i]["tile_type"] == "opportunity_knocks_space":
 				new_space.deck = oppKnocksPile
+			
+			# Space visual placement ----------------------------------------
 			
 			var length = tile_dict.size()
 			var oneside = length/4
@@ -102,6 +109,7 @@ func createAndGetSpace(space_type: String):
 	else:
 		return null
 
+# adds a space to the linked list of spaces
 func addSpace(new_space: Space):
 	if head == null:
 		head = new_space
@@ -115,6 +123,8 @@ func addSpace(new_space: Space):
 		new_space.next = head
 		head.previous = new_space
 
+# Searches for a space of the given name. Returns null if the space is not found
+# within 40 attempts.
 func findSpace(toFind: String):
 	var max: int =0
 	var found: bool = false
@@ -132,6 +142,7 @@ func findSpace(toFind: String):
 	else:
 		return target
 
+# Imports the user's custom board data and returns it
 func import_json(path: String):
 	if FileAccess.file_exists(path):
 		var dataFile = FileAccess.open(path, FileAccess.READ)

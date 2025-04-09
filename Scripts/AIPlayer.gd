@@ -1,10 +1,20 @@
 extends Player
 class_name AIPlayer
+###############################################################################
+# This class represents an AI controlled player. By overriding the start_turn()
+# and takeTurn() methods, this class is able to alter and automate the behaviour
+# of the player. It does not currently support all features - some situations may
+# cause the game to hang until support is added here. Any new features involving
+# the player will need to be supported here.
+###############################################################################
 
 @export var roll_delay:float # time delay in seconds between each roll
 @export var turn_delay:float # time delay in seconds before releasing control to the next player
 @export var instant_turns_DEBUG:bool = false
 
+# the bulk of the AI - repeatedly tells the game manager to take the current
+# turn on a time delay. This results in takeTurn() getting called 1-3 times per 
+# player turn.
 func start_turn():
 	if instant_turns_DEBUG:
 		roll_delay = 0
@@ -16,6 +26,10 @@ func start_turn():
 	await get_tree().create_timer(turn_delay).timeout
 	gameManager.end_turn()
 
+# attempts to roll the dice and take a turn. Perhaps rollDice() would have been
+# a better name, as a single turn can encompass up to 3 calls of this method if 
+# doubles are rolled consecutively. This method is usually called by gameManager
+# when the player clicks "roll dice" or the AI player decides to move.
 func takeTurn():
 	if bankrupt:
 		print("skipping turn, player is bankrupt")

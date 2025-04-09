@@ -1,6 +1,12 @@
 extends Space
 class_name Buyable_Space
 
+###############################################################################
+# This class represents a space on the board that is purchasable by the player
+# different types of purchaseable spaces (properites, utilites, and stations)
+# should inherit from this class.
+###############################################################################
+
 var price: int
 var landlord: Player
 var bought: bool = false
@@ -26,13 +32,15 @@ func purchase():
 		print("Couldn't afford to buy the property. Moving on.")
 		return false
 		
+# Called when the player lands on this space
 func on_land():
 	if !bought:
 		if gameManager.get_current_player() is AIPlayer:
 			purchase()
 		else:
 			gameManager.UI.buy_menu_popup()
-		
+			
+# Sells this property, rewarding money to its owner
 func sell():
 	if landlord == null:
 		print(name + " must be owned to be sold!")
@@ -49,7 +57,7 @@ func sell():
 	landlord.enoughMoney()
 	landlord = null
 	
-		
+# Toggles the mortgage of this spacing, either charging or paying its owner
 func toggle_mortgage():
 	if landlord == null:
 		print(name + " needs an owner to be mortgaged!")
@@ -69,5 +77,6 @@ func toggle_mortgage():
 		landlord.enoughMoney()
 	disabled_overlay.visible = isMortgaged
 	
+# changes the landlord (owner) of hthe buyable space
 func set_landlord(Player):
 	landlord = Player

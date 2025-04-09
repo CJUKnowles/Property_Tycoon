@@ -1,5 +1,6 @@
 extends Panel
 
+
 var selected_player:Player
 @export var player_icon:TextureRect
 @export var player_name_label:Label

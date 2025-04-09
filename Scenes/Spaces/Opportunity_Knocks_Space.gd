@@ -7,6 +7,7 @@ func _ready():
 	type = Space.SpaceType.OPPORTUNITY_KNOCKS
 	super._ready()
 	
+# called when the player lands on this space
 func on_land():
 	if deck != null:
 		print("Drawing a card")

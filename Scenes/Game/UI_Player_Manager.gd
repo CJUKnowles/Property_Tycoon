@@ -1,5 +1,10 @@
 extends Panel
 
+##############################################################################
+# This class is responsible for displaying player information of the selected player
+# Like other UI classes, it is managed by the main UI class
+##############################################################################
+
 var selected_player:Player
 @export var player_icon:TextureRect
 @export var player_name_label:Label
@@ -7,6 +12,7 @@ var selected_player:Player
 
 @onready var gameManager:GameManager = get_tree().current_scene
 
+# Updates the player's information visuals every frame
 func _process(delta: float) -> void:
 	# there is probably a more efficient way to do this. Some sort of listener for changing values?
 	update_player_visuals() 
@@ -20,7 +26,7 @@ func update_player_visuals():
 	player_name_label.text = selected_player.name
 	player_money_label.text = str(selected_player.money)
 
-
+# Selects the given player, displaying their information
 func select_player(player:Player):
 	print("Selecting " + player.name)
 	selected_player = player

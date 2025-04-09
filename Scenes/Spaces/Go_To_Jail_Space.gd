@@ -5,6 +5,8 @@ func _ready():
 	type = Space.SpaceType.GO_TO_JAIL
 	super._ready()
 	
+	
+# called when the player lands on this space
 func on_land():
 	gameManager.get_current_player().collectFromGO = false
 	gameManager.get_current_player().goToJail()
