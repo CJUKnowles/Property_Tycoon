@@ -2,9 +2,6 @@ extends Player
 class_name HumanPlayer
 
 func takeTurn():
-	#var player = gameManager.get_current_player()
-	#player.charge(500)
-
 
 	#var target : String =   "test" # space the player is moving to
 	#var player = gameManager.get_current_player()
@@ -13,7 +10,7 @@ func takeTurn():
 
 	#
 	#collectFromGO = false
-##
+###
 	if bankrupt:
 		print("skipping turn, player is bankrupt")
 		return

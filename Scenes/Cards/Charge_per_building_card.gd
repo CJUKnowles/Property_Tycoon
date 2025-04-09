@@ -17,8 +17,9 @@ func on_draw():
 	var player = gameManager.get_current_player()
 	var toPay = 0
 	for property in player.owned_spaces:
-		toPay = property.houses * houseVal
-		if property.hotel:
-			toPay += hotelVal
+		if property is Property_Space:
+			toPay = property.houses * houseVal
+			if property.hotel:
+				toPay += hotelVal
 	
 	player.charge(toPay)

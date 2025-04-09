@@ -164,22 +164,20 @@ func cantAfford(debt: int):
 	
 
 func enoughMoney():
-	print("called")
 	if money >= Debt:
 		print("You now have enough money to pay off your debts!")
 		money -= Debt
 		Debt = 0
 		inDebt = false
+		gameManager.get_current_player().turn_over = true
+		
 		return true
 	elif money < Debt and !owned_spaces.is_empty():
 		print("You still need more money to pay off your debts!")
 		return false
 	else:
 		if owned_spaces.is_empty():
-			bankrupt = true
-			print("cbankrupt")
-		return false
-	print("called enough mon")
+			declareBankrupt()
 	
 func declareBankrupt():
 	for property in owned_spaces:
