@@ -1,10 +1,17 @@
 extends Node
 class_name GameManager
 
-var player_count
-@export var human_count:int = 1 # Number of players in the game
-@export var AI_count:int = 3
-var players:Array[Player] = [];
+############################################################################################################################################################
+# This is the most important class in the project
+# GameManager is responsible for managing the state of the game,
+# as well as initializing the board and players.
+# Almost all game behaviour stems from this script.
+###################################################################################################################################################################################################
+
+var player_count # Total number of players in the game
+@export var human_count:int = 1 # Number of humans in the game
+@export var AI_count:int = 3 # Number of AI players in the game
+var players:Array[Player] = []; # List of all players
 var roundCounter = 0 # increments once all players have had a turn
 var turnCounter = 0 # increments after each player's turn. Resets to 0 on a new round.
 var board:Board # board reference
@@ -13,52 +20,53 @@ var board:Board # board reference
 @export var player_piece_textures:Array
 @onready var space_UI = %UI.get_node("UI_Space_Manager")
 
+# Called on game start - initializes the board, players, and starts the first turn
 func _ready():
-	player_count = human_count + AI_count
-	# Generate board from file ---------------
+	# Generate board from file ------------------------------
 	board = Board.new()
 	board.gameManager = self
 	board.name = "Board"
 	board.initialize()
 	
-	# Makes board scale to screen (work in progress)
+	# Makes board scale to window size
 	board_spawn_location.add_child(board)
 	board.scale = Vector2(.105,.105)
 	
 	# Generate example players via playerCount ---------------
+	player_count = human_count + AI_count
 	for i in human_count:
 		createAndGetPlayer(i, true)
 	for i in AI_count:
 		createAndGetPlayer(i + human_count, false)
-	
 	print("List of players:")
 	for player in players:
 		print(player.name)
-	# ------------------------------------------------------------------------
 	
+	# Start the game -----------------------------------------
 	start_new_round()
 	if get_current_player() is AIPlayer:
 		get_current_player().start_turn()
 
-func createAndGetPlayer(i:int, is_human:bool):
+# Creates a new instance HumanPlayer or AIPlayer and returns it
+func createAndGetPlayer(id:int, is_human:bool):
 	var path
 	if is_human:
 		path = "res://Scenes/Game/human_player.tscn"
 	else:
 		path = "res://Scenes/Game/AI_player.tscn"
-		
+	
+	# Create and return the player
 	if FileAccess.file_exists(path):
 		var newPlayer:Player = load(path).instantiate()
-	
-		newPlayer.name = "Player_" + str(i)
-		newPlayer.id_number = i
+		newPlayer.name = "Player_" + str(id)
+		newPlayer.id_number = id
 		newPlayer.currentSpace = board.head
 		newPlayer.currentVisualSpace = board.head
 		newPlayer.gameManager = self
-		newPlayer.get_child(0).texture = player_piece_textures[i]
-		board.add_child(newPlayer)
+		newPlayer.get_child(0).texture = player_piece_textures[id] # Automatically assign a game piece based on the id
+		board.add_child(newPlayer) # Spawn the child in as a child of the board - this is done because everything the player does is in reference to the board
 		players.append(newPlayer) # add the generated player to the players array
-		UI.add_player_tab(newPlayer)
+		UI.add_player_tab(newPlayer) # Create a UI tab at the top of the screen for each player
 		return newPlayer
 	else:
 		return null
@@ -82,7 +90,7 @@ func _process(delta):
 	if Input.is_action_pressed("fast_turn"): # Makes the current player take their turn quickly
 		take_current_turn();
 
-
+# Tells the current player to take their turn (roll dice) and checks if they are capable of taking more turns
 func take_current_turn():
 	print("\n" + self.get_current_player().name + "'s turn:")
 	print("----------------")
@@ -90,11 +98,14 @@ func take_current_turn():
 	if get_current_player().doubleCount == 0:
 		if !get_current_player().inDebt:
 			get_current_player().turn_over = true # TODO: clean this up
-		
+
+# Returns the player currently taking their turn
 func get_current_player():
 	return players[turnCounter]
 
+# Ends the current turn (if possible) and passes control to the next player.
 func end_turn():
+	# turn_over is determined by a number of factors, such as rolling doubles and being in jail
 	if get_current_player().turn_over:
 		print("Ending " + get_current_player().name + "'s turn.")
 		get_current_player().turn_over = false
@@ -104,11 +115,14 @@ func end_turn():
 	else:
 		print(get_current_player().name + " still has rolls left!")
 	
+	# Starts a new round (has player 0 take their turn next) if every player has taken a turn
 	if turnCounter == player_count:
 		start_new_round()
 	
+	
 	get_current_player().z_index = 1 # Makes the current player render on top of others
 	
+	# Skips the current player's turn if they are out of the game
 	if get_current_player().bankrupt:
 		print(get_current_player().name + " is bankrupt.")
 		get_current_player().turn_over = true
@@ -116,6 +130,7 @@ func end_turn():
 	else:
 		get_current_player().start_turn()
 		
+# Is called when all players have taken their turns. Checks to see if the game should end, if the abbreviated version is being played
 func start_new_round():
 	turnCounter = 0
 	roundCounter += 1
@@ -124,7 +139,8 @@ func start_new_round():
 	print("////////////////////////////////////////////////////")
 	check_winner()
 		
-	
+
+# Unfinished - ends the game if somebody has won
 func check_winner():
 	var activePlayers = []
 	
@@ -136,24 +152,7 @@ func check_winner():
 		var winner = players[0]
 		print("Game Over! " + winner.name + " is the winner!")
 		
-		
+# Moves a player to a specific space on the board
 func goTo(player : Player, target: Space):
 	while player.currentSpace != target:
 		player.currentSpace = player.currentSpace.next
-
-
-func _on_roll_dice_button_pressed() -> void:
-	pass # Replace with function body.
-
-func _on_sell_pressed():
-	if space_UI.selected_space == null:
-		return
-	space_UI.selected_space.sell()
-
-func _on_mortgage_pressed() -> void:
-	if space_UI.selected_space == null:
-		return
-	space_UI.selected_space.toggle_mortgage()
-	
-func _on_forfeit_pressed() -> void:
-	get_current_player().forfeit()
