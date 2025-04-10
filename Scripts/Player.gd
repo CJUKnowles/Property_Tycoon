@@ -167,6 +167,9 @@ func cantAfford(debt: int):
 	
 
 func enoughMoney():
+	if !inDebt:
+		return
+	
 	if money >= Debt:
 		print("You now have enough money to pay off your debts!")
 		money -= Debt
