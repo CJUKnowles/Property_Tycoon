@@ -45,7 +45,7 @@ func update_control_buttons():
 	
 	forfeit_button.disabled = false
 	roll_button.disabled = inDebt or turn_over
-	end_turn_button.disabled = inDebt or !turn_over
+	end_turn_button.disabled = inDebt or !turn_over or space_manager.buying or (space_manager.current_auction != null and space_manager.current_auction.running)
 	
 # Tells the space manager to "select" the given space, visualizing its details
 func select_space(space:Space):
