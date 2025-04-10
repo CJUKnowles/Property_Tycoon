@@ -129,7 +129,7 @@ func update_auction_visuals():
 
 # Selects the given space, displaying its information
 func select_space(new_selected_space:Buyable_Space):
-	if buying:
+	if buying or (current_auction != null and current_auction.running):
 		return
 	print("Selecting " + new_selected_space.name)
 	selected_space = new_selected_space

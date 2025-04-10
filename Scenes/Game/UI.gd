@@ -55,7 +55,7 @@ func select_space(space:Space):
 
 # Tells the player manaager to "select" the given player, visualizing their details
 func select_player(player:Player):
-	if space_manager.buying:
+	if space_manager.buying or (space_manager.current_auction != null and space_manager.current_auction.running):
 		return
 	space_manager.visible = false
 	player_manager.visible = true
