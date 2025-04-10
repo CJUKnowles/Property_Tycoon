@@ -34,11 +34,12 @@ func purchase():
 		
 # Called when the player lands on this space
 func on_land():
-	if !bought:
-		if gameManager.get_current_player() is AIPlayer:
-			purchase()
-		else:
-			gameManager.UI.buy_menu_popup()
+	if landlord != null:
+		return
+	if gameManager.get_current_player() is AIPlayer:
+		purchase()
+	else:
+		gameManager.UI.buy_menu_popup()
 			
 # Sells this property, rewarding money to its owner
 func sell():

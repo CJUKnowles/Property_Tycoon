@@ -165,7 +165,7 @@ func auction_pressed():
 		print("Auction triggered! Demetri connect your code up to here thanks love u ")
 		space_buttons.visible = false
 		buy_menu.visible = false
-		space_visual.visible = false
+		space_visual.visible = true
 		buying = false
 		
 		current_auction = Auction.new()
@@ -189,6 +189,7 @@ func _on_mortgage_pressed() -> void:
 # Makes the buy menu visible, called when a player lands on an unowned buyable space
 func buy_menu_popup():
 	print("popping up buy menu")
+	
 	select_space(gameManager.get_current_player().currentSpace)
 	buying = true # locks this method into the buying state - player is now unable to select other spaces until buy menu is closed
 	space_buttons.visible = false
