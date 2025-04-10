@@ -1,7 +1,7 @@
 extends Node2D
 class_name Player
 
-@export var money: int = 1500
+@export var money: int = 500
 @export var move_speed: float = 30.0
 @export var rotate_speed: float = 10
 @export var spaceMoveThreshold = 16 # The distance the player piece needs to be to a space before moving to the next
@@ -12,7 +12,7 @@ var currentVisualSpace: Space = null
 var doubleCount: int=0
 var inJail: bool=false
 var jailTurns: int = 0
-var getOutOfJailFreeCard: bool=false
+var getOutOfJailFreeCard: Card
 var collectFromGO: bool=true
 var bankrupt = false
 var gameManager
@@ -172,25 +172,28 @@ func enoughMoney():
 		money -= Debt
 		Debt = 0
 		inDebt = false
+		
 		gameManager.get_current_player().turn_over = true
 		gameManager.end_turn()
 		
 		return true
 	elif money < Debt and !owned_spaces.is_empty():
+		Debt -= money
 		print("You still need more money to pay off your debts!")
+		print("Amount to pay off: ", Debt)
 		return false
 	else:
 		if owned_spaces.is_empty():
 			declareBankrupt()
 	
 func declareBankrupt():
+	gameManager.end_turn()
 	for property in owned_spaces:
 		property.landlord = null
 	owned_spaces.clear()
 	bankrupt = true
 	visible = false
 	print(name + " is bankrupt!")
-	gameManager.end_turn()
 	
 func forfeit():
 	for property in owned_spaces:

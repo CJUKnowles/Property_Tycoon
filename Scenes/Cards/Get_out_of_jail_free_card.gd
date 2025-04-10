@@ -12,14 +12,14 @@ var inDeck : bool = true
 func on_draw():
 	var player = gameManager.get_current_player()
 	inDeck = false # to ensure card isn't able to be drawn again
-	player.getOutOfJailFreeCard = true
+	player.getOutOfJailFreeCard = self
 	
 func use():
 	var player = gameManager.get_current_player()
 	if player.inJail == true:
 		print("You have used your 'get out of jail free card' ! ")
 		player.exitJail()
-		player.getOutOfJailFreeCard = false
+		player.getOutOfJailFreeCard = null
 		inDeck = true
 	else:
 		print("You are not in Jail")

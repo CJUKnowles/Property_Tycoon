@@ -33,13 +33,28 @@ func start_turn():
 func takeTurn():
 	if bankrupt:
 		print("skipping turn, player is bankrupt")
+		
 		return
 	if inJail:
-		print(name, " is in jail.")
-		print("jail time: ", str(jailTurns), "/2")
-		jailTurns += 1
-		if jailTurns > 2:  # Misses two turns, then gets released
+		if jailTurns == 2:
 			exitJail()
+		else:
+			print(name, " is in jail.")
+			if getOutOfJailFreeCard != null:
+				getOutOfJailFreeCard.use()
+				
+			print("Rolling to get out of jail.....")
+			rollResult = Die.roll()
+			var die1 = rollResult[0]
+			var die2 = rollResult[1]
+			print("Dice 1: ",die1,", Dice 2: ", die2)
+			if die1 == die2:
+				print("Rolled doubles! you can leave jail")
+				exitJail()
+			else:
+				print("Uh oh! you can't leave yet")
+				jailTurns += 1
+				print("jail time: ", str(jailTurns), "/2")
 	if turn_over:
 		print(name + " is out of rolls.")
 		return
