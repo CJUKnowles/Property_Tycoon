@@ -170,6 +170,7 @@ func enoughMoney():
 		Debt = 0
 		inDebt = false
 		gameManager.get_current_player().turn_over = true
+		gameManager.end_turn()
 		
 		return true
 	elif money < Debt and !owned_spaces.is_empty():

@@ -13,7 +13,7 @@ var value : int = 0
 func on_draw():
 	# loop through player list and charge each player for the amount, pay player
 	var player = gameManager.get_current_player()
-	for i in range(gameManager.playerCount):
+	for i in range(gameManager.player_count):
 		var toGive = gameManager.players[i]
 		if  toGive != player:
 			toGive.charge(value)
