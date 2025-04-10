@@ -141,6 +141,7 @@ func pay(amount: int):
 	print(name, " was paid £", str(amount), " and now has £", money, " remaining.")
 
 func fine(amount):
+	freeParking = gameManager.board.findSpace("Free Parking")
 	if money < amount:
 			print(name, " cannot afford the £", str(amount), " fine!")
 			var debt = amount - money
@@ -150,6 +151,7 @@ func fine(amount):
 		money -= amount
 		freeParking.money += amount
 		print(name, " was fined £", str(amount), " and now has £", money, " remaining.")
+		print(freeParking.money)
 
 
 
@@ -161,6 +163,7 @@ func cantAfford(debt: int):
 	else:
 		inDebt = true
 		Debt = debt
+
 	
 
 func enoughMoney():

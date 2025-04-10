@@ -9,19 +9,20 @@ class_name Draw_or_pay_card
 
 var value : int = 0
 var payToParking: bool = true
-var parking : Free_Parking_Space
+var freeParking : Free_Parking_Space
 var deck_name
 
 var potLuckDeck: Deck
 var opportunityKnocksDeck: Deck
 
 func fine():
+	freeParking = gameManager.board.findSpace("Free Parking")
 	var player = gameManager.get_current_player()
 	
 	# if player chooses fine, charge them
 	if payToParking:
 		player.charge(value)
-		parking.money += value
+		freeParking.money += value
 	else:
 		player.charge(value)
 
