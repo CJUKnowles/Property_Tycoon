@@ -23,7 +23,7 @@
 [ext_resource type="LabelSettings" uid="uid://cm66l4bmrf8aj" path="res://Resources/regular_label_settings.tres" id="14_b2eve"]
 [ext_resource type="StyleBox" uid="uid://c0l6cr4wiwff" path="res://Resources/Button_Hover.tres" id="14_levtd"]
 [ext_resource type="StyleBox" uid="uid://cuw6w8m0lhvrx" path="res://Resources/Button_pressed.tres" id="15_bkgvn"]
-[ext_resource type="Script" uid="uid://c8tes1r67ab3c" path="res://Scenes/Game/UI_Player_Controls.gd" id="17_d00j0"]
+[ext_resource type="Script" path="res://Scenes/Game/UI_Player_Controls.gd" id="17_d00j0"]
 [ext_resource type="Texture2D" uid="uid://bfeb5dd0i2grr" path="res://Assets/UI/Logo/Logo2.PNG" id="18_kdufk"]
 [ext_resource type="Script" uid="uid://bcy1iglh084t4" path="res://Scenes/Game/UI_Player_Manager.gd" id="21_kpkqq"]
 [ext_resource type="Texture2D" uid="uid://x7fxk0ppfn60" path="res://Assets/UI/Cards/OpportunityCard.png" id="22_gp0h6"]
@@ -123,7 +123,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("10_levtd")
 
-[node name="UI_Space_Manager" type="Panel" parent="CanvasLayer/UI/context_menu" node_paths=PackedStringArray("space_icon", "space_label", "space_owner_label", "space_mortgaged_label", "sell_button", "mortgage_button", "buy_house_button", "buy_hotel_button", "space_visual", "space_buttons", "buy_menu")]
+[node name="UI_Space_Manager" type="Panel" parent="CanvasLayer/UI/context_menu" node_paths=PackedStringArray("space_icon", "space_label", "space_owner_label", "space_mortgaged_label", "sell_button", "mortgage_button", "buy_house_button", "buy_hotel_button", "space_visual", "space_buttons", "buy_menu", "auction_info", "auction_buttons", "highest_bidder_label", "highest_bid_label", "current_bidder_label", "player_icon", "bid_button", "exit_auction_button", "bid_input")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -143,6 +143,15 @@ buy_hotel_button = NodePath("Space_buttons/Buy hotel")
 space_visual = NodePath("Selected_Space")
 space_buttons = NodePath("Space_buttons")
 buy_menu = NodePath("Buy_Menu")
+auction_info = NodePath("Auction_Info")
+auction_buttons = NodePath("Auction_Buttons")
+highest_bidder_label = NodePath("Auction_Info/highest_bidder_label")
+highest_bid_label = NodePath("Auction_Info/highest_bid_label")
+current_bidder_label = NodePath("Auction_Info/current_bidder_label")
+player_icon = NodePath("Auction_Info/Player_Piece")
+bid_button = NodePath("Auction_Buttons/Auction buttons/Bid")
+exit_auction_button = NodePath("Auction_Buttons/Auction buttons/Exit_Auction")
+bid_input = NodePath("Auction_Buttons/Auction buttons/LineEdit")
 
 [node name="Selected_Space" type="Panel" parent="CanvasLayer/UI/context_menu/UI_Space_Manager"]
 visible = false
@@ -376,7 +385,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_wx4mk")
 
-[node name="Space buttons" type="HBoxContainer" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Auction_Buttons"]
+[node name="Auction buttons" type="HBoxContainer" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Auction_Buttons"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -385,13 +394,13 @@ offset_bottom = -3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LineEdit" type="LineEdit" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Auction_Buttons/Space buttons"]
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Auction_Buttons/Auction buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Enter bid:"
 caret_blink = true
 
-[node name="Bid" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Auction_Buttons/Space buttons"]
+[node name="Bid" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Auction_Buttons/Auction buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -405,7 +414,7 @@ text = "Bid
 text_overrun_behavior = 3
 autowrap_mode = 2
 
-[node name="Exit_Auction" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Auction_Buttons/Space buttons"]
+[node name="Exit_Auction" type="Button" parent="CanvasLayer/UI/context_menu/UI_Space_Manager/Auction_Buttons/Auction buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 focus_mode = 0
@@ -870,7 +879,8 @@ texture = ExtResource("23_yrgw4")
 [connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/Space_buttons/Mortgage" to="CanvasLayer/UI/context_menu/UI_Space_Manager" method="_on_mortgage_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/Buy_Menu/Space buttons/Buy" to="CanvasLayer/UI/context_menu/UI_Space_Manager" method="buy_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/Buy_Menu/Space buttons/Auction" to="CanvasLayer/UI/context_menu/UI_Space_Manager" method="auction_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/Auction_Buttons/Space buttons/Exit_Auction" to="CanvasLayer/UI/context_menu/UI_Space_Manager" method="auction_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/Auction_Buttons/Auction buttons/Bid" to="CanvasLayer/UI/context_menu/UI_Space_Manager" method="_submit_bid_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/context_menu/UI_Space_Manager/Auction_Buttons/Auction buttons/Exit_Auction" to="CanvasLayer/UI/context_menu/UI_Space_Manager" method="_exit_auction_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/player_controls/Buttons/Forfeit" to="CanvasLayer/UI" method="_on_forfeit_pressed"]
 [connection signal="pressed" from="CanvasLayer/UI/player_controls/Buttons/RollDiceButton" to="." method="take_current_turn"]
 [connection signal="pressed" from="CanvasLayer/UI/player_controls/Buttons/End Turn" to="." method="end_turn"]

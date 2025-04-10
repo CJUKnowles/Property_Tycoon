@@ -7,6 +7,9 @@ texture_filter = 1
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_n5qa6")
+human_count = null
+AI_count = null
+player_piece_textures = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.15, 0.15)
