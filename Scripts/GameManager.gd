@@ -75,20 +75,20 @@ func createAndGetPlayer(id:int, is_human:bool):
 func _process(delta):
 	var player = get_current_player()
 	# It will roll the dice of the current character, print some information, and increment the turn/round
-	if Input.is_action_just_pressed("ui_down"): #sets current player in jail (for testing)
-		player.goToJail()
-	if Input.is_action_just_pressed("mortgage"): # Press M to mortgage current space (if property)
-		if player.currentSpace.type == Space.SpaceType.PROPERTY:
-			player.currentSpace.toggle_mortgage()
-	if Input.is_action_just_pressed("buy_house"): # Press M to mortgage current space (if property)
-		if player.currentSpace.type == Space.SpaceType.PROPERTY:
-			player.currentSpace.buy_house()
-	if Input.is_action_just_pressed("ui_up"): # Sends the current player to jail
-		player.goToJail()
-		player.takeTurn()
-		end_turn()
-	if Input.is_action_pressed("fast_turn"): # Makes the current player take their turn quickly
-		take_current_turn();
+	#if Input.is_action_just_pressed("ui_down"): #sets current player in jail (for testing)
+		#player.goToJail()
+	#if Input.is_action_just_pressed("mortgage"): # Press M to mortgage current space (if property)
+		#if player.currentSpace.type == Space.SpaceType.PROPERTY:
+			#player.currentSpace.toggle_mortgage()
+	#if Input.is_action_just_pressed("buy_house"): # Press M to mortgage current space (if property)
+		#if player.currentSpace.type == Space.SpaceType.PROPERTY:
+			#player.currentSpace.buy_house()
+	#if Input.is_action_just_pressed("ui_up"): # Sends the current player to jail
+		#player.goToJail()
+		#player.takeTurn()
+		#end_turn()
+	#if Input.is_action_pressed("fast_turn"): # Makes the current player take their turn quickly
+		#take_current_turn();
 
 # Tells the current player to take their turn (roll dice) and checks if they are capable of taking more turns
 func take_current_turn():

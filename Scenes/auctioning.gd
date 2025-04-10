@@ -6,12 +6,12 @@ var Highest_Bid: int = 0
 var Highest_Bidder: Player
 var Bidding_Time: float = 30.0 #used for example, could alter for personal use
 var players:Array[Player] = [] #list of players in the game able to bid on the auction
-var roundCounter: int = 0
 var Player_Bid: int = 0
 var Current_Player: Player
 var player_iterator = 0
 var running = true
 
+#starts a new auction with the given property and list of players
 func start_auction(property: Buyable_Space, players_list: Array):
 	Property = property
 	Highest_Bid = 0
