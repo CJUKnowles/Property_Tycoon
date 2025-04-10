@@ -22,6 +22,19 @@ var selected_space:Space
 @export var space_buttons:HBoxContainer
 @export var buy_menu:Panel
 
+@export var auction_info:Panel
+@export var auction_buttons:Panel
+@export var highest_bidder_label:Label
+@export var highest_bid_label:Label
+@export var current_bidder_label:Label
+@export var player_icon:TextureRect
+
+@export var bid_button:Button
+@export var exit_auction_button:Button
+@export var bid_input:LineEdit
+
+var current_auction:Auction
+
 var buying = false
 
 @onready var gameManager:GameManager = get_tree().current_scene
@@ -31,6 +44,8 @@ func _process(delta: float) -> void:
 	# there is probably a more efficient way to do this. Some sort of listener for changing values?
 	update_space_visuals() 
 	update_space_buttons()
+	update_auction_visuals()
+	
 	
 # updates all the text fields of the selected space UI element
 func update_space_visuals():
@@ -95,6 +110,23 @@ func update_space_buttons():
 		buy_house_button.disabled = true
 		buy_hotel_button.disabled = true
 
+# dynamically enables/disables text and icons depending on the current auction
+func update_auction_visuals():
+	if current_auction != null:
+		if current_auction.running:
+			auction_info.visible = true
+			auction_buttons.visible = true
+			if current_auction.Highest_Bidder == null:
+				highest_bidder_label.text = "None"
+			else:
+				highest_bidder_label.text = current_auction.Highest_Bidder.name
+			highest_bid_label.text = str(current_auction.Highest_Bid)
+			player_icon.texture = current_auction.Current_Player.get_piece_texture()
+			current_bidder_label.text = current_auction.Current_Player.name
+		else:
+			auction_info.visible = false
+			auction_buttons.visible = false
+
 # Selects the given space, displaying its information
 func select_space(new_selected_space:Buyable_Space):
 	if buying:
@@ -135,7 +167,11 @@ func auction_pressed():
 		buy_menu.visible = false
 		space_visual.visible = false
 		buying = false
-		# TODO: set auction context menu visible here
+		
+		current_auction = Auction.new()
+		current_auction.start_auction(selected_space, gameManager.players.duplicate())
+		
+
 
 # Sells the currently selected space, rewarding money to the current player
 # can only be pressed if selling is available (correct player, property, and ownership status)
@@ -158,3 +194,13 @@ func buy_menu_popup():
 	space_buttons.visible = false
 	buy_menu.visible = true
 	space_visual.visible = true
+
+func _submit_bid_pressed():
+	print("current player iterator:", current_auction.player_iterator)
+	var bid_amount = int(bid_input.text)
+	current_auction.next_bid(bid_amount)
+	print("new player iterator:", current_auction.player_iterator)
+	
+func _exit_auction_pressed():
+	current_auction.remove_current_player()
+	
