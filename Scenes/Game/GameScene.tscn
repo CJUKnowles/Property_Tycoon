@@ -23,7 +23,7 @@
 [ext_resource type="LabelSettings" uid="uid://cm66l4bmrf8aj" path="res://Resources/regular_label_settings.tres" id="14_b2eve"]
 [ext_resource type="StyleBox" uid="uid://c0l6cr4wiwff" path="res://Resources/Button_Hover.tres" id="14_levtd"]
 [ext_resource type="StyleBox" uid="uid://cuw6w8m0lhvrx" path="res://Resources/Button_pressed.tres" id="15_bkgvn"]
-[ext_resource type="Script" uid="uid://c8tes1r67ab3c" path="res://Scenes/Game/UI_Player_Controls.gd" id="17_d00j0"]
+[ext_resource type="Script" path="res://Scenes/Game/UI_Player_Controls.gd" id="17_d00j0"]
 [ext_resource type="Texture2D" uid="uid://bfeb5dd0i2grr" path="res://Assets/UI/Logo/Logo2.PNG" id="18_kdufk"]
 [ext_resource type="Script" uid="uid://bcy1iglh084t4" path="res://Scenes/Game/UI_Player_Manager.gd" id="21_kpkqq"]
 [ext_resource type="Texture2D" uid="uid://x7fxk0ppfn60" path="res://Assets/UI/Cards/OpportunityCard.png" id="22_gp0h6"]
